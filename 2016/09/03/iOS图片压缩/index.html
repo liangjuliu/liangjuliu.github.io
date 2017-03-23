@@ -1,0 +1,805 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;在做iOS开发中，经常会遇到这样的问题，图片尺寸太大，或者文件体积太大，需要将图片压缩处理一下，然后上传服务器。&amp;emsp;&amp;emsp;当然，也不排除一些公司要求app上传原图，但是这种方式太耗流量且很耗时间，如果网络不佳，很容易上传失败，从而会失去一些用户。
+1, 理解概念:1, “压” 是指文件体积变小，但是像素数不变，长宽尺寸不变，那么质量可能下降。2, “缩” 是指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS图片压缩">
+<meta property="og:url" content="https://liuliangju.github.io/2016/09/03/iOS图片压缩/index.html">
+<meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在做iOS开发中，经常会遇到这样的问题，图片尺寸太大，或者文件体积太大，需要将图片压缩处理一下，然后上传服务器。&amp;emsp;&amp;emsp;当然，也不排除一些公司要求app上传原图，但是这种方式太耗流量且很耗时间，如果网络不佳，很容易上传失败，从而会失去一些用户。
+1, 理解概念:1, “压” 是指文件体积变小，但是像素数不变，长宽尺寸不变，那么质量可能下降。2, “缩” 是指">
+<meta property="og:updated_time" content="2016-09-05T10:28:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS图片压缩">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在做iOS开发中，经常会遇到这样的问题，图片尺寸太大，或者文件体积太大，需要将图片压缩处理一下，然后上传服务器。&amp;emsp;&amp;emsp;当然，也不排除一些公司要求app上传原图，但是这种方式太耗流量且很耗时间，如果网络不佳，很容易上传失败，从而会失去一些用户。
+1, 理解概念:1, “压” 是指文件体积变小，但是像素数不变，长宽尺寸不变，那么质量可能下降。2, “缩” 是指">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuliangju.github.io/2016/09/03/iOS图片压缩/"/>
+
+
+
+
+
+  <title> iOS图片压缩 | 良局｜博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">良局｜博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我走的很慢，但我从不后退。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2016/09/03/iOS图片压缩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiangJu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良局｜博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS图片压缩
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-03T22:01:47+08:00">
+                2016-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/03/iOS图片压缩/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/iOS图片压缩/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;在做iOS开发中，经常会遇到这样的问题，图片尺寸太大，或者文件体积太大，需要将图片压缩处理一下，然后上传服务器。<br>&emsp;&emsp;当然，也不排除一些公司要求app上传原图，但是这种方式太耗流量且很耗时间，如果网络不佳，很容易上传失败，从而会失去一些用户。</p>
+<h3 id="1-理解概念"><a href="#1-理解概念" class="headerlink" title="1, 理解概念:"></a>1, 理解概念:</h3><p><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro"><em>1, “压” 是指文件体积变小，但是像素数不变，长宽尺寸不变，那么质量可能下降。<br>2, “缩” 是指文件的尺寸变小，也就是像素数减少，而长宽尺寸变小，文件体积同样会减小。</em></td></tr></table></p>
+<h3 id="2-图片“压”处理"><a href="#2-图片“压”处理" class="headerlink" title="2, 图片“压”处理:"></a>2, 图片“压”处理:</h3><p>对于“压”功能，我们可以使用UIImageJPEGRepresentation或UIImagePNGRepresentation方法实现，如：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSData *imgData = UIImageJPEGRepresentation(image, <span class="number">0</span>.<span class="number">5</span>);</div></pre></td></tr></table></figure></p>
+<p>第一个参数是图片对象本身，第二个参数是压的系数，其值范围为(0-1);<br>UIImageJPEGRepresentation的官方注释:<table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).</td></tr></table>关于PNG和JPEG格式压缩:<table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">1. <font color="purple">UIImageJPEGRepresentation</font>函数需要两个参数:图片的引用和压缩系数而<font color="purple">UIImagePNGRepresentation</font>只需要图片引用作为参数.<br>2.<font color="purple">UIImagePNGRepresentation(UIImage *image)</font>要比<font color="purple">UIImageJPEGRepresentation(UIImage* image, 1.0)</font>返回的图片数据量大很多</td></tr></table>项目中做图片上传之前，经过测试同一张拍照所得照片png大小在8M，而JPG压缩系数为0.75时候，大小只有1M。而且，将压缩系数降低对图片视觉上并没有太大的影响。<br>友情提示：<table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro"><font color="purple">压缩系数不宜太低，通常是0.3~0.7，过小则可能会出现黑边等</font></td></tr></table></p>
+<h3 id="3-图片“缩”处理"><a href="#3-图片“缩”处理" class="headerlink" title="3, 图片“缩”处理:"></a>3, 图片“缩”处理:</h3><p>主要通过 <font color="purple">[image drawInRect:CGRectMake(0, 0, targetWidth, targetHeight)];</font> 实现。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/**</div><div class="line"> *  1, 按图片最大边成比例缩放图片</div><div class="line"> *</div><div class="line"> *  @param image   图片</div><div class="line"> *  @param maxSize 图片的较长那一边目标缩到的(宽度／高度)</div><div class="line"> *</div><div class="line"> *  @return        等比缩放后的图片</div><div class="line"> */ </div><div class="line"></div><div class="line">  </div><div class="line"> - (UIImage *)scaleImage:(UIImage *)image maxSize:(CGFloat)maxSize &#123;</div><div class="line">    NSData *data = UIImageJPEGRepresentation(image, 1.0);</div><div class="line">    if(data.length &lt; 200 * 1024)&#123;//0.25M-0.5M(当图片小于此范围不压缩)</div><div class="line">        return image;</div><div class="line">    &#125;</div><div class="line">    CGFloat imageWidth = image.size.width;</div><div class="line">    CGFloat imageHeight = image.size.height;</div><div class="line">    CGFloat targetWidth = imageWidth;</div><div class="line">    CGFloat targetHeight = imageHeight;</div><div class="line">    CGFloat imageMaxSize = MAX(imageWidth, imageHeight);</div><div class="line">    if (imageMaxSize &gt; maxSize) &#123;</div><div class="line">        CGFloat scale = 0;</div><div class="line">        if (imageWidth &gt;= imageHeight) &#123;// 宽长</div><div class="line">            scale = maxSize / imageWidth;</div><div class="line">            targetWidth = maxSize;</div><div class="line">            targetHeight = imageHeight * scale;</div><div class="line">        &#125; else &#123; // 高长</div><div class="line">            scale = maxSize / imageHeight;</div><div class="line">            targetHeight = maxSize;</div><div class="line">            targetWidth = imageWidth * scale;</div><div class="line">        &#125;</div><div class="line">        UIGraphicsBeginImageContext(CGSizeMake(targetWidth, targetHeight));</div><div class="line">        [image drawInRect:CGRectMake(0, 0, targetWidth, targetHeight)];</div><div class="line">        UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">        UIGraphicsEndImageContext();</div><div class="line">        return scaledImage;</div><div class="line">    &#125;</div><div class="line">    return image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  2, 图片支持等比缩放</div><div class="line"> *</div><div class="line"> *  @param image   图片</div><div class="line"> *  @param maxSize 缩放比例(通常0～1之间)</div><div class="line"> *</div><div class="line"> *  @return        等比缩放后的图片</div><div class="line"> */</div><div class="line">- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize &#123;</div><div class="line">    UIGraphicsBeginImageContext(CGSizeMake(image.size.width *scaleSize, image.size.height * scaleSize));</div><div class="line">    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];</div><div class="line">    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    return scaledImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  3, 等比缩放成自定长宽的图片</div><div class="line"> *</div><div class="line"> *  @param image      源图片</div><div class="line"> *  @param targetSize 自定义目标图片的size</div><div class="line"> *</div><div class="line"> *  @return 处理后图片</div><div class="line"> */</div><div class="line">- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)targetSize &#123;</div><div class="line">    UIGraphicsBeginImageContext(CGSizeMake(targetSize.width, targetSize.height));</div><div class="line">    [image drawInRect:CGRectMake(0, 0, targetSize.width, targetSize.height)];</div><div class="line">    UIImage *targetSizeImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    return targetSizeImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们对图片只“压”而不缩，有时候是达不到我们的需求的。因此，适当地对图片“缩“一下尺寸，就可以满足我们的需求。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//根据图片附获取图片大小(多少M)方法</div><div class="line">- (NSData *)imageData:(UIImage *)image &#123;</div><div class="line">    NSData *data = UIImageJPEGRepresentation(image, 1.0);</div><div class="line">    if (data.length &gt; 100*1024) &#123;</div><div class="line">        if (data.length &gt; 1024*1024) &#123;//1M以及以上</div><div class="line">            data = UIImageJPEGRepresentation(image, 0.1);</div><div class="line">        &#125;else if (data.length &gt; 512*1024) &#123;//0.5M-1M</div><div class="line">            data = UIImageJPEGRepresentation(image, 0.5);</div><div class="line">        &#125;else if (data.length &gt; 200*1024) &#123;//0.25M-0.5M</div><div class="line">            data = UIImageJPEGRepresentation(image, 0.9);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>验证：<br>以模拟器第二张绿叶图片为例<br>原图大小为24.9M, 4288 * 2848像素；<br>经一次<font color="purple">UIImageJPEGRepresentation</font>“压“处理<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImage *tmpImage = [UIImage <span class="symbol">imageWithContentsOfFile:</span>photo.photoPath];</div><div class="line">NSData *imageData = UIImageJPEGRepresentation(tmpImage, <span class="number">0</span>.<span class="number">5</span>);</div></pre></td></tr></table></figure></p>
+<p>图片大小为836.9K, 4288 * 2848像素；</p>
+<p>经一次<font color="purple">UIImagePNGRepresentation</font>“压“处理<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImage *tmpImage = [UIImage <span class="symbol">imageWithContentsOfFile:</span>photo.photoPath];            </div><div class="line">NSData *imageData = UIImagePNGRepresentation(tmpImage);</div></pre></td></tr></table></figure></p>
+<p>图片大小为24.9M, 4288 * 2848像素；几乎没变</p>
+<p>经一次“缩“处理(笔者给予图片最大的宽度限定为640像素)<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImage *tmpImage = [UIImage <span class="symbol">imageWithContentsOfFile:</span>photo.photoPath];</div><div class="line">tmpImage = [<span class="keyword">self</span> <span class="symbol">scaleImage:</span>tmpImage <span class="symbol">maxSize:</span><span class="number">640</span>];</div></pre></td></tr></table></figure></p>
+<p>图片大小为795.9K, 640 * 426像素；</p>
+<p>经一次“压缩”处理:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UIImage *tmpImage = [UIImage <span class="symbol">imageWithContentsOfFile:</span>photo.photoPath];</div><div class="line">tmpImage = [<span class="keyword">self</span> <span class="symbol">scaleImage:</span>tmpImage <span class="symbol">maxSize:</span><span class="number">640</span>]; </div><div class="line">NSData *imageData = UIImageJPEGRepresentation(tmpImage, <span class="number">0</span>.<span class="number">5</span>);</div></pre></td></tr></table></figure></p>
+<p>图片大小为698K, 640 * 426像素；<br>大家可以根据实际调整不同参数以达到自己的项目要求。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/29/我曾经经历的CMMI3认证之关于软件开发人员的访谈/" rel="prev" title="我曾经经历的CMMI3认证之关于软件开发人员的访谈">
+                我曾经经历的CMMI3认证之关于软件开发人员的访谈 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/03/iOS图片压缩/"
+           data-title="iOS图片压缩" data-url="https://liuliangju.github.io/2016/09/03/iOS图片压缩/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="LiangJu" />
+          <p class="site-author-name" itemprop="name">LiangJu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liuliangju" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/liuliangju" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/liuliangju/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/liuliangju" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-理解概念"><span class="nav-number">1.</span> <span class="nav-text">1, 理解概念:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-图片“压”处理"><span class="nav-number">2.</span> <span class="nav-text">2, 图片“压”处理:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-图片“缩”处理"><span class="nav-number">3.</span> <span class="nav-text">3, 图片“缩”处理:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiangJu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://liuliangju.github.io">
+    By.LiangJu
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"myBlog-Note"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
