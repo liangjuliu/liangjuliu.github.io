@@ -105,7 +105,7 @@
     <link href="https://liuliangju.github.io/2016/09/03/iOS%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
     <id>https://liuliangju.github.io/2016/09/03/iOS图片压缩/</id>
     <published>2016-09-03T14:01:47.000Z</published>
-    <updated>2017-03-23T15:03:11.000Z</updated>
+    <updated>2017-03-26T03:41:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;在做iOS开发中，经常会遇到这样的问题，图片尺寸太大，或者文件体积太大，需要将图片压缩处理一下，然后上传服务器。<br>&emsp;&emsp;当然，也不排除一些公司要求app上传原图，但是这种方式太耗流量且很耗时间，如果网络不佳，很容易上传失败，从而会失去一些用户。</p>
 <h3 id="1-理解概念"><a href="#1-理解概念" class="headerlink" title="1, 理解概念:"></a>1, 理解概念:</h3><p><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro"><em>1, “压” 是指文件体积变小，但是像素数不变，长宽尺寸不变，那么质量可能下降。<br>2, “缩” 是指文件的尺寸变小，也就是像素数减少，而长宽尺寸变小，文件体积同样会减小。</em></td></tr></table></p>
