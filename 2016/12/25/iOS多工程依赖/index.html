@@ -117,19 +117,19 @@
 <meta property="og:site_name" content="良局｜博客">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;在日常开发中，有时候我们为了保持整个项目的结构清晰，需要对项目的不同的类进行模块化，其中使用工程依赖是个不错的选择。
 准备工作1，新建一个workspace工程，我创建了一个TestDemo工程然后引入cocoapods.2，然后新建一个静态库工程，建立方法Framework &amp;amp; Library-&amp;gt;Cocoa Touch Static Library取名为LJ">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612251.png">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612252.png">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612253.png">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612254.png">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612255.png">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612256.png">
-<meta property="og:image" content="https://liuliangju.github.io/../blogImg/201612257.png">
-<meta property="og:updated_time" content="2017-04-25T14:34:35.000Z">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612251.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612252.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612253.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612254.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612255.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612256.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612257.png">
+<meta property="og:updated_time" content="2017-04-25T21:18:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS多工程依赖">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;在日常开发中，有时候我们为了保持整个项目的结构清晰，需要对项目的不同的类进行模块化，其中使用工程依赖是个不错的选择。
 准备工作1，新建一个workspace工程，我创建了一个TestDemo工程然后引入cocoapods.2，然后新建一个静态库工程，建立方法Framework &amp;amp; Library-&amp;gt;Cocoa Touch Static Library取名为LJ">
-<meta name="twitter:image" content="https://liuliangju.github.io/../blogImg/201612251.png">
+<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612251.png">
 
 
 
@@ -416,9 +416,8 @@
 
       
         <p>&emsp;&emsp;在日常开发中，有时候我们为了保持整个项目的结构清晰，需要对项目的不同的类进行模块化，其中使用工程依赖是个不错的选择。</p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1，新建一个workspace工程，我创建了一个TestDemo工程然后引入cocoapods.<br><img src="../blogImg/201612251.png" alt=""><br><br><br>2，然后新建一个静态库工程，建立方法<code>Framework &amp; Library-&gt;Cocoa Touch Static Library</code>取名为<code>LJCommonUI</code>，<font color="purple"><i>注意：这个静态库工程与第一个工程分开创建</i></font><br><img src="../blogImg/201612252.png" alt=""><br><br><br>3，将<code>LJCommonUI</code>拖进基础工程的文件夹<br><img src="../blogImg/201612253.png" alt=""></p>
-<h4 id="建立相关引用"><a href="#建立相关引用" class="headerlink" title="建立相关引用"></a>建立相关引用</h4><p>1，打开基础工程，Add Files to…，把<code>LJCommonUI</code>引入<br><br><img src="../blogImg/201612254.png" alt=""><br><br><br>添加完如下图<br><img src="../blogImg/201612255.png" alt=""><br><br><br>2，设置Header Path, Build Setting-Header Search Paths   (添加头文件搜索路劲)<br><br><img src="../blogImg/201612256.png" alt=""><br><br><br>3，引入.a文件, Build Phases - Link Binary With Libraries 添加LJCommonUI.a<br><br><img src="../blogImg/201612257.png" alt=""><br><br></p>
-<p>注意：<br>1，如果<code>LJCommonUI</code>里面有图片或者其他的依赖库<br>B-Build Phases - Copy Files添加对应的图片和依赖库<br><br>2，如果<code>LJCommonUI</code>里有category，使用category的时候会crash<br>B-Other Linker Flags 添加<code>-Objc</code>和<code>-all_load</code>确保category被正常引入</p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1，新建一个workspace工程，我创建了一个TestDemo工程然后引入cocoapods.<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612251.png"><br>2，然后新建一个静态库工程，建立方法<code>Framework &amp; Library-&gt;Cocoa Touch Static Library</code>取名为<code>LJCommonUI</code>，<font color="purple"><i>注意：这个静态库工程与第一个工程分开创建</i></font><br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612252.png"><br>3，将<code>LJCommonUI</code>拖进基础工程的文件夹<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612253.png"> </p>
+<h4 id="建立相关引用"><a href="#建立相关引用" class="headerlink" title="建立相关引用"></a>建立相关引用</h4><p>1，打开基础工程，Add Files to…，把<code>LJCommonUI</code>引入<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612254.png"><br>添加完如下图<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612255.png"><br>2，设置Header Path, Build Setting-Header Search Paths   (添加头文件搜索路径)<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612256.png"><br>3，引入.a文件, Build Phases - Link Binary With Libraries 添加LJCommonUI.a<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612257.png"><br>注意：<br>1，如果<code>LJCommonUI</code>里面有图片或者其他的依赖库<br>B-Build Phases - Copy Files添加对应的图片和依赖库<br>2，如果<code>LJCommonUI</code>里有category，使用category的时候会crash<br>B-Other Linker Flags 添加<code>-Objc</code>和<code>-all_load</code>确保category被正常引入</p>
 <h4 id="打包注意事项"><a href="#打包注意事项" class="headerlink" title="打包注意事项"></a>打包注意事项</h4><p>有依赖库的时候，Archive通常在organize里找不到项目或者没有version和identifier<br>要把依赖库LJCommonUI - Build Settings - Skip Install设置为YES，但项目TestDemo - Skip Install设置为NO</p>
 
       
