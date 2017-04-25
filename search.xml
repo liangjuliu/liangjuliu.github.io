@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[iOS多工程依赖]]></title>
+      <url>%2F2016%2F12%2F25%2FiOS%E5%A4%9A%E5%B7%A5%E7%A8%8B%E4%BE%9D%E8%B5%96%2F</url>
+      <content type="text"><![CDATA[&emsp;&emsp;在日常开发中，有时候我们为了保持整个项目的结构清晰，需要对项目的不同的类进行模块化，其中使用工程依赖是个不错的选择。 准备工作1，新建一个workspace工程，我创建了一个TestDemo工程然后引入cocoapods.2，然后新建一个静态库工程，建立方法Framework &amp; Library-&gt;Cocoa Touch Static Library取名为LJCommonUI，注意：这个静态库工程与第一个工程分开创建3，将LJCommonUI拖进基础工程的文件夹 建立相关引用1，打开基础工程，Add Files to…，把LJCommonUI引入添加完如下图2，设置Header Path, Build Setting-Header Search Paths (添加头文件搜索路劲)3，引入.a文件, Build Phases - Link Binary With Libraries 添加LJCommonUI.a 注意：1，如果LJCommonUI里面有图片或者其他的依赖库B-Build Phases - Copy Files添加对应的图片和依赖库2，如果LJCommonUI里有category，使用category的时候会crashB-Other Linker Flags 添加-Objc和-all_load确保category被正常引入 打包注意事项有依赖库的时候，Archive通常在organize里找不到项目或者没有version和identifier要把依赖库LJCommonUI - Build Settings - Skip Install设置为YES，但项目TestDemo - Skip Install设置为NO]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[自己构建图片缓存池]]></title>
       <url>%2F2016%2F12%2F15%2F%E8%87%AA%E5%B7%B1%E6%9E%84%E5%BB%BA%E5%9B%BE%E7%89%87%E7%BC%93%E5%AD%98%2F</url>
       <content type="text"><![CDATA[&emsp;&emsp;在做公司项目，查找聊天记录时，]]></content>
