@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuliangju.github.io/"/>
-  <updated>2017-04-25T21:18:42.000Z</updated>
+  <updated>2017-10-29T23:43:33.000Z</updated>
   <id>https://liuliangju.github.io/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS中UIScrollView 和控制器旋转的先后调用顺序</title>
+    <link href="https://liuliangju.github.io/2017/01/15/iOS%E4%B8%ADUIScrollView-%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8%E6%97%8B%E8%BD%AC%E7%9A%84%E5%85%88%E5%90%8E%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://liuliangju.github.io/2017/01/15/iOS中UIScrollView-和控制器旋转的先后调用顺序/</id>
+    <published>2017-01-14T22:04:32.000Z</published>
+    <updated>2017-10-29T23:43:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp; 前一段时间在做图片预览时，发现了一个奇怪的现象，因为我们公司自己封装的图片预览，发现在当一个控制器里嵌套UIScrollView，然后控制器横竖屏切换和ScrollView的代理方法有冲突，结果导致多图片滑动切换显示当前的图片计数不对，于是想了很多方法，如通过记临时变量、屏幕的宽度等，都没有解决。</p>
+<p>&emsp;&emsp; 最后在google通过搜索不经意看到一个老外也遇到这个问题，最幸运的是也有人给出了解决方案：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)willRotateToInterfaceOrientation:(<span class="built_in">UIInterfaceOrientation</span>)toInterfaceOrientation duration:(<span class="built_in">NSTimeInterval</span>)duration &#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView &#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)didRotateFromInterfaceOrientation:(<span class="built_in">UIInterfaceOrientation</span>)fromInterfaceOrientation &#123;&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp; 前一段时间在做图片预览时，发现了一个奇怪的现象，因为我们公司自己封装的图片预览，发现在当一个控制器里嵌套UIScrollView，然后控制器横竖屏切换和ScrollView的代理方法有冲突，结果导致多图片滑动切换显示当前的图片计数不对，于是想了很多
+    
+    </summary>
+    
+      <category term="技术" scheme="https://liuliangju.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="iOS" scheme="https://liuliangju.github.io/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS多工程依赖</title>
