@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuliangju.github.io/"/>
-  <updated>2017-10-29T23:43:33.000Z</updated>
+  <updated>2017-10-30T22:41:29.000Z</updated>
   <id>https://liuliangju.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://liuliangju.github.io/2017/01/15/iOS%E4%B8%ADUIScrollView-%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8%E6%97%8B%E8%BD%AC%E7%9A%84%E5%85%88%E5%90%8E%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F/"/>
     <id>https://liuliangju.github.io/2017/01/15/iOS中UIScrollView-和控制器旋转的先后调用顺序/</id>
     <published>2017-01-14T22:04:32.000Z</published>
-    <updated>2017-10-29T23:43:33.000Z</updated>
+    <updated>2017-10-30T22:41:29.000Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp; 前一段时间在做图片预览时，发现了一个奇怪的现象，因为我们公司自己封装的图片预览，发现在当一个控制器里嵌套UIScrollView，然后控制器横竖屏切换和ScrollView的代理方法有冲突，结果导致多图片滑动切换显示当前的图片计数不对，于是想了很多方法，如通过记临时变量、屏幕的宽度等，都没有解决。</p>
 <p>&emsp;&emsp; 最后在google通过搜索不经意看到一个老外也遇到这个问题，最幸运的是也有人给出了解决方案：</p>
@@ -47,7 +47,7 @@
     <link href="https://liuliangju.github.io/2016/12/25/iOS%E5%A4%9A%E5%B7%A5%E7%A8%8B%E4%BE%9D%E8%B5%96/"/>
     <id>https://liuliangju.github.io/2016/12/25/iOS多工程依赖/</id>
     <published>2016-12-25T13:04:32.000Z</published>
-    <updated>2017-04-25T21:18:42.000Z</updated>
+    <updated>2017-10-30T22:41:17.000Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;在日常开发中，有时候我们为了保持整个项目的结构清晰，需要对项目的不同的类进行模块化，其中使用工程依赖是个不错的选择。</p>
 <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1，新建一个workspace工程，我创建了一个TestDemo工程然后引入cocoapods.<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612251.png"><br>2，然后新建一个静态库工程，建立方法<code>Framework &amp; Library-&gt;Cocoa Touch Static Library</code>取名为<code>LJCommonUI</code>，<font color="purple"><i>注意：这个静态库工程与第一个工程分开创建</i></font><br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612252.png"><br>3，将<code>LJCommonUI</code>拖进基础工程的文件夹<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201612253.png"> </p>
@@ -74,7 +74,7 @@
     <link href="https://liuliangju.github.io/2016/12/10/iOS%E6%96%87%E4%BB%B6%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86/"/>
     <id>https://liuliangju.github.io/2016/12/10/iOS文件统一管理/</id>
     <published>2016-12-09T22:45:30.000Z</published>
-    <updated>2017-04-25T21:20:44.000Z</updated>
+    <updated>2017-10-30T22:41:12.000Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;最近在做我们公司自己的项目时，遇到了一个难题，就是随着用户使用我们公司的app时间越久，便导致app沙盒文件越来越多，严重时我查看我们公司的app使用内存量达到了<code>7.3G</code>，查看方式，打开你的苹果手机,(<code>设置-通用-储存空间及iCloud用量-管理储存空间</code>);怎么样不查不知道一查是不是吓一跳？<br>&emsp;&emsp;细说下我们公司app占用内存量大的原因，我们公司的app属于类社交和OA类，其中有类似微信的朋友圈和聊天，及收藏功能，所以当用户发图片很多时，图片都存入自己的沙盒中，当用户在聊天页面点击图片收藏，图片会复制一份并生成新的图片再次上传服务器，同时新生成的图片也会copy到我们已经规定好的沙盒中的收藏文件夹(之所以给每个模块都在沙盒目录中规定一个文件夹，为了便于清理,注：每个聊天会话的图片都存在它特定的文件夹下，删除某一条会话时，会话下的图片也能得到及时清除)下。同理，在朋友圈中的图片也可以收藏。所以当图片少的时候暂时没有发现问题，而且似乎感觉还很好，因为每次文件清理直接拿到每一个模块的路径文件夹清理就可以。然而，随着时间的推移，用户选择的文件的越来越多，便产生一开始描述的问题。附路径地址：<br><span style="margin-top:-48px"><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">/Users/liangju/Library/Developer/CoreSimulator/Devices/6184D61E-A799-4127-881E-F71E3D9CD61B/data/Containers/Data/Application/F83F1BC6-4809-40B9-80EC-D1EC7FEF2FBA/Documents/my_app/1BdWrWKyJ8MUpM7ofJsa4g/file/CC_OPEN_MESSAGE/<br>g_2BwfR0iZJedUvP6ispaOAp/168D8A9C8830461AAC6C6711C9136115.jpg</td></tr></table><br> <table style="margin-top:-36px" class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">/Users/liangju/Library/Developer/CoreSimulator/Devices/6184D61E-A799-4127-881E-F71E3D9CD61B/data/Containers/Data/Application/F83F1BC6-4809-40B9-80EC-D1EC7FEF2FBA/Documents/my_app/1BdWrWKyJ8MUpM7ofJsa4g/file/CC_OPEN_MESSAGE/<br> u_2aRr2i4UF5dkXExQMVTly1I/317C7D7B10D847B09F4CE827BC8EB78F.jpg<br></td></tr></table>其中地址中my_app 为app名字，1BdWrWKyJ8MUpM7ofJsa4g为登录人id，CC_OPEN_MESSAGE为服务id，也就是下文中的SERV_ID，u_2aRr2i4UF5dkXExQMVTly1I为绘画id，其中我们公司规定以u开头是单人绘画，g开头为群组绘画，同时此项也就是下文中的DATA_ID，再往下就是image对象名字了</span><br>&emsp;&emsp;所以便想能不能把这些文件统一管理起来，比如聊天中的图片再收藏时(前提此图片已经上传服务器成功，上传失败的情况我们稍后讨论)，能不能不在复制产生新的图片上传，收藏模块的图片直接去聊天的那张图片路径下，把这张图片读出显示。<br>&emsp;&emsp;实现篇:统一封住文件最终下载所调的接口。每个文件下载时都给它固定了一个下载路径。当它下载成功后，把文件对应的服务器的文件id，保存到数据表中。结合每个公司的不同情况合理设置缓存模型，我们公司的设置如下：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 文件在服务端的id </span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *SERVER_FILEID;</div><div class="line"></div><div class="line"><span class="comment">// 功能分类:例如：在聊天中就是CC_OPEN_MESSAGE</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *SERV_ID;</div><div class="line"></div><div class="line"><span class="comment">// 在chat功能中就是msgId</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *DATA_ID;</div><div class="line"></div><div class="line"><span class="comment">// 文件长度</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *FILE_SIZE;</div><div class="line"></div><div class="line"><span class="comment">// 待定：数据创建时间</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *S_ATIME;</div><div class="line"></div><div class="line"><span class="comment">// 待定：数据创建时间</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *S_MTIME;</div><div class="line"></div><div class="line"><span class="comment">// 本地相对路径</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *PATH;</div></pre></td></tr></table></figure>
@@ -135,7 +135,7 @@
     <link href="https://liuliangju.github.io/2016/09/03/iOS%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
     <id>https://liuliangju.github.io/2016/09/03/iOS图片压缩/</id>
     <published>2016-09-03T14:01:47.000Z</published>
-    <updated>2017-03-26T03:41:15.000Z</updated>
+    <updated>2017-10-30T22:41:23.000Z</updated>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;在做iOS开发中，经常会遇到这样的问题，图片尺寸太大，或者文件体积太大，需要将图片压缩处理一下，然后上传服务器。<br>&emsp;&emsp;当然，也不排除一些公司要求app上传原图，但是这种方式太耗流量且很耗时间，如果网络不佳，很容易上传失败，从而会失去一些用户。</p>
 <h3 id="1-理解概念"><a href="#1-理解概念" class="headerlink" title="1, 理解概念:"></a>1, 理解概念:</h3><p><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro"><em>1, “压” 是指文件体积变小，但是像素数不变，长宽尺寸不变，那么质量可能下降。<br>2, “缩” 是指文件的尺寸变小，也就是像素数减少，而长宽尺寸变小，文件体积同样会减小。</em></td></tr></table></p>
