@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="VKdA3TQY2rn0f2GikCI7GjJD5vLS6vWmNIAQKB8G7Zc" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="qBYIdkhKQ8" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Menlo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1、请简单说明多线程技术的优点和缺点？优点  能够适当提高程序的执行效率； 能够适当的提高资源的利用率，比如CPU、内存。  缺点  创建线程有额外开销 程序的代码更加复杂 线程越多，CPU在调度线程上的开销就越大 如果开启大量线程，反而会降低程序的性能  2、请简单介绍下什么是原子和非原子属性？ atomic：原子属性，会为setter方法加锁，默认为atomic。线程安全，会消耗大量资源 no">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS基础知识点总结(二)">
+<meta property="og:url" content="https://liuliangju.github.io/2018/02/23/iOS基础总结/201802/iOS基础知识点总结(二)/index.html">
+<meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="1、请简单说明多线程技术的优点和缺点？优点  能够适当提高程序的执行效率； 能够适当的提高资源的利用率，比如CPU、内存。  缺点  创建线程有额外开销 程序的代码更加复杂 线程越多，CPU在调度线程上的开销就越大 如果开启大量线程，反而会降低程序的性能  2、请简单介绍下什么是原子和非原子属性？ atomic：原子属性，会为setter方法加锁，默认为atomic。线程安全，会消耗大量资源 no">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-19T12:51:38.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS基础知识点总结(二)">
+<meta name="twitter:description" content="1、请简单说明多线程技术的优点和缺点？优点  能够适当提高程序的执行效率； 能够适当的提高资源的利用率，比如CPU、内存。  缺点  创建线程有额外开销 程序的代码更加复杂 线程越多，CPU在调度线程上的开销就越大 如果开启大量线程，反而会降低程序的性能  2、请简单介绍下什么是原子和非原子属性？ atomic：原子属性，会为setter方法加锁，默认为atomic。线程安全，会消耗大量资源 no">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuliangju.github.io/2018/02/23/iOS基础总结/201802/iOS基础知识点总结(二)/"/>
+
+
+
+
+
+  <title>iOS基础知识点总结(二) | 良局｜博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '96201675-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8b3fde196e8e9ae9d698118e7c8a3e97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">良局｜博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">我走的很慢，但我永不后退。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/02/23/iOS基础总结/201802/iOS基础知识点总结(二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiangJu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良局｜博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS基础知识点总结(二)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T06:42:54+08:00">
+                2018-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS基础/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="1、请简单说明多线程技术的优点和缺点？"><a href="#1、请简单说明多线程技术的优点和缺点？" class="headerlink" title="1、请简单说明多线程技术的优点和缺点？"></a>1、请简单说明多线程技术的优点和缺点？</h4><p><code>优点</code></p>
+<ul>
+<li>能够适当提高程序的执行效率；</li>
+<li>能够适当的提高资源的利用率，比如CPU、内存。</li>
+</ul>
+<p><code>缺点</code></p>
+<ul>
+<li>创建线程有额外开销</li>
+<li>程序的代码更加复杂</li>
+<li>线程越多，CPU在调度线程上的开销就越大</li>
+<li>如果开启大量线程，反而会降低程序的性能</li>
+</ul>
+<h4 id="2、请简单介绍下什么是原子和非原子属性？"><a href="#2、请简单介绍下什么是原子和非原子属性？" class="headerlink" title="2、请简单介绍下什么是原子和非原子属性？"></a>2、请简单介绍下什么是原子和非原子属性？</h4><ul>
+<li>atomic：原子属性，会为setter方法加锁，默认为atomic。线程安全，会消耗大量资源</li>
+<li>nonatomic：非原子属性，不会为setter方法加锁。非线程安全，适合内存小的移动设备。</li>
+</ul>
+<h4 id="3、请简单说明对图片进行二级缓存的实现思路？"><a href="#3、请简单说明对图片进行二级缓存的实现思路？" class="headerlink" title="3、请简单说明对图片进行二级缓存的实现思路？"></a>3、请简单说明对图片进行二级缓存的实现思路？</h4><p><code>在显示图片的时候</code></p>
+<ul>
+<li>1.先检查该图片对应的内存缓存<ul>
+<li>1.如果存在内存缓存，则<br> a.直接使用设置并显示图片；</li>
+</ul>
+<ul>
+<li>2.如果内存缓存中没有,则<br>a.继续检查该图片对应的磁盘缓存是否存在，跳转到第2步。</li>
+</ul>
+</li>
+<li>2.检查该图片对应的磁盘缓存<ul>
+<li>1.如果存在磁盘缓存，则<br>a.先保存一份到内存缓存中（方便下次使用）<br>b.然后设置并显示图片</li>
+<li>2.如果不存在磁盘缓存，则直接下载该图片，下载完成后<br>a.保存一份到内存缓存中<br>b.保存一份到磁盘缓存中<br>c.设置并显示图片</li>
+</ul>
+</li>
+</ul>
+<h4 id="4、请简单说明NSCache的特点？"><a href="#4、请简单说明NSCache的特点？" class="headerlink" title="4、请简单说明NSCache的特点？"></a>4、请简单说明NSCache的特点？</h4><ul>
+<li>NSCache是苹果推出专门用来处理内存缓存的类</li>
+<li>NSCache默认是线程安全的,在使用的时候可以不用考虑线程安全的问题</li>
+<li>NSCache使用方法和可变字典类似,当缓存文件超过最大限度的时候会开启一个回收过程,把最老的缓存对象回收</li>
+<li>NSCache可以设置缓存的const(成本)和缓存的数量</li>
+</ul>
+<h4 id="5、请问SDWebImage框架的框架结构是怎么样的？"><a href="#5、请问SDWebImage框架的框架结构是怎么样的？" class="headerlink" title="5、请问SDWebImage框架的框架结构是怎么样的？"></a>5、请问SDWebImage框架的框架结构是怎么样的？</h4><p>SDWebImage框架有几个主要的组件：</p>
+<ul>
+<li>管理者（SDWebImageManager)</li>
+<li>缓存处理组件（SDImageCache）主要对下载的图片进行内存缓存和磁盘缓存处理</li>
+<li>下载处理组件（SDWebImageDownloader|SDWebImageDownloadOperation）主要处理开子线程异步发送网络请求下载图片相关操作</li>
+</ul>
+<h4 id="6、请简单说明GET请求和POST个请求有什么区别-如何选择？"><a href="#6、请简单说明GET请求和POST个请求有什么区别-如何选择？" class="headerlink" title="6、请简单说明GET请求和POST个请求有什么区别,如何选择？"></a>6、请简单说明GET请求和POST个请求有什么区别,如何选择？</h4><ul>
+<li>GET请求的参数直接用&amp;拼接并以？为分隔拼接在请求URL的后面</li>
+<li>POST请求的参数是转换为二进制设置在请求体传递的</li>
+<li>如果仅仅只是索取数据获得数据，那么建议使用GET请求，其他情况则建议使用POST请求，相对而言POST请求安全性更好一些。</li>
+</ul>
+<h4 id="7、请简单列出使用NSURLConnection发送一个异步POST网络请求的步骤"><a href="#7、请简单列出使用NSURLConnection发送一个异步POST网络请求的步骤" class="headerlink" title="7、请简单列出使用NSURLConnection发送一个异步POST网络请求的步骤?"></a>7、请简单列出使用NSURLConnection发送一个异步POST网络请求的步骤?</h4><ul>
+<li>1.确定请求路径（URL）</li>
+<li>2.创建可变的请求对象（NSMutableURLRequest）</li>
+<li>3.修改请求方法为POST请求</li>
+<li>4.把参数拼接起来转换为二进制数据，设置请求体</li>
+<li>5.使用NSURLConnection发送异步请求([NSURLConnection sendAsync….])</li>
+<li>6.解析服务器返回的数据，查看请求结果</li>
+</ul>
+<h4 id="8、请简单介绍下AFN各个主要版本的情况？"><a href="#8、请简单介绍下AFN各个主要版本的情况？" class="headerlink" title="8、请简单介绍下AFN各个主要版本的情况？"></a>8、请简单介绍下AFN各个主要版本的情况？</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>.<span class="number">1</span>--<span class="number">1.0</span>            <span class="string">"2.0---2.6.3"</span>                      <span class="number">3.0</span>--&gt;<span class="number">3.1</span>.<span class="number">0</span></span><br><span class="line">NSURLConnection   - (NSURLConnection + NSURLSession)  - NSURLSession</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>.<span class="number">1</span>-<span class="number">2.0</span>  NSURLConnection</span><br><span class="line"><span class="number">2.0</span> -<span class="number">3.0</span> NSURLSession + NSURLConnection</span><br><span class="line"><span class="number">3.0</span> + NSURLSession</span><br></pre></td></tr></table></figure>
+<h4 id="9、在使用NSURLSession进行文件上传的时候，如何监听文件上传的进度，有哪些注意点？"><a href="#9、在使用NSURLSession进行文件上传的时候，如何监听文件上传的进度，有哪些注意点？" class="headerlink" title="9、在使用NSURLSession进行文件上传的时候，如何监听文件上传的进度，有哪些注意点？"></a>9、在使用NSURLSession进行文件上传的时候，如何监听文件上传的进度，有哪些注意点？</h4><ul>
+<li>创建会话对象的时候，需要设置代理，让控制器成为session的代理</li>
+<li>遵守代理协议（NSURLSessionDataDelegate）</li>
+<li>实现代理方法，在代理方法中计算文件的上传进度<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  - (<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session</span><br><span class="line">               task:(<span class="built_in">NSURLSessionTask</span> *)task</span><br><span class="line">    didSendBodyData:(int64_t)bytesSent</span><br><span class="line">     totalBytesSent:(int64_t)totalBytesSent</span><br><span class="line">totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：当任务执行完毕的时候应该释放对代理对象的强引用</p>
+<h4 id="10、在发送网络请求的时候，如果一个参数（place）需要对应着多个值，那么以下两种请求路径哪种是正确的？"><a href="#10、在发送网络请求的时候，如果一个参数（place）需要对应着多个值，那么以下两种请求路径哪种是正确的？" class="headerlink" title="10、在发送网络请求的时候，如果一个参数（place）需要对应着多个值，那么以下两种请求路径哪种是正确的？"></a>10、在发送网络请求的时候，如果一个参数（place）需要对应着多个值，那么以下两种请求路径哪种是正确的？</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">①<span class="symbol">:</span>[<span class="symbol">http:</span>/<span class="regexp">/192.168.31.520:1314/loveyou</span>?place=Beijing&amp;Shanghai](<span class="symbol">http:</span>/<span class="regexp">/120.25.226.186:32812/weather</span>?place=Beijing&amp;Shanghai)</span><br><span class="line"></span><br><span class="line">②<span class="symbol">:</span>[<span class="symbol">http:</span>/<span class="regexp">/](http:/</span><span class="regexp">/120.25.226.186:32812/weather</span>?place=Beijing&amp;place=Shanghai)[<span class="number">192.168</span>.<span class="number">31.520</span><span class="symbol">:</span><span class="number">1314</span>](<span class="symbol">http:</span>/<span class="regexp">/120.25.226.186:32812/weather</span>?place=Beijing&amp;Shanghai)/loveyou?place=Beijing&amp;place=Shanghai</span><br></pre></td></tr></table></figure>
+<p>第二种请求路径是正确的，第一种是错误的，后面的shanghai将会被忽略</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/05/iOS基础总结/201802/iOS基础知识点总结(一)/" rel="next" title="iOS基础知识点总结(一)">
+                <i class="fa fa-chevron-left"></i> iOS基础知识点总结(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/05/Swift学习点滴记载(一)/" rel="prev" title="Swift 学习点滴记载(一)">
+                Swift 学习点滴记载(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTUzNy84MTAx"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="LiangJu" />
+            
+              <p class="site-author-name" itemprop="name">LiangJu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuliangju" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/liuliangju" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/liuliangju" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/liuliangju" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、请简单说明多线程技术的优点和缺点？"><span class="nav-number">1.</span> <span class="nav-text">1、请简单说明多线程技术的优点和缺点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、请简单介绍下什么是原子和非原子属性？"><span class="nav-number">2.</span> <span class="nav-text">2、请简单介绍下什么是原子和非原子属性？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、请简单说明对图片进行二级缓存的实现思路？"><span class="nav-number">3.</span> <span class="nav-text">3、请简单说明对图片进行二级缓存的实现思路？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、请简单说明NSCache的特点？"><span class="nav-number">4.</span> <span class="nav-text">4、请简单说明NSCache的特点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、请问SDWebImage框架的框架结构是怎么样的？"><span class="nav-number">5.</span> <span class="nav-text">5、请问SDWebImage框架的框架结构是怎么样的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、请简单说明GET请求和POST个请求有什么区别-如何选择？"><span class="nav-number">6.</span> <span class="nav-text">6、请简单说明GET请求和POST个请求有什么区别,如何选择？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、请简单列出使用NSURLConnection发送一个异步POST网络请求的步骤"><span class="nav-number">7.</span> <span class="nav-text">7、请简单列出使用NSURLConnection发送一个异步POST网络请求的步骤?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、请简单介绍下AFN各个主要版本的情况？"><span class="nav-number">8.</span> <span class="nav-text">8、请简单介绍下AFN各个主要版本的情况？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、在使用NSURLSession进行文件上传的时候，如何监听文件上传的进度，有哪些注意点？"><span class="nav-number">9.</span> <span class="nav-text">9、在使用NSURLSession进行文件上传的时候，如何监听文件上传的进度，有哪些注意点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、在发送网络请求的时候，如果一个参数（place）需要对应着多个值，那么以下两种请求路径哪种是正确的？"><span class="nav-number">10.</span> <span class="nav-text">10、在发送网络请求的时候，如果一个参数（place）需要对应着多个值，那么以下两种请求路径哪种是正确的？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiangJu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

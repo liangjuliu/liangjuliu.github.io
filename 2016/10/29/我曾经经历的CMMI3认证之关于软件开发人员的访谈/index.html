@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="VKdA3TQY2rn0f2GikCI7GjJD5vLS6vWmNIAQKB8G7Zc" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="qBYIdkhKQ8" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Menlo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CMMI," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="自己所在的公司申请CMMI3等级认证，本人又有幸成为了被访谈中的一员，我由于本人从属于公司的研发部的一名研发人员，所以我的身份顺理成章的也是开发人员。主评官是一名德国老外。 当时我们公司和对方约定的访谈时间是10月18日~10月21日，第一天首先是发起人见面，然后要参加被访谈的全体人员参加启动会议，下午是分别是EPG组长、CM、OT、PPQA的访谈，开发人员是19号。 我们公司一共准备了3个项目(">
+<meta name="keywords" content="CMMI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我曾经经历的CMMI3认证之关于软件开发人员的访谈">
+<meta property="og:url" content="https://liuliangju.github.io/2016/10/29/我曾经经历的CMMI3认证之关于软件开发人员的访谈/index.html">
+<meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="自己所在的公司申请CMMI3等级认证，本人又有幸成为了被访谈中的一员，我由于本人从属于公司的研发部的一名研发人员，所以我的身份顺理成章的也是开发人员。主评官是一名德国老外。 当时我们公司和对方约定的访谈时间是10月18日~10月21日，第一天首先是发起人见面，然后要参加被访谈的全体人员参加启动会议，下午是分别是EPG组长、CM、OT、PPQA的访谈，开发人员是19号。 我们公司一共准备了3个项目(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-19T12:51:38.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我曾经经历的CMMI3认证之关于软件开发人员的访谈">
+<meta name="twitter:description" content="自己所在的公司申请CMMI3等级认证，本人又有幸成为了被访谈中的一员，我由于本人从属于公司的研发部的一名研发人员，所以我的身份顺理成章的也是开发人员。主评官是一名德国老外。 当时我们公司和对方约定的访谈时间是10月18日~10月21日，第一天首先是发起人见面，然后要参加被访谈的全体人员参加启动会议，下午是分别是EPG组长、CM、OT、PPQA的访谈，开发人员是19号。 我们公司一共准备了3个项目(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuliangju.github.io/2016/10/29/我曾经经历的CMMI3认证之关于软件开发人员的访谈/"/>
+
+
+
+
+
+  <title>我曾经经历的CMMI3认证之关于软件开发人员的访谈 | 良局｜博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '96201675-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8b3fde196e8e9ae9d698118e7c8a3e97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">良局｜博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">我走的很慢，但我永不后退。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2016/10/29/我曾经经历的CMMI3认证之关于软件开发人员的访谈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiangJu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良局｜博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">我曾经经历的CMMI3认证之关于软件开发人员的访谈</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-29T19:25:27+08:00">
+                2016-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经历/" itemprop="url" rel="index">
+                    <span itemprop="name">经历</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>自己所在的公司申请CMMI3等级认证，本人又有幸成为了被访谈中的一员，我由于本人从属于公司的研发部的一名研发人员，所以我的身份顺理成章的也是开发人员。主评官是一名德国老外。</p>
+<p>当时我们公司和对方约定的访谈时间是10月18日~10月21日，第一天首先是发起人见面，然后要参加被访谈的全体人员参加启动会议，下午是分别是EPG组长、CM、OT、PPQA的访谈，开发人员是19号。</p>
+<p>我们公司一共准备了3个项目(每个项目组配备两名开发人员，一名测试人员)，我是第一个项目组的成员，早晨9点钟到达公司，大概9:15左右，会议室的人出来叫人说可以开始了，让我们进去，进入到会议室之后老外先和我们打了招呼，然后翻译在旁翻译，并且讲述访谈的原则不归咎原则，及签订保密协议。</p>
+<p>下面是我们访谈的被问到的问题：<br>1，公司定义了哪些不同的需求获取的方式？<br>答：公司定义的需求获取的方式有：电话、邮件、调查问卷、开研讨会、静态页面效果图、原型等方式<br>2，你的项目中使用了哪些方式获取客户的需求的？获取了客户的哪些需求？<br>答：邮件、调查问卷、开研讨会、静态页面效果图；获取了客户的需求分为功能性需求和质量属性方面的需求，质量属性方面的需求可分为可维护性，安全性，易用性等等。<br>3，客户有没有对你们获取后的需求进行确认？如何确认的？<br>答：我们将用户的需求整理，制定成《用户需求说明书》并交与客户确认签字。<br>4，项目中的需求是如何进行管理的？<br>答：我们在每个阶段完成时，都填写《需求跟踪矩阵》，所以当需求变更时，我们《需求跟踪矩阵》来查看每个需求的状态，了解因变更而影响的需求范围。<br>5，你们是如何对客户的需求进行分析的？<br>答：我们采用VISO工具来分析系统，并对系统进行建模，制定出系统的业务流程图和系统架构图，当《软件需求说明书》制定完成后，由项目经理组织邀请客户，开发人员，测试人员，配置人员，质量保证人员，高层参加软件需求说明书的评审会议，在保证需求分析是满足客户需求的，并得到大家的认可。<br>6，需求的优先级和难易度是如何来定义的？<br>答：我们是根据需求的难易度来确定优先级的。<br>高 — 软件必须实现的功能，用户有明确的功能定义和要求；<br>中 — 软件应该实现的功能，用户的功能定义和要求可能是模糊的、不具体的、或低约束的，但是这类功能的缺少会导致用户的不满意，因此这类功能的具体需求应当由需求分析人员诱导用户产生并明确；<br>低 — 软件尽量实现的功能，并可根据开发进度进行取舍，但这类功能的实现将会增加用户的满意度。<br>7，公司是如何跟踪项目的需求接口需求的？<br>答：根据《用户需求说明书》指定的《软件需求说明书》中定义了软件的接口需求。并在《需求跟踪矩阵》中进行接口需求的跟踪。<br>8，如何对需求进行管理来确保需求的完整性，一致性？<br>答：通过评审会议，维护《需求跟踪矩阵》，以及周会确保需求的完整性和一致性。<br>9，需求变更的时候由谁来确认？<br>答：当需求变更的时候，由项目经理提交需求变更申请到CCB(变更控制委员会)进行确认是否变更。<br>10，你们怎么确保不同工作产品的一致性和完整性？<br>答：通过召开评审会议确保不同工作产品的一致性和完整性。<br>11，对于过程改进活动，你们参与了哪些工作？<br>答：参与了临时过程组对OSSP体系对编写，需求开发与管理，设计过程等。<br>12，需求经验和优秀实践经验如何和其他项目和组织分享？<br>答：一般有好的经验或建议，我们会向EPG反馈，EPG组长整理采纳后会存放在公司的财富库中。<br>13，在过程规范中变更如何通知你们的？<br>答：过程规范发生变更时，过程改进会形成新的基线，配置管理工程师会发布基线报告，EPG组长会安排相应人员给我们培训。<br>14，如何管理产品交付后客户的需求？<br>答：在产品交付客户后，我们给客户有1年的免费维护期，如果是原需求的变更，我们免费维护，如果新需求的变更，则另有偿维护。<br>15，公司是否通过了设计方面的指南？<br>答：是的，EPG制定了《设计过程》《实现过程》等来指导我们工作。<br>16，设计过程是什么？<br>答：项目经理指定角色，要先做《概要设计说明书》和《编码规范》，然后召开评审会议，评审通过后，再做《详细设计说明书》及《数据库设计说明书》，同时界面设计师做静态界面设计，然后由项目经理召开评审会议，评审通过后，将相关配置项由配置管理工程师入库等。<br>17，设计采用了哪些技术？<br>答：结构化设计方法：1，自顶向下  2，逐步细化  3，模块化设计   4，结构化编码<br>结构化设计步骤如下：<br>1，审核细化数据流<br>2，确定数据流程图的类型<br>3，把数据流图映射到软件模块结构，设计出模块结构的上层<br>4，基于数据流图逐步分解高层模块，设计中下层模块<br>5，对模块结构进行优化，得到更合理的软件结构<br>6，描述模块接口<br>18，目前的决策分析方法有哪些？<br>答：主要采用了经验法和类比法两种。然后采用专家法打分决策<br>19，项目中的重用组件使用前，项目组有没有进行讨论？<br>答：在《项目计划》里定义并分析了项目重用组件，并在《项目计划》会议上，对项目的组件重用进行了分析讨论。<br>20，设计阶段你们做了哪些评审，如何做的？<br>答：设计阶段有《概要设计说明书》评审，《详细设计说明书》评审；《里程碑》等评审活动，在评审会议上，由主持人组织会议持续，作者讲解评审工作的内容，回答评审人员提出的问题，会议记录人员将会议上的内容及问题进行记录，并整理到《评审记录》中，由项目经理指定并监控负责人解决评审中发现的问题。<br>21，关于这些评审，计划多少的工作量？评审的主要反馈是什么？<br>答：评审会议一般持续4个小时左右，评审主要反馈评审工件中的一些问题的个数、严重等级、分析和解决措施等。<br>22，哪些工作进行了同行评审？<br>答：《用户需求说明书》《软件需求说明书》《项目计划》《概要设计说明书》《详细设计说明书》《数据库设计说明书》《测试用例》<br>23，同行评审收集了哪些数据？如何分析的？<br>答：同行评审收集了评审工件中的问题个数、严重等级、产生的原因、解决措施，并记录在评审会议中。<br>24，你们是如何确保的设计符合需求？<br>答：我们利用《需求跟踪矩阵》来保证需求、设计、编码、测试的一致性和完整性；同时设计中的每一个阶段(概要设计阶段、详细设计阶段)都召开评审会议，确保阶段性工作产品的质量。<br>25，产品集成的顺序和环境在哪里有记录？<br>答：在《产品集成计划》中有记录<br>26，项目是怎么发布的？谁来建立，评审和最终发布？<br>答：由项目经理建立和发布项目产品，客户接收产品时，项目经理将《项目交付报告》交与客户签字。然后召开项目结项会议。<br>27，项目在每个阶段是否都建立了基线？你们是如何得知基线的建立的？<br>答：是的，当基线建立后，配置管理工程师向项目组成员发布基线报告。<br>28，你们是如何参与项目计划和估算的？<br>答：项目估算会议，根据开发经验对用户需求的功能点进行规模和工作量的估计，项目经理将每个专家的估计值进行计算，得到工作量和规模的平均值。然后参考财富库中的度量数据，进行项目的工作量估算。然后再估算出项目的成本。<br>29，你们向谁做工作汇报，回报哪些内容？<br>答：向项目经理汇报工作，汇报工作量，进度，偏差等。<br>30，项目中有什么技术风险和问题？<br>答：有人员的技术风险，也有项目管理的问题。<br>31，如何保证代码质量？<br>答：我们每天下班前，由项目经理组织开发人员进行交互代码走查，主要检查代码的编码规范和代码的逻辑性，并将发现的问题记录在《代码走查》中，同时开发人员进行单元测试，以保证代码的质量。<br>32，你们是如何进行单元测试的？测试的结果会有记录吗？结果报告存放在那里？<br>答：我们根据单元测试用例进行单元测试，采用白盒测试，测试结果记录在《测试记录跟踪表》中。<br>33，如何确定编码结束的？<br>答：1，项目经理已经确认，该软件的功能已经按照《用户需求说明书》和项目《软件需求说明书》的要求全部实现，功能和界面结合完成。<br>2，所有功能代码均已基线化。<br>3，单元测试，集成测试结束，系统预编译成功。<br>4，该单元的项目《用户使用手册》、项目《系统安装手册》等相关文档必需提交到系统测试。<br>34，项目中的源代码是如何管理的？<br>答：我们使用的是git。<br>35，你们是如何和测试人员合作的？<br>答：首先，测试出的bug有四种状态，打开，跟踪，重新打开，关闭。当测试人员发现bug后，将bug记录在《测试记录跟踪表》中，此时的bug状态是打开；接着由测试人员将《测试记录跟踪表》提交给项目经理，由项目经理指定bug修改负责人，当bug修改负责人解决bug后，将bug的状态改为“跟踪”，然后提交给测试人员，由测试人员进行验证测试，当测试人员验证测试成功，则bug状态改为“关闭”，当测试人员验证测试失败后，则bug的状态改为“重新打开”，最为bug重新处理。<br>36，编码过程中会统计哪些数据？这些数据存放在哪？<br>答：在编码阶段，我们收集项目规模，数据都记录在《项目总结报告》中。<br>37，项目经理是如何检查你们工作的？<br>答：主要根据周会，里程碑会议来检查工作，同时在平时我们发现问题也会EMAIL或走查的形式通知项目经理，项目经理也会根据《项目进度表》监控我们的工作进展情况。<br>38，你的项目是否有内部制定保证？<br>答：有PPQA是根据QA制定的《检查表》在每个检查时机处检查我的工作，并将发现的NC通过EMAIL的形式发给我，我在接到NC一天内给予反馈。</p>
+<p>以上是作为开发人员问的问题，测试人员没怎么问，就问了一道题，还是和开发人员重合的为35题。下午，第2，3个项目一起进入会议室访谈。</p>
+<p>第三天上午他们在会议室对访谈内容进行分析，下午快下班时召开初步发现会议让我们对他们给出的访谈分析结果提出异议。</p>
+<p>第四天上午，最终发布会议，全员都要参加。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CMMI/" rel="tag"># CMMI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/iOS图片压缩/" rel="next" title="iOS图片压缩">
+                <i class="fa fa-chevron-left"></i> iOS图片压缩
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/10/iOS文件统一管理/" rel="prev" title="iOS文件统一管理">
+                iOS文件统一管理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTUzNy84MTAx"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="LiangJu" />
+            
+              <p class="site-author-name" itemprop="name">LiangJu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuliangju" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/liuliangju" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/liuliangju" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/liuliangju" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiangJu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

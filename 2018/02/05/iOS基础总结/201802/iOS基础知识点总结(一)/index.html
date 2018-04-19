@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="VKdA3TQY2rn0f2GikCI7GjJD5vLS6vWmNIAQKB8G7Zc" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="qBYIdkhKQ8" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Menlo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="以下是一些自己收集的比较基础的面试问题（大神可以忽略）附上答案，毕竟个人水平有限难免会有些错误或回答的局限性，如果发现错误也欢迎大家指出，一起探讨进步。 1、#import和#include的区别,@class代表什么 import会包含这个类的所有信息，包含实体变量和方法(.h文件中)，而@class只是告诉编译器，其后面声明的名称是类的名称，至于这些类是如何定义的，后面会再告诉你。 #impo">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS基础知识点总结(一)">
+<meta property="og:url" content="https://liuliangju.github.io/2018/02/05/iOS基础总结/201802/iOS基础知识点总结(一)/index.html">
+<meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="以下是一些自己收集的比较基础的面试问题（大神可以忽略）附上答案，毕竟个人水平有限难免会有些错误或回答的局限性，如果发现错误也欢迎大家指出，一起探讨进步。 1、#import和#include的区别,@class代表什么 import会包含这个类的所有信息，包含实体变量和方法(.h文件中)，而@class只是告诉编译器，其后面声明的名称是类的名称，至于这些类是如何定义的，后面会再告诉你。 #impo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-19T12:51:38.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS基础知识点总结(一)">
+<meta name="twitter:description" content="以下是一些自己收集的比较基础的面试问题（大神可以忽略）附上答案，毕竟个人水平有限难免会有些错误或回答的局限性，如果发现错误也欢迎大家指出，一起探讨进步。 1、#import和#include的区别,@class代表什么 import会包含这个类的所有信息，包含实体变量和方法(.h文件中)，而@class只是告诉编译器，其后面声明的名称是类的名称，至于这些类是如何定义的，后面会再告诉你。 #impo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuliangju.github.io/2018/02/05/iOS基础总结/201802/iOS基础知识点总结(一)/"/>
+
+
+
+
+
+  <title>iOS基础知识点总结(一) | 良局｜博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '96201675-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8b3fde196e8e9ae9d698118e7c8a3e97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">良局｜博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">我走的很慢，但我永不后退。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/02/05/iOS基础总结/201802/iOS基础知识点总结(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiangJu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良局｜博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS基础知识点总结(一)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-05T22:22:22+08:00">
+                2018-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS基础/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>以下是一些自己收集的比较基础的面试问题（大神可以忽略）附上答案，毕竟个人水平有限难免会有些错误或回答的局限性，如果发现错误也欢迎大家指出，一起探讨进步。</p>
+<h4 id="1、-import和-include的区别-class代表什么"><a href="#1、-import和-include的区别-class代表什么" class="headerlink" title="1、#import和#include的区别,@class代表什么"></a>1、#import和#include的区别,@class代表什么</h4><ul>
+<li><code>import</code>会包含这个类的所有信息，包含实体变量和方法(.h文件中)，而<code>@class</code>只是告诉编译器，其后面声明的名称是类的名称，至于这些类是如何定义的，后面会再告诉你。</li>
+<li><code>#import</code>比起<code>#include</code>的好处是不会引起交叉编译，也就是常说的重复包含。<br></li>
+</ul>
+<p>注：<code>#import</code> 就是把被引用类的头文件都走一遍，即把<code>.h</code>文件里的变量和方法都包含进来一次，且仅一次，而<code>@class</code>不用，所以后者编译效率更高。</p>
+<h4 id="2、控制器的生命周期"><a href="#2、控制器的生命周期" class="headerlink" title="2、控制器的生命周期"></a>2、控制器的生命周期</h4><ul>
+<li>initWithCoder:(NSCoder *)aDecoder：（如果使用storyboard或者xib）</li>
+<li>loadView：加载view</li>
+<li>viewDidLoad：view加载完毕</li>
+<li>viewWillAppear：控制器的view将要显示</li>
+<li>viewWillLayoutSubviews：控制器的view将要布局子控件</li>
+<li>viewDidLayoutSubviews：控制器的view布局子控件完成<br><code>这期间系统可能会多次调用viewWillLayoutSubviews 、 viewDidLayoutSubviews</code></li>
+<li>viewDidAppear：控制器的view完全显示</li>
+<li>viewWillDisappear：控制器的view即将消失</li>
+<li>viewDidDisappear：控制器的view完全消失</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/a5f82922e387" target="_blank" rel="noopener">loadView方法:</a></p>
+<table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">当我们用到控制器view的时候，就会调用控制器view的get方法，在get方法内部，首先判断view是否已经被创建，如果已经存在，则直接返回存在的view，如果不存在，则会调用控制器的loadView方法，在控制器没有被销毁的情况下，loadView也可能会被执行多次<br></td></tr></table><br><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro"><strong>小结：</strong>控制器view的生命周期：loadView -&gt; viewDidLoad -&gt; viewWillAppear -&gt; viewWillLayoutSubviews -&gt; viewDidLayoutSubviews<br>-&gt; viewDidAppear -&gt; viewWillDisappear -&gt; viewDidDisappear<br></td></tr></table>
+
+<h4 id="3、导航push做了哪些事情"><a href="#3、导航push做了哪些事情" class="headerlink" title="3、导航push做了哪些事情"></a>3、导航push做了哪些事情</h4><ul>
+<li>当调用push方法时, 会把要push的控制器添加到导航控制器管理的栈中,把之前导航控制器中栈顶控制器View给移除,把当前栈顶控制器添加上去</li>
+</ul>
+<h4 id="4、导航pop做了哪些事情"><a href="#4、导航pop做了哪些事情" class="headerlink" title="4、导航pop做了哪些事情"></a>4、导航pop做了哪些事情</h4><ul>
+<li>当调用pop方法的时候，会把要pop的控制器从栈里移除，把之前导航控制器中栈顶控制器的view移除，把当前栈顶控制器添加上去</li>
+</ul>
+<h4 id="5、frame-和-bounds-的区别是什么？"><a href="#5、frame-和-bounds-的区别是什么？" class="headerlink" title="5、frame 和 bounds 的区别是什么？"></a>5、frame 和 bounds 的区别是什么？</h4><ul>
+<li>frame相对于父视图,是父视图坐标系下的位置和大小。bounds相对于自身,是自身坐标系下的位置和大小。</li>
+<li>frame以父控件的左上角为坐标原点，bounds以自身的左上角为坐标原点</li>
+</ul>
+<h4 id="6、-load-和-initialize-的区别是什么"><a href="#6、-load-和-initialize-的区别是什么" class="headerlink" title="6、+load 和 +initialize 的区别是什么"></a>6、+load 和 +initialize 的区别是什么</h4><ul>
+<li>+(void)load;<br>&emsp;当类对象被引入到项目时，runtime会向每个一个类对象发送load消息，load方法会在每一个类甚至分类被引入时仅调用一次，调用的顺序：父类优先于子类，子类优先于分类</li>
+<li>+(void)initialize;<br>&emsp;第一次使用这个类的时候会调用这个方法</li>
+</ul>
+<h4 id="7、如何为Class定义一个对外只读对内可读写的属性"><a href="#7、如何为Class定义一个对外只读对内可读写的属性" class="headerlink" title="7、如何为Class定义一个对外只读对内可读写的属性"></a>7、如何为Class定义一个对外只读对内可读写的属性</h4><ul>
+<li>在头文件中将属性定义为<code>readonly</code>，在<code>.m</code>文件中将属性重新定义为<code>readwrite</code></li>
+</ul>
+<h4 id="8、strong-weak-unsafe-unretained的区别"><a href="#8、strong-weak-unsafe-unretained的区别" class="headerlink" title="8、strong / weak / unsafe_unretained的区别"></a>8、strong / weak / unsafe_unretained的区别</h4><ul>
+<li>weak只能修饰OC对象，使用weak不会使引用计数加1，对象销毁时修饰的对象会指向nil</li>
+<li>strong等价于retain，能使计数器加1，且不能用来修饰数据类型</li>
+<li>unsafe_unretained等价于assign，可以用来修饰数据类型和OC对象，但是不会使计数器加1，且对象销毁时也不会将对象指向nil，容易造成野指针错误。</li>
+</ul>
+<h4 id="9、iOS-的沙盒目录结构是怎样的"><a href="#9、iOS-的沙盒目录结构是怎样的" class="headerlink" title="9、iOS 的沙盒目录结构是怎样的"></a>9、iOS 的沙盒目录结构是怎样的</h4><ul>
+<li>Application:存放程序源文件，上架前经过数字签名，上架后不可修改</li>
+<li>Documents:常用目录，iTunes同步该应用时会同步此文件夹中的内容，适合存储重要数据。</li>
+<li>Library<ul>
+<li>Caches：用于存放应用程序专用的支持文件，保存应用程序再次启动过程中需要的信息。</li>
+<li>Preference：iTunes同步该应用时会同步此文件夹中的内容，通常保存应用的设置信息。您不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好.</li>
+</ul>
+</li>
+<li>tmp 目录：这个目录用于存放临时文件，保存应用程序再次启动过程中不需要的信息。该路径下的文件不会被iTunes备份。</li>
+</ul>
+<h4 id="10、通过代码如何自定义控件-并且简单的描述下每一个步骤的理由"><a href="#10、通过代码如何自定义控件-并且简单的描述下每一个步骤的理由" class="headerlink" title="10、通过代码如何自定义控件? 并且简单的描述下每一个步骤的理由?"></a>10、通过代码如何自定义控件? 并且简单的描述下每一个步骤的理由?</h4><ul>
+<li>新建一个继承<code>UIView</code>的子类(所谓自定义控件就是继承系统自带的控件写一个适合自己项目特殊需求的控件)</li>
+<li>在<code>initWithFrame</code>方法中添加子控件(保证别人在其他类不管是通过<code>init</code>还是通过<code>initWithFrame</code>创建都能够添加子控件，因为init方法内部会调用initWithFrame)</li>
+<li>在<code>layoutSubViews</code>方法中设置子控件的frame(在<code>initWithFrame</code>方法中当前的控件可能没值，所以计算不了子控件的位置和尺寸，而在<code>layoutSubViews</code>方法中，能够拿到当前控件的尺寸)</li>
+<li>提供一个模型属性，重写模型属性的<code>set</code>方法</li>
+</ul>
+<h4 id="11、简单的描述下类扩展-extension-和分类-category-的区别"><a href="#11、简单的描述下类扩展-extension-和分类-category-的区别" class="headerlink" title="11、简单的描述下类扩展(extension)和分类(category)的区别?"></a>11、简单的描述下类扩展(extension)和分类(category)的区别?</h4><ul>
+<li>类扩展(也被称作匿名分类)没有名字，分类有名字</li>
+<li>类扩展中新添加的方法必须要实现，分类可以不实现</li>
+<li>类扩展是分类的一个特例，可以为一个类添加一些私有成员变量和方法，分类可以在不修改原来类的基础上，为一个类添加类扩展方法，一般用于给系统自带的类扩展方法，不能添加成员变量，如果一定要添加，可以通过<code>runtime</code>实现</li>
+</ul>
+<h4 id="12、Objective-C-如何对已有的方法，添加自己的功能代码以实现类似记录日志这样的功能"><a href="#12、Objective-C-如何对已有的方法，添加自己的功能代码以实现类似记录日志这样的功能" class="headerlink" title="12、Objective-C 如何对已有的方法，添加自己的功能代码以实现类似记录日志这样的功能"></a>12、Objective-C 如何对已有的方法，添加自己的功能代码以实现类似记录日志这样的功能</h4><ul>
+<li>主要考察的是<code>runtime</code>如何交换方法<br></li>
+</ul>
+<p>实现：<br>1，先在分类中添加一个方法，注意不能重写系统方法，否则会被覆盖<br></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSString</span> *)p_printLog &#123;</span><br><span class="line">    <span class="comment">// 这里写打印行号,什么方法,哪个类调用等等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2，交换方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加载分类到内存到时候调用</span></span><br><span class="line">+ (<span class="keyword">void</span>)load &#123;</span><br><span class="line">    <span class="comment">// 获取系统的描述方法</span></span><br><span class="line">    Method description = class_getClassMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(description));</span><br><span class="line">    <span class="comment">// 自定义的打印日志方法</span></span><br><span class="line">    Method myLog = class_getClassMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(p_printLog));</span><br><span class="line">    <span class="comment">// 交换方法</span></span><br><span class="line">    method_exchangeImplementations(description, myLog);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="13、如何让-Category-支持属性"><a href="#13、如何让-Category-支持属性" class="headerlink" title="13、如何让 Category 支持属性"></a>13、如何让 Category 支持属性</h4><ul>
+<li>使用<code>runtime</code>实现</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .h</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">LJTest</span>)</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *testName;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// .m</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">char</span> *kIdentifier = <span class="string">"testName"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">LJTest</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)testName &#123;</span><br><span class="line">    <span class="comment">// 根据关联的 kIdentifier, 获取关联的值</span></span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, kIdentifier);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setTestName:(<span class="built_in">NSString</span> *)testName &#123;</span><br><span class="line">    <span class="comment">// 第一个参数：给哪个对象添加关联</span></span><br><span class="line">    <span class="comment">// 第二个参数：关联的key，通过这个key获取</span></span><br><span class="line">    <span class="comment">// 第三个参数：关联的value</span></span><br><span class="line">    <span class="comment">// 第四个参数:关联的策略</span></span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, kIdentifier, testName, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="14、iOS-assign，weak，strong，copy，-atomic，-nonatomic-使用场景"><a href="#14、iOS-assign，weak，strong，copy，-atomic，-nonatomic-使用场景" class="headerlink" title="14、iOS assign，weak，strong，copy， atomic， nonatomic 使用场景"></a>14、iOS assign，weak，strong，copy， atomic， nonatomic 使用场景</h4><p><strong>assign 与 weak区别</strong></p>
+<ul>
+<li><code>assign</code> 适用于基本数据类型，<code>weak</code>适用于<code>NSObject</code>对象，并且是一个弱引用，<code>assign</code>其实也可以用来修饰对象，那么我们为什么不用它修饰对象呢？因为被<code>assign</code>修饰的对象(一般编译的时候会产生警告：Assigning retained object to unsafe property; object will be released after assignment)在释放之后，指针的地址还是存在的，也就是说指针并没有被置为<code>nil</code>，造成野指针，对象一般分配在堆上的某块内存内存上，如果在后续的内存分配中，恰巧分到了这块地址，程序就会崩掉</li>
+<li>为什么可以用<code>assign</code>修饰基本数据类型呢？因为基础数据类型一般分配在栈上，栈的内存会由系统自动处理，不会造成野指针。<code>weak</code>修饰的对象在释放之后，指针地址会被置为<code>nil</code>，所以在一般弱引用使用weak修饰</li>
+<li><code>weak</code>使用场景：在ARC，在有可能出现循环引用的时候，往往要通过让其中的一端使用weak来解决，常见的比如：delegate属性，通常就会声明为weak。自身已经对它进行一次强引用，没有必要再强引用一次时也会使用weak。</li>
+</ul>
+<p><strong>strong 与 copy区别</strong></p>
+<ul>
+<li><code>strong</code>与<code>copy</code>都会使引用计数(retain)加1，但<code>strong</code>是两个指针指向同一块地址，copy会在内存里拷贝一份对象，两个指针指向不同的内存地址</li>
+</ul>
+<p><strong><strong>block 与 </strong>weak区别</strong></p>
+<ul>
+<li><code>__block</code>用来修饰一个变量，这个变量在block代码块中，如果想被修改，则需要使用<code>__block</code>修饰，使用使用 <code>__block</code>修饰的变量在block代码块中会被retain（ARC下会retain，MRC下不会retain）<strong>weak：使用</strong>weak修饰的变量不会在block代码块中被retain，同时，在ARC下，要避免block出现循环引用 __weak typedof(self)weakSelf = self;</li>
+</ul>
+<p><strong>nonatomic 与 atomic区别</strong></p>
+<ul>
+<li><code>atomic</code>的意思就是setter/getter这两个函数的一个原语操作。如果有多个线程同时调用setter的话，不会出现某一个线程执行setter全部语句之前，另一个线程开始执行setter情况，相当于函数头尾加了锁一样。 nonatomic不保证setter/getter的原语行，所以你可能会取到不完整的东西。 比如setter函数里面改变两个成员变量，如果你用nonatomic的话，getter可能会取到只更改了其中一个变量时候的状态。 atomic是线程安全的,nonatomic是线程不安全的。如果只是单线程操作的话用nonatomic最好,因为后者效率高一些</li>
+</ul>
+<h4 id="15、对NSUserDefaults的理解"><a href="#15、对NSUserDefaults的理解" class="headerlink" title="15、对NSUserDefaults的理解"></a>15、对NSUserDefaults的理解</h4><ul>
+<li><code>NSUserDefaults</code>是系统提供的一种存储数据的方式，主要用于保存少量的数据，默认存储到library下的Preferences文件夹</li>
+</ul>
+<h4 id="16、LoadView-作用以及使用LoadView的注意点"><a href="#16、LoadView-作用以及使用LoadView的注意点" class="headerlink" title="16、LoadView 作用以及使用LoadView的注意点?"></a>16、LoadView 作用以及使用LoadView的注意点?</h4><p>控制器调用loadView方法创建控制器的view.它默认的做法是：</p>
+<ul>
+<li>先去判断当前控制器是不是从<code>StoryBoard</code>当中加载的，如果是，那么他就会从<code>StoryBoard</code>当中加载控制器的View.</li>
+<li>如果不是从<code>StoryBoard</code>当中加载的，那么他会从<code>Xib</code>加载控制器的View.</li>
+<li>如果也不是从Xib加载的控制器，那么他就会创建一个空的UIView，设为当前控制器的View.<br><strong>注意：</strong></li>
+<li>一旦重写了<code>loadView</code>，表示需要自己创建控制器的View。</li>
+<li>如果控制器的View还没有赋值，就不能调用控制器的View的get方法，会造成死循环，因为控制器View的个体方法底层会调用loadView方法.</li>
+</ul>
+<p>最后附pdf版本查看链接：<a href="https://github.com/liuliangju/liuliangju.github.io/raw/master/docs/20180207001.pdf" target="_blank" rel="noopener">iOS基础知识点总结(一).pdf</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/25/iOS多工程依赖/" rel="next" title="iOS多工程依赖">
+                <i class="fa fa-chevron-left"></i> iOS多工程依赖
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/23/iOS基础总结/201802/iOS基础知识点总结(二)/" rel="prev" title="iOS基础知识点总结(二)">
+                iOS基础知识点总结(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTUzNy84MTAx"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="LiangJu" />
+            
+              <p class="site-author-name" itemprop="name">LiangJu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuliangju" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/liuliangju" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/liuliangju" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/liuliangju" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-import和-include的区别-class代表什么"><span class="nav-number">1.</span> <span class="nav-text">1、#import和#include的区别,@class代表什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、控制器的生命周期"><span class="nav-number">2.</span> <span class="nav-text">2、控制器的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、导航push做了哪些事情"><span class="nav-number">3.</span> <span class="nav-text">3、导航push做了哪些事情</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、导航pop做了哪些事情"><span class="nav-number">4.</span> <span class="nav-text">4、导航pop做了哪些事情</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、frame-和-bounds-的区别是什么？"><span class="nav-number">5.</span> <span class="nav-text">5、frame 和 bounds 的区别是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、-load-和-initialize-的区别是什么"><span class="nav-number">6.</span> <span class="nav-text">6、+load 和 +initialize 的区别是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、如何为Class定义一个对外只读对内可读写的属性"><span class="nav-number">7.</span> <span class="nav-text">7、如何为Class定义一个对外只读对内可读写的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、strong-weak-unsafe-unretained的区别"><span class="nav-number">8.</span> <span class="nav-text">8、strong / weak / unsafe_unretained的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、iOS-的沙盒目录结构是怎样的"><span class="nav-number">9.</span> <span class="nav-text">9、iOS 的沙盒目录结构是怎样的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、通过代码如何自定义控件-并且简单的描述下每一个步骤的理由"><span class="nav-number">10.</span> <span class="nav-text">10、通过代码如何自定义控件? 并且简单的描述下每一个步骤的理由?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、简单的描述下类扩展-extension-和分类-category-的区别"><span class="nav-number">11.</span> <span class="nav-text">11、简单的描述下类扩展(extension)和分类(category)的区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、Objective-C-如何对已有的方法，添加自己的功能代码以实现类似记录日志这样的功能"><span class="nav-number">12.</span> <span class="nav-text">12、Objective-C 如何对已有的方法，添加自己的功能代码以实现类似记录日志这样的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、如何让-Category-支持属性"><span class="nav-number">13.</span> <span class="nav-text">13、如何让 Category 支持属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、iOS-assign，weak，strong，copy，-atomic，-nonatomic-使用场景"><span class="nav-number">14.</span> <span class="nav-text">14、iOS assign，weak，strong，copy， atomic， nonatomic 使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、对NSUserDefaults的理解"><span class="nav-number">15.</span> <span class="nav-text">15、对NSUserDefaults的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、LoadView-作用以及使用LoadView的注意点"><span class="nav-number">16.</span> <span class="nav-text">16、LoadView 作用以及使用LoadView的注意点?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiangJu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
