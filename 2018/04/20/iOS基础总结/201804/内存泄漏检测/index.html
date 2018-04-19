@@ -131,7 +131,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018042001.png">
 <meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018042002.png">
-<meta property="og:updated_time" content="2018-04-19T22:24:14.199Z">
+<meta property="og:updated_time" content="2018-04-19T22:27:16.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内存泄漏检测">
 <meta name="twitter:description" content="首先要明确下基本定义，什么叫内存泄漏？  内存泄漏(memory leak) ：是指程序在申请内存后，无法释放已申请的内存空间，一次内存泄露危害可以忽略，但内存泄露堆积后果很严重，无论多少内存,迟早会被占光。 内存溢出(out of memory) ：是指程序在申请内存时，没有足够的内存空间供其使用，出现out of memory。通俗理解就是内存不够，通常在运行大型软件或游戏时，软件或游戏所需要">
@@ -411,7 +411,8 @@
 <li>内存泄漏(memory leak) ：是指程序在申请内存后，无法释放已申请的内存空间，一次内存泄露危害可以忽略，但内存泄露堆积后果很严重，无论多少内存,迟早会被占光。</li>
 <li>内存溢出(out of memory) ：是指程序在申请内存时，没有足够的内存空间供其使用，出现out of memory。通俗理解就是内存不够，通常在运行大型软件或游戏时，软件或游戏所需要的内存远远超出了你主机内安装的内存所承受大小，就叫内存溢出。</li>
 </ul>
-<h4 id="排查方法"><a href="#排查方法" class="headerlink" title="排查方法"></a>排查方法</h4><h5 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h5><p>通过<code>Xcode</code>打开项目，然后点击product -&gt; Analyze 分析，<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018042001.png" width="200px"> <img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018042002.png" width="200px">　<br>静态分析方法能发现大部分的问题，但是只能是静态分析结果，有一些并不准确，还有一些动态分配内存的情形并没有进行分析。所以仅仅使用静态内存泄漏分析得到的结果并不是非常可靠，如果需要，我们需要将对项目进行更为完善的内存泄漏分析和排查。那就需要用到我们下面要介绍的动态内存泄漏分析方法Instruments中的Leaks方法进行排查。</p>
+<h4 id="排查方法"><a href="#排查方法" class="headerlink" title="排查方法"></a>排查方法</h4><h5 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h5><p>通过<code>Xcode</code>打开项目，然后点击product -&gt; Analyze 分析，</p>
+<p><figure class="half"><br>    <img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018042001.png"><br>    <img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018042002.png"><br></figure>　<br>静态分析方法能发现大部分的问题，但是只能是静态分析结果，有一些并不准确，还有一些动态分配内存的情形并没有进行分析。所以仅仅使用静态内存泄漏分析得到的结果并不是非常可靠，如果需要，我们需要将对项目进行更为完善的内存泄漏分析和排查。那就需要用到我们下面要介绍的动态内存泄漏分析方法Instruments中的Leaks方法进行排查。</p>
 <h5 id="动态分析"><a href="#动态分析" class="headerlink" title="动态分析"></a>动态分析</h5><p>静态分析不能把所有的内存泄露排查出来，有的内存泄露是在运行时，用户操作时才产生的。那就需要用到Instruments了。具体操作是通过xcode打开项目，然后点击product–&gt;profile。</p>
 <h5 id="dealloc分析"><a href="#dealloc分析" class="headerlink" title="dealloc分析"></a>dealloc分析</h5><p>通过在<code>dealloc</code>打印，来确定当前类是否被释放</p>
 <h5 id="借助于第三方库检测"><a href="#借助于第三方库检测" class="headerlink" title="借助于第三方库检测"></a>借助于第三方库检测</h5><p>借助于第三方库检测，如 <a href="https://github.com/facebook/FBRetainCycleDetector" target="_blank" rel="noopener">FBRetainCycleDetector</a> 、 <a href="https://github.com/Tencent/OOMDetector" target="_blank" rel="noopener">OOMDetector</a> 等</p>
