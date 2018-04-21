@@ -129,10 +129,13 @@
 <meta property="og:site_name" content="良局｜博客">
 <meta property="og:description" content="工具篇&amp;nbsp;&amp;nbsp;上周去上海出差，被工行的人问到了解过代码混淆技术没，因为他们对安全性比较高，所以想对代码做下混淆，我一听，这不是安全攻防方面的知识吗，我做iOS开发也没接触过这方面的知识啊，所以回来赶紧上网查找资料，进行学习，也算是给无所事事的自己找点事做。 一开始以为做安全攻防必须需要一台越狱的手机设备，后来查找了很多资料，发现我错了，先说下学习环境吧：  环境: Xcode 9.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T12:51:38.644Z">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041901.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041903.png">
+<meta property="og:updated_time" content="2018-04-21T06:10:01.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一篇：工具篇">
 <meta name="twitter:description" content="工具篇&amp;nbsp;&amp;nbsp;上周去上海出差，被工行的人问到了解过代码混淆技术没，因为他们对安全性比较高，所以想对代码做下混淆，我一听，这不是安全攻防方面的知识吗，我做iOS开发也没接触过这方面的知识啊，所以回来赶紧上网查找资料，进行学习，也算是给无所事事的自己找点事做。 一开始以为做安全攻防必须需要一台越狱的手机设备，后来查找了很多资料，发现我错了，先说下学习环境吧：  环境: Xcode 9.">
+<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041901.png">
 
 
 
@@ -420,7 +423,21 @@
 <p>以上工具下载链接: <a href="https://pan.baidu.com/s/1ZWHKt3kai9OtdeYntzPlOA" target="_blank" rel="noopener">https://pan.baidu.com/s/1ZWHKt3kai9OtdeYntzPlOA</a> 密码: iiwh</p>
 <p>里面各个工具的作用不再详细阐述：<br><a href="https://baike.baidu.com/item/IDA%20Pro/3175923?fr=aladdin" target="_blank" rel="noopener">IDA Pro</a><br><code>ios-app-signer-master</code> 重签名使用</p>
 <p>&nbsp;&nbsp;在查找工具的过程中，偶然发现了一个非越狱插件开发集成神器！<a href="https://github.com/AloneMonkey/MonkeyDev" target="_blank" rel="noopener">MonkeyDev</a> 集成简单，堪称是一个神器。</p>
-<p>&nbsp;&nbsp;下一篇，正式进入安全攻防内容，敬请期待。</p>
+<h4 id="Cycript-安装"><a href="#Cycript-安装" class="headerlink" title="Cycript 安装"></a>Cycript 安装</h4><p>&nbsp;&nbsp;Cycript是一款脚本语言，可以看作是Objective-JavaScript，它可以帮助我们轻松测试和验证函数效果。</p>
+<p>它的安装有多种方式</p>
+<ol>
+<li>使用apt-get安装：<ul>
+<li>apt-get install cycript</li>
+</ul>
+</li>
+<li>通过<a href="http://www.cycript.org/" target="_blank" rel="noopener">官网下载</a> <code>SDK</code> 安装</li>
+</ol>
+<p>以下主要讲解通过第二种方式安装及可能遇到的问题：</p>
+<ol>
+<li>在<a href="http://www.cycript.org/" target="_blank" rel="noopener">官网</a>将<code>cycript</code>下载到本地，然后解压得到 <code>cycript_0.9.594</code> 文件夹(cycript_0.9.594为当前我可下载的最新版本)</li>
+<li>打开终端 输入 <code>cd /</code> 进入根目录，再输入 <code>la</code> 查看当前目录下的所有文件，会发现一个<code>opt</code>文件夹，下一步打开这个文件夹 <code>open opt</code><br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041901.png"></li>
+<li>将刚才解压后的 <code>cycript_0.9.594</code> 文件夹 <code>copy</code> 到 <code>opt</code> 文件夹下，大功告成，咱们照着官网的的命令操作一次，在终端中输入<code>cycript</code>，如果出现<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041903.png"> 环境配置成功。<br>&nbsp;&nbsp;下一篇，正式进入安全攻防内容，敬请期待。</li>
+</ol>
 
       
     </div>
@@ -632,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#工具篇"><span class="nav-number">1.</span> <span class="nav-text">工具篇</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#工具篇"><span class="nav-number">1.</span> <span class="nav-text">工具篇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cycript-安装"><span class="nav-number">2.</span> <span class="nav-text">Cycript 安装</span></a></li></ol></div>
             
 
           </div>

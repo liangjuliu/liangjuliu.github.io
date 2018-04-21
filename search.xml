@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[第一篇：工具篇]]></title>
     <url>%2F2018%2F04%2F19%2F%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%2F201804%2F%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%2F</url>
-    <content type="text"><![CDATA[工具篇&nbsp;&nbsp;上周去上海出差，被工行的人问到了解过代码混淆技术没，因为他们对安全性比较高，所以想对代码做下混淆，我一听，这不是安全攻防方面的知识吗，我做iOS开发也没接触过这方面的知识啊，所以回来赶紧上网查找资料，进行学习，也算是给无所事事的自己找点事做。 一开始以为做安全攻防必须需要一台越狱的手机设备，后来查找了很多资料，发现我错了，先说下学习环境吧： 环境: Xcode 9.3 IDA7.0 hex fiend(16进制编辑器) 硬件设备 iPhone7(建议5s以上设备，5和5c以下为arm32位版本，5s以后为64位版本) 以上工具下载链接: https://pan.baidu.com/s/1ZWHKt3kai9OtdeYntzPlOA 密码: iiwh 里面各个工具的作用不再详细阐述：IDA Proios-app-signer-master 重签名使用 &nbsp;&nbsp;在查找工具的过程中，偶然发现了一个非越狱插件开发集成神器！MonkeyDev 集成简单，堪称是一个神器。 &nbsp;&nbsp;下一篇，正式进入安全攻防内容，敬请期待。]]></content>
+    <content type="text"><![CDATA[工具篇&nbsp;&nbsp;上周去上海出差，被工行的人问到了解过代码混淆技术没，因为他们对安全性比较高，所以想对代码做下混淆，我一听，这不是安全攻防方面的知识吗，我做iOS开发也没接触过这方面的知识啊，所以回来赶紧上网查找资料，进行学习，也算是给无所事事的自己找点事做。 一开始以为做安全攻防必须需要一台越狱的手机设备，后来查找了很多资料，发现我错了，先说下学习环境吧： 环境: Xcode 9.3 IDA7.0 hex fiend(16进制编辑器) 硬件设备 iPhone7(建议5s以上设备，5和5c以下为arm32位版本，5s以后为64位版本) 以上工具下载链接: https://pan.baidu.com/s/1ZWHKt3kai9OtdeYntzPlOA 密码: iiwh 里面各个工具的作用不再详细阐述：IDA Proios-app-signer-master 重签名使用 &nbsp;&nbsp;在查找工具的过程中，偶然发现了一个非越狱插件开发集成神器！MonkeyDev 集成简单，堪称是一个神器。 Cycript 安装&nbsp;&nbsp;Cycript是一款脚本语言，可以看作是Objective-JavaScript，它可以帮助我们轻松测试和验证函数效果。 它的安装有多种方式 使用apt-get安装： apt-get install cycript 通过官网下载 SDK 安装 以下主要讲解通过第二种方式安装及可能遇到的问题： 在官网将cycript下载到本地，然后解压得到 cycript_0.9.594 文件夹(cycript_0.9.594为当前我可下载的最新版本) 打开终端 输入 cd / 进入根目录，再输入 la 查看当前目录下的所有文件，会发现一个opt文件夹，下一步打开这个文件夹 open opt 将刚才解压后的 cycript_0.9.594 文件夹 copy 到 opt 文件夹下，大功告成，咱们照着官网的的命令操作一次，在终端中输入cycript，如果出现 环境配置成功。&nbsp;&nbsp;下一篇，正式进入安全攻防内容，敬请期待。]]></content>
       <categories>
         <category>安全攻防</category>
       </categories>
