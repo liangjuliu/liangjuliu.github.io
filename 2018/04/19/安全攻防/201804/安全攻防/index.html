@@ -132,7 +132,7 @@
 <meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041901.png">
 <meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041904.png">
 <meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041903.png">
-<meta property="og:updated_time" content="2018-04-21T07:11:29.099Z">
+<meta property="og:updated_time" content="2018-04-21T07:14:19.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一篇：工具篇">
 <meta name="twitter:description" content="工具篇&amp;nbsp;&amp;nbsp;上周去上海出差，被工行的人问到了解过代码混淆技术没，因为他们对安全性比较高，所以想对代码做下混淆，我一听，这不是安全攻防方面的知识吗，我做iOS开发也没接触过这方面的知识啊，所以回来赶紧上网查找资料，进行学习，也算是给无所事事的自己找点事做。 一开始以为做安全攻防必须需要一台越狱的手机设备，后来查找了很多资料，发现我错了，先说下学习环境吧：  环境: Xcode 9.">
@@ -457,7 +457,9 @@
 <h6 id="2-直接把本机的ruby版本的复制一份，改为2-0即可"><a href="#2-直接把本机的ruby版本的复制一份，改为2-0即可" class="headerlink" title="2.直接把本机的ruby版本的复制一份，改为2.0即可"></a>2.直接把本机的ruby版本的复制一份，改为2.0即可</h6><p> 既然 <code>Cycript</code>仅依赖<code>ruby 2.0.0</code>，那我直接把本机的ruby版本的复制一份，改为2.0不就可以了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/</span><br><span class="line">sudo ln -s /System/Library/Frameworks/Ruby.framework/Versions/2.5/usr/lib/libruby.2.5.1.dylib /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/libruby.2.0.0.dylib</span><br></pre></td></tr></table></figure>
 <blockquote>
+<blockquote>
 <p>注：根据每个人ruby版本不同，将上面第二条命令的/System/Library/Frameworks/Ruby.framework/Versions/2.5.1/usr/lib/libruby.2.5.1.dylib中的2.5.1改成本机的ruby版本。</p>
+</blockquote>
 </blockquote>
 <p>又遇到困难了，终端提示我没权限，不能操作。原来是<code>系统的SIP</code>搞得鬼。</p>
 <h6 id="3-关闭系统的SIP"><a href="#3-关闭系统的SIP" class="headerlink" title="3.关闭系统的SIP"></a>3.关闭系统的SIP</h6><p>在 OS X El Capitan 中有一个跟安全相关的模式叫 SIP（System Integrity Protection ），它禁止让软件以 root 身份来在 Mac 上运行，在升级到 OS X 10.11 中或许你就会看到部分应用程序被禁用了，这些或许是你通过终端或者第三方软件源安装。</p>
