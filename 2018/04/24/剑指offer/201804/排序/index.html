@@ -124,14 +124,14 @@
 <meta name="description" content="原理:比较两个相邻的元素，将值大的元素交换至右端。思路：依次比较相邻的两个数，将小数放在前面，大数放在后面。即在第一趟：首先比较第1个和第2个数，将小数放前，大数放后。然后比较第2个数和第3个数，将小数放前，大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后。重复第一趟步骤，直至全部排序完成。 举例说明：要排序数组：int[] arr={6,3,8,2,9,1};    第一趟排序：">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冒泡排序(BubbleSort)">
+<meta property="og:title" content="经典算法之冒泡排序(Bubble Sort)">
 <meta property="og:url" content="https://liuliangju.github.io/2018/04/24/剑指offer/201804/排序/index.html">
 <meta property="og:site_name" content="良局｜博客">
 <meta property="og:description" content="原理:比较两个相邻的元素，将值大的元素交换至右端。思路：依次比较相邻的两个数，将小数放在前面，大数放在后面。即在第一趟：首先比较第1个和第2个数，将小数放前，大数放后。然后比较第2个数和第3个数，将小数放前，大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后。重复第一趟步骤，直至全部排序完成。 举例说明：要排序数组：int[] arr={6,3,8,2,9,1};    第一趟排序：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T23:00:27.994Z">
+<meta property="og:updated_time" content="2018-04-23T23:04:18.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="冒泡排序(BubbleSort)">
+<meta name="twitter:title" content="经典算法之冒泡排序(Bubble Sort)">
 <meta name="twitter:description" content="原理:比较两个相邻的元素，将值大的元素交换至右端。思路：依次比较相邻的两个数，将小数放在前面，大数放在后面。即在第一趟：首先比较第1个和第2个数，将小数放前，大数放后。然后比较第2个数和第3个数，将小数放前，大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后。重复第一趟步骤，直至全部排序完成。 举例说明：要排序数组：int[] arr={6,3,8,2,9,1};    第一趟排序：">
 
 
@@ -168,7 +168,7 @@
 
 
 
-  <title>冒泡排序(BubbleSort) | 良局｜博客</title>
+  <title>经典算法之冒泡排序(Bubble Sort) | 良局｜博客</title>
   
 
 
@@ -331,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">冒泡排序(BubbleSort)</h2>
+          <h2 class="post-title" itemprop="name headline">经典算法之冒泡排序(Bubble Sort)</h2>
         
 
         <div class="post-meta">
@@ -441,7 +441,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;arr.length-i;j++)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度:"></a>时间复杂度:</h4><p>　1.如果我们的数据正序，只需要走一趟即可完成排序。所需的比较次数C和记录移动次数M均达到最小值，即：Cmin=n-1;Mmin=0;所以，冒泡排序最好的时间复杂度为O(n)。</p>
-<p>　　2.如果很不幸我们的数据是反序的，则需要进行n-1趟排序。每趟排序要进行n-i次比较(1≤i≤n-1)，且每次比较都必须移动记录三次来达到交换记录位置。在这种情况下，比较和移动次数均达到最大值：冒泡排序的最坏时间复杂度为：O(n^2) 。</p>
+<p>　2.如果很不幸我们的数据是反序的，则需要进行n-1趟排序。每趟排序要进行n-i次比较(1≤i≤n-1)，且每次比较都必须移动记录三次来达到交换记录位置。在这种情况下，比较和移动次数均达到最大值：冒泡排序的最坏时间复杂度为：O(n^2) 。</p>
 <p>综上所述：冒泡排序总的平均时间复杂度为：O(n^2) 。</p>
 <hr>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 冒泡排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> length = nums.length;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>; i++) &#123; <span class="comment">//外层循环控制排序趟数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length -<span class="number">1</span> - i; j++) &#123; <span class="comment">//内层循环控制每一趟排序多少次</span></span><br><span class="line">			<span class="keyword">if</span> (nums[j] &gt; nums[j+<span class="number">1</span>]) &#123;</span><br><span class="line">				swapNums(nums, j, j+<span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">		System.out.println(i + <span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] swapNums(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j) &#123;</span><br><span class="line"><span class="comment">//	int tmp = nums[i];</span></span><br><span class="line"><span class="comment">//	nums[i] = nums[j];</span></span><br><span class="line"><span class="comment">//	nums[j] = tmp;</span></span><br><span class="line">		</span><br><span class="line">	nums[i] = nums[i]^nums[j];</span><br><span class="line">	nums[j] = nums[i]^nums[j];</span><br><span class="line">	nums[i] = nums[i]^nums[j];</span><br><span class="line">	<span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
