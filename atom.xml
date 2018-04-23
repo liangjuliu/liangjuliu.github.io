@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuliangju.github.io/"/>
-  <updated>2018-04-23T13:45:18.674Z</updated>
+  <updated>2018-04-23T23:00:27.994Z</updated>
   <id>https://liuliangju.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>冒泡排序(BubbleSort)</title>
+    <link href="https://liuliangju.github.io/2018/04/24/%E5%89%91%E6%8C%87offer/201804/%E6%8E%92%E5%BA%8F/"/>
+    <id>https://liuliangju.github.io/2018/04/24/剑指offer/201804/排序/</id>
+    <published>2018-04-23T22:05:13.000Z</published>
+    <updated>2018-04-23T23:00:27.994Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h4><p>比较两个相邻的元素，将值大的元素交换至右端。<br>思路：依次比较相邻的两个数，将小数放在前面，大数放在后面。即在第一趟：首先比较第1个和第2个数，将小数放前，大数放后。然后比较第2个数和第3个数，将小数放前，大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后。重复第一趟步骤，直至全部排序完成。</p><p>举例说明：要排序数组：int[] arr={6,3,8,2,9,1};   </p><p>第一趟排序：</p><p>　　　　第一次排序：6和3比较，6大于3，交换位置：  3  6  8  2  9  1</p><p>　　　　第二次排序：6和8比较，6小于8，不交换位置：3  6  8  2  9  1</p><p>　　　　第三次排序：8和2比较，8大于2，交换位置：  3  6  2  8  9  1</p><p>　　　　第四次排序：8和9比较，8小于9，不交换位置：3  6  2  8  9  1</p><p>　　　　第五次排序：9和1比较：9大于1，交换位置：  3  6  2  8  1  9</p><p>　　　　第一趟总共进行了5次比较， 排序结果：      3  6  2  8  1  9</p><hr><p>第二趟排序：</p><p>　　　　第一次排序：3和6比较，3小于6，不交换位置：3  6  2  8  1  9</p><p>　　　　第二次排序：6和2比较，6大于2，交换位置：  3  2  6  8  1  9</p><p>　　　　第三次排序：6和8比较，6大于8，不交换位置：3  2  6  8  1  9</p><p>　　　　第四次排序：8和1比较，8大于1，交换位置：  3  2  6  1  8  9</p><p>　　　　第二趟总共进行了4次比较， 排序结果：      3  2  6  1  8  9</p><hr><p>第三趟排序：</p><p>　　　　第一次排序：3和2比较，3大于2，交换位置：  2  3  6  1  8  9</p><p>　　　　第二次排序：3和6比较，3小于6，不交换位置：2  3  6  1  8  9</p><p>　　　　第三次排序：6和1比较，6大于1，交换位置：  2  3  1  6  8  9</p><p>　　　　第二趟总共进行了3次比较， 排序结果：         2  3  1  6  8  9</p><hr><p>第四趟排序：</p><p>　　　　第一次排序：2和3比较，2小于3，不交换位置：2  3  1  6  8  9</p><p>　　　　第二次排序：3和1比较，3大于1，交换位置：  2  1  3  6  8  9</p><p>　　　　第二趟总共进行了2次比较， 排序结果：        2  1  3  6  8  9</p><hr><p>第五趟排序：</p><p>　　　　第一次排序：2和1比较，2大于1，交换位置：  1  2  3  6  8  9</p><p>　　　　第二趟总共进行了1次比较， 排序结果：  1  2  3  6  8  9</p><hr><p>最终结果：1  2  3  6  8  9</p><hr><p>由此可见：N个数字要排序完成，总共进行N-1趟排序，每i趟的排序次数为(N-i)次，所以可以用双重循环语句，外层控制循环多少趟，内层控制每一趟的循环次数，即</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;arr.length-i;j++)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度:"></a>时间复杂度:</h4><p>　1.如果我们的数据正序，只需要走一趟即可完成排序。所需的比较次数C和记录移动次数M均达到最小值，即：Cmin=n-1;Mmin=0;所以，冒泡排序最好的时间复杂度为O(n)。</p><p>　　2.如果很不幸我们的数据是反序的，则需要进行n-1趟排序。每趟排序要进行n-i次比较(1≤i≤n-1)，且每次比较都必须移动记录三次来达到交换记录位置。在这种情况下，比较和移动次数均达到最大值：冒泡排序的最坏时间复杂度为：O(n^2) 。</p><p>综上所述：冒泡排序总的平均时间复杂度为：O(n^2) 。</p><hr><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 冒泡排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> length = nums.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>; i++) &#123; <span class="comment">//外层循环控制排序趟数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length -<span class="number">1</span> - i; j++) &#123; <span class="comment">//内层循环控制每一趟排序多少次</span></span><br><span class="line"><span class="keyword">if</span> (nums[j] &gt; nums[j+<span class="number">1</span>]) &#123;</span><br><span class="line">swapNums(nums, j, j+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">System.out.println(i + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] swapNums(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j) &#123;</span><br><span class="line"><span class="comment">//int tmp = nums[i];</span></span><br><span class="line"><span class="comment">//nums[i] = nums[j];</span></span><br><span class="line"><span class="comment">//nums[j] = tmp;</span></span><br><span class="line"></span><br><span class="line">nums[i] = nums[i]^nums[j];</span><br><span class="line">nums[j] = nums[i]^nums[j];</span><br><span class="line">nums[i] = nums[i]^nums[j];</span><br><span class="line"><span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理:&quot;&gt;&lt;/a&gt;原理:&lt;/h4&gt;&lt;p&gt;比较两个相邻的元素，将值大的元素交换至右端。&lt;br&gt;思路：依次比较相邻的两个数，将小数放在前面，大数放在后面。即在第一趟：首先比较第1个
+      
+    
+    </summary>
+    
+      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>第二篇：初识汇编</title>
