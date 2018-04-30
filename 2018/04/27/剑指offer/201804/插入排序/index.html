@@ -121,18 +121,18 @@
 
 
 
-<meta name="description" content="原理：">
+<meta name="description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经典算法之插入排序(Insertion Sort)">
 <meta property="og:url" content="https://liuliangju.github.io/2018/04/27/剑指offer/201804/插入排序/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="原理：">
+<meta property="og:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T22:12:52.118Z">
+<meta property="og:updated_time" content="2018-04-30T23:06:11.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典算法之插入排序(Insertion Sort)">
-<meta name="twitter:description" content="原理：">
+<meta name="twitter:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
 
 
 
@@ -404,7 +404,36 @@
 
       
         <p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><br></script></p>
-<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>设有一组关键字 {K<sub>1</sub>, K<sub>2</sub>, …, K<sub>n</sub>}; 排序开始就认为K<sub>1</sub>是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K<sub>3</sub>插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让K<sub>n</sub>插入上述表长为n-1的有序序列，得一个表长为n的有序序列。</p>
+<p>具体可以表述为下：</p>
+<ol>
+<li>从第一个元素开始，该元素可以认为已经排序</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+<li>如果该元素(已排序)大于新元素，将该元素移到下一个位置</li>
+<li>重复步骤3，直到找到已排序的元素小于或等于新元素的位置</li>
+<li>将新元素插入该位置后</li>
+<li>重复步骤2～5</li>
+</ol>
+<p>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1}; </p>
+<p>第一趟排序：原始数据：<font color="red"> 6 </font> 3 8 2 9 1 <code>i=0</code><br>从第一个元素开始，该元素可以认为已经排序<br>排序结果： 6 3 8 2 9 1</p>
+<hr>
+<p>第二趟排序： 6 <font color="red"> 3 </font> 8 2 9 1 <code>i=1</code><br>排序结果：3 6 8 2 9 1</p>
+<hr>
+<p>第三趟排序：3 6 <font color="red"> 8 </font>  2 9 1 <code>i=2</code><br>排序结果：3 6 8 2 9 1</p>
+<hr>
+<p>第四趟排序：3 6 8<font color="red"> 2 </font> 9 1 <code>i=3</code><br>排序结果：2 3 6 8 9 1</p>
+<hr>
+<p>第五趟排序：2 3 6 8<font color="red"> 9 </font> 1 <code>i=4</code><br>排序结果：2 3 6 8 9 1</p>
+<hr>
+<p>第六趟排序：2 3 6 8 9 <font color="red"> 1 </font>  <code>i=5</code><br>排序结果：1 2 3 6 8 9 </p>
+<hr>
+<p>最终结果：1  2  3  6  8  9</p>
+<hr>
+<blockquote>
+<p>注：(红色代表此轮要插入的元素，红色左边是已经排好序的，右边是待排序的)</p>
+</blockquote>
+<hr>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4>
       
     </div>
     
@@ -611,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理："><span class="nav-number">1.</span> <span class="nav-text">原理：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li></ol></div>
             
 
           </div>
