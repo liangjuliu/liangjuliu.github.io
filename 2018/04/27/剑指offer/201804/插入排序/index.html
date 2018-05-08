@@ -129,7 +129,7 @@
 <meta property="og:site_name" content="良局｜博客">
 <meta property="og:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T23:06:11.871Z">
+<meta property="og:updated_time" content="2018-05-08T13:02:43.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典算法之插入排序(Insertion Sort)">
 <meta name="twitter:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
@@ -433,7 +433,13 @@
 <p>注：(红色代表此轮要插入的元素，红色左边是已经排好序的，右边是待排序的)</p>
 </blockquote>
 <hr>
-<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>在最坏情况下，数组完全逆序，插入第2个元素时要考察前1个元素，插入第3个元素时，要考虑前2个元素，……，插入第n个元素，要考虑前 n - 1 个元素。因此，最坏情况下的比较次数是 1 + 2 + 3 + … + (n - 1)，等差数列求和，结果为 n<sup>2</sup> / 2，所以最坏情况下的复杂度为 O(n<sup>2</sup>)</p>
+<p>最好情况下，数组已经是有序的，每插入一个元素，只需要考查前一个元素，因此最好情况下，插入排序的时间复杂度为O(n)</p>
+<p>平均时间复杂度为：O(n<sup>2</sup>)</p>
+<p>所以，综上，插入排序的时间复杂度为 O(n<sup>2</sup>)。</p>
+<hr>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">int</span> j, tmp = <span class="number">0</span>;</span><br><span class="line">	  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">		 tmp = nums[i];</span><br><span class="line">		 j = i - <span class="number">1</span>;</span><br><span class="line">		 <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; nums[j]) &#123;</span><br><span class="line">		     nums[j + <span class="number">1</span>] = nums[j];</span><br><span class="line">		     j--;</span><br><span class="line">		&#125;</span><br><span class="line">		nums[j + <span class="number">1</span>] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -472,6 +478,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/08/剑指offer/201805/归并排序/" rel="prev" title="经典算法之归并排序(MERGE-SORT)">
+                经典算法之归并排序(MERGE-SORT) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -557,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -640,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
             
 
           </div>
