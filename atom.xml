@@ -43,32 +43,6 @@
   </entry>
   
   <entry>
-    <title>经典算法之归并排序(MERGE-SORT)</title>
-    <link href="https://liuliangju.github.io/2018/05/08/%E5%89%91%E6%8C%87offer/201805/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
-    <id>https://liuliangju.github.io/2018/05/08/剑指offer/201805/归并排序/</id>
-    <published>2018-05-08T13:45:45.000Z</published>
-    <updated>2018-05-12T14:35:22.394Z</updated>
-    
-    <content type="html"><![CDATA[<p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><br></script></p><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>归并排序是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案”修补”在一起，即分而治之)。</p><p>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1}; </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;br&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;h4 
-      
-    
-    </summary>
-    
-      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>经典算法之插入排序(Insertion Sort)</title>
     <link href="https://liuliangju.github.io/2018/04/27/%E5%89%91%E6%8C%87offer/201804/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
     <id>https://liuliangju.github.io/2018/04/27/剑指offer/201804/插入排序/</id>
