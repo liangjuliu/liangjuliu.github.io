@@ -89,6 +89,28 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[define宏定义和const定义常量区别]]></title>
+    <url>%2F2018%2F04%2F10%2FiOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%2F201805%2FiOS%20define%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%92%8Cconst%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;由于需求不断的添加，工程越来越大，编译速度是越来越慢。之前就看过帖子: 使用宏定义过多的话，随着工程越来越大，编译速度会越来越慢。 &nbsp;&nbsp;&nbsp;&nbsp;当时也想过替换成常量，但是当时的替换方法有问题，导致编译的时候有很多重复的变量，替换失败了，就不了了之，直到最近，每次编译的时间实在是超出了我的容忍极限，于是下定决心，一定要替换掉。又从网上查看帖子，从简书上看到了这篇文章【如何正确使用const,static,extern】|那些人追的干货。 以下为一段替换后的代码： 1234static CGFloat const kHeaderImageWidth = 100; //Header宽度static CGFloat const kHeaderImageHeight = 100; //Header宽度static CGFloat const kHeaderImageY = 110;static CGFloat const kPadding = 30; const 是c++中的修饰符。 c++中常用来定义常量，修饰左值。 补充说明：以上的类型常量替换宏的情况，只是适用于单个文件的情况。如果是多个文件共享的常量，苹果推荐的这样的方式: LJConstant.h 1234567UIKIT_EXTERN CGFloat const RHFirstHeaderHeight; // 分组页面第一个分组的header高度UIKIT_EXTERN CGFloat const RHOtherHeaderHeight; // 分组页面其它分组的header高度UIKIT_EXTERN CGFloat const RHLastFooterHeight; // 分组页面最后一个分组的footer高度UIKIT_EXTERN CGFloat const RHOtherFooterHeight; // 分组页面最后其它分组的footer高度 LJConstant.m 1234567CGFloat const RHFirstHeaderHeight = 15.0f; // 分组页面第一个分组的header高度CGFloat const RHOtherHeaderHeight = 20.0f; // 分区页面其它分组的header高度//20CGFloat const RHLastFooterHeight = 15.0f; // 分组页面最后一个分组的footer高度CGFloat const RHOtherFooterHeight = 0.1f; // 分组页面最后其它分组的footer高度 #define 宏定义语句, 在预处理阶段直接做文本替换，不做类型检查。 它们之间的最大区别: 1.对于const变量，系统只给了一个相应的内存地址，而#define则是给出了一个立即数。因为const变量是存放在内存的静态区域中，所以在程序运行过程中const变量只有一个拷贝，而#define 所定义的宏变量却有多个拷贝，所以宏在程序运行过程中所消耗的内存要比const变量的大得多。#define所定义的宏变量在预编译的时候进行替换，const变量在编译时确定其值。const,enum变量进符号表，可在调试中查看变量的值.而#define不行。 2.const对数据进行类型检查。#define无需进行类型检查。定义宏参数时需将参数（）起来。而且调用时参数不应在宏中再做运算。 3.除了定义常量外，const还有强大的修饰功能。#define能增加程序的可读性，有些复杂的功能只需一条宏显示。]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[define宏定义和const定义常量区别]]></title>
+    <url>%2F2018%2F04%2F10%2FiOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%2F201804%2FiOS%20define%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%92%8Cconst%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[题目3:数组中重复的数字]]></title>
     <url>%2F2018%2F04%2F05%2F%E5%89%91%E6%8C%87offer%2F201804%2F%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
     <content type="text"><![CDATA[找出数组中重复的数字在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复的，但是不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3},那么对应的输出是重复的数字2或者数字3。 123456789101112131415161718192021222324public static boolean dumplicate(int[] numbers) &#123; int len = numbers.length; if (len == 0) &#123; return false; &#125; for (int i = 0; i &lt; len; i++) &#123; if (numbers[i] &lt; 0 || numbers[i] &gt; len - 1) &#123; return false; &#125; &#125; for (int i = 0; i &lt; len; i++) &#123; while (numbers[i] != i) &#123; if (numbers[i] == numbers[numbers[i]]) &#123; return true; &#125; int tmp = numbers[i]; numbers[i] = numbers[tmp]; numbers[tmp] = tmp; &#125; &#125; return false;&#125;]]></content>
