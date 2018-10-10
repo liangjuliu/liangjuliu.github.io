@@ -121,15 +121,18 @@
 
 
 
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS - 分类中方法的调用顺序">
 <meta property="og:url" content="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/index.html">
 <meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-10T13:53:25.446Z">
+<meta property="og:updated_time" content="2018-10-10T22:23:40.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
 
 
 
@@ -400,7 +403,22 @@
       
 
       
-        
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;前几日看老司机专栏发布过一篇文章-<a href="https://xiaozhuanlan.com/topic/1278405369" target="_blank" rel="noopener">iOS 上修改私有方法的几种方式解析</a>，文章中提到了我们通常修改一个类私有方法的方式有以下四种：</p>
+<ul>
+<li>通过创建 Category 复写，这种方式简单而粗暴。</li>
+<li>通过 <code>void method_exchangeImplementations(Method m1, Method m2)</code> 等类似方式实现 <code>Method Swizzling</code>，也就是所谓 的黑魔法。</li>
+<li>通过第三方框架 <code>Aspects</code> 来修改私有方法，对于项目内有强 AOP 编程需求的很可能会选择这个方式。</li>
+<li>通过Facebook开源的 Fishhook 对 C 语言方法进行了 Hook 的方式，它在逆向技术中占据了很大的作用。OC 的消息转发机制是依赖于 C 函数 objc_msgSend ，那么在一些特殊需求需要直接 Hook C 函数的话，Fishhook 就会派上用场了。</li>
+</ul>
+<p>从而想到了总结下iOS在多个<code>Category</code>重名时，方法的调用这么一篇文章。</p>
+<p>本文主要侧重于解决以下几个问题：</p>
+<ol>
+<li>主类和分类中普通方法的调用顺序?</li>
+<li>同一个主类的两个分类中的同名方法调用顺序?</li>
+<li>分类中+load方法的调用顺序?</li>
+<li>分类中+initialize 方法的调用顺序?</li>
+</ol>
+
       
     </div>
     
