@@ -121,21 +121,15 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iOS开发中，为了提升程序的运行效率，增强用户体验，我们经常使用多线程，在使用多线程中，我们应该尽量避免资源在线程中共享，减少线程中的相互作用，我们采用锁的机制来确保线程安全。 线程安全&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当一个线程访问数据的时候，其他的线程不能对其进行数据访问，更不能对其进行数据修改，直到该线程访问完毕。即，同一时刻，对">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS中几种锁的总结">
-<meta property="og:url" content="https://liuliangju.github.io/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/index.html">
+<meta property="og:title" content="iOS - 分类中方法的调用顺序">
+<meta property="og:url" content="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iOS开发中，为了提升程序的运行效率，增强用户体验，我们经常使用多线程，在使用多线程中，我们应该尽量避免资源在线程中共享，减少线程中的相互作用，我们采用锁的机制来确保线程安全。 线程安全&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当一个线程访问数据的时候，其他的线程不能对其进行数据访问，更不能对其进行数据修改，直到该线程访问完毕。即，同一时刻，对">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201805/20180511001.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201805/20180511002.png">
-<meta property="og:updated_time" content="2018-08-14T13:47:34.847Z">
+<meta property="og:updated_time" content="2018-10-09T14:06:58.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS中几种锁的总结">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iOS开发中，为了提升程序的运行效率，增强用户体验，我们经常使用多线程，在使用多线程中，我们应该尽量避免资源在线程中共享，减少线程中的相互作用，我们采用锁的机制来确保线程安全。 线程安全&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当一个线程访问数据的时候，其他的线程不能对其进行数据访问，更不能对其进行数据修改，直到该线程访问完毕。即，同一时刻，对">
-<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201805/20180511001.png">
+<meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
 
 
 
@@ -165,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/"/>
 
 
 
 
 
-  <title>iOS中几种锁的总结 | 良局｜博客</title>
+  <title>iOS - 分类中方法的调用顺序 | 良局｜博客</title>
   
 
 
@@ -317,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiangJu">
@@ -334,7 +328,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS中几种锁的总结</h2>
+          <h2 class="post-title" itemprop="name headline">iOS - 分类中方法的调用顺序</h2>
         
 
         <div class="post-meta">
@@ -346,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T17:08:17+08:00">
-                2018-05-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T22:04:51+08:00">
+                2018-10-09
               </time>
             
 
@@ -369,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/iOS基础/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS基础</span>
                   </a>
                 </span>
 
@@ -406,36 +400,7 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;iOS开发中，为了提升程序的运行效率，增强用户体验，我们经常使用多线程，在使用多线程中，我们应该<strong>尽量避免资源在线程中共享，减少线程中的相互作用</strong>，我们采用锁的机制来确保线程安全。</p>
-<h4 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;当一个线程访问数据的时候，其他的线程不能对其进行数据访问，更不能对其进行数据修改，直到该线程访问完毕。即，同一时刻，对同一个数据的操作的线程只有一个。只有这样，才能使数据不被其他线程污染；而线程不安全，则是同一时刻可以有多个线程对该数据进行访问，从而得不到预期的结果。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;比如读写数据库，当一个线程在写数据的时候，如果这个时候另一个线程来直接读取数据，那么有可能得到的将是不可预期的结果。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;通常我们使用锁的机制来保证线程安全，即确保同一时刻只有同一个线程来对同一个数据源进行访问。在开发中我们经常使用以下几种锁:</p>
-<ol>
-<li>NSLock</li>
-<li>@synchronized</li>
-<li>NSRecursiveLock</li>
-<li>NSCondition</li>
-<li>NSConditionLock</li>
-<li>pthread_mutex</li>
-<li>pthread_rwlock</li>
-<li>dispatch_semaphore</li>
-<li>OSSpinLock</li>
-</ol>
-<h4 id="NSLock"><a href="#NSLock" class="headerlink" title="NSLock"></a>NSLock</h4><p>NSLock实现了最基本的互斥锁，遵循了NSLocking协议，通过 lock 和 unlock 来进行锁定和解锁，其使用也非常简单</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLock</span> *lock = [[<span class="built_in">NSLock</span> alloc]init];</span><br><span class="line">  [lock lock];</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"加锁成功"</span>);</span><br><span class="line">  sleep(<span class="number">2</span>);</span><br><span class="line">  [lock unlock];</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"解锁成功"</span>);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：lock与unlock操作必须在同一线程，否则结果不确定甚至会引起死锁</p>
-</blockquote>
-<p>由于是互斥锁，当一个线程进行访问的时候，该线程获得锁，其他线程进行访问的时候，将被操作系统挂起，直到该线程释放锁，其他线程才能对其进行访问，从而却确保了线程安全。但是如果连续锁定两次，则会造成死锁问题。</p>
-<h4 id="synchronized"><a href="#synchronized" class="headerlink" title="@synchronized"></a>@synchronized</h4><p>@synchronized是 iOS 中最常见的锁，用法很简单：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> - (<span class="keyword">void</span>)synchronizeDemo &#123;</span><br><span class="line">    <span class="built_in">NSObject</span> *object = [[<span class="built_in">NSObject</span> alloc]init];</span><br><span class="line">    <span class="keyword">@synchronized</span>(object) &#123; <span class="comment">//这里添加一个OC对象，一般使用self</span></span><br><span class="line">        <span class="comment">// Everything between the braces is protected by the @synchronized directive.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注：1.加锁的代码尽量少<br>　　  2.添加的OC对象必须在多个线程中都是同一对象，下面举一个反例</p>
-</blockquote>
-<p>我们看一个经典的卖票例子：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// 设置车票总张数10 张</span></span><br><span class="line">    _tickets = <span class="number">5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 线程一</span></span><br><span class="line">    <span class="built_in">NSThread</span> *threadOne = [[<span class="built_in">NSThread</span> alloc]initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(saleTickets) object:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 线程二</span></span><br><span class="line">    <span class="built_in">NSThread</span> *threadTwo = [[<span class="built_in">NSThread</span> alloc]initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(saleTickets) object:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 开启线程</span></span><br><span class="line">    [threadOne start];</span><br><span class="line">    [threadTwo start];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)saleTickets &#123;</span><br><span class="line">    <span class="built_in">NSObject</span> *object = [[<span class="built_in">NSObject</span> alloc]init];</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">@synchronized</span>(object) &#123;</span><br><span class="line">            [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (_tickets &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                _tickets --;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"剩余票数= %ld"</span>,_tickets);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"票卖没了"</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果卖票出错了，出现这个原因的问题是每个线程都会创建一个object对象，锁后面加的object在不同线程中了从而导致卖票出差。<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201805/20180511001.png"><br>把@synchronized（object）改成 @synchronized（self）就能得到了正确结果<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201805/20180511002.png"></p>
-
+        
       
     </div>
     
@@ -465,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/27/剑指offer/201804/插入排序/" rel="next" title="经典算法之插入排序(Insertion Sort)">
-                <i class="fa fa-chevron-left"></i> 经典算法之插入排序(Insertion Sort)
+              <a href="/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/" rel="next" title="iOS中几种锁的总结">
+                <i class="fa fa-chevron-left"></i> iOS中几种锁的总结
               </a>
             
           </div>
@@ -474,10 +439,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/" rel="prev" title="iOS - 分类中方法的调用顺序">
-                iOS - 分类中方法的调用顺序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,17 +495,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -636,22 +588,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全"><span class="nav-number">1.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSLock"><span class="nav-number">2.</span> <span class="nav-text">NSLock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized"><span class="nav-number">3.</span> <span class="nav-text">@synchronized</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

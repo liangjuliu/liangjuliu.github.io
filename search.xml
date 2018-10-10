@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iOS - 分类中方法的调用顺序]]></title>
+    <url>%2F2018%2F10%2F09%2FiOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%2F201810%2FiOS-%E5%88%86%E7%B1%BB%E4%B8%AD%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>iOS基础</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS中几种锁的总结]]></title>
     <url>%2F2018%2F05%2F10%2FiOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%2F201805%2FiOS%E4%B8%AD%E5%87%A0%E7%A7%8D%E9%94%81%E7%9A%84%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;iOS开发中，为了提升程序的运行效率，增强用户体验，我们经常使用多线程，在使用多线程中，我们应该尽量避免资源在线程中共享，减少线程中的相互作用，我们采用锁的机制来确保线程安全。 线程安全&nbsp;&nbsp;&nbsp;&nbsp;当一个线程访问数据的时候，其他的线程不能对其进行数据访问，更不能对其进行数据修改，直到该线程访问完毕。即，同一时刻，对同一个数据的操作的线程只有一个。只有这样，才能使数据不被其他线程污染；而线程不安全，则是同一时刻可以有多个线程对该数据进行访问，从而得不到预期的结果。 &nbsp;&nbsp;&nbsp;&nbsp;比如读写数据库，当一个线程在写数据的时候，如果这个时候另一个线程来直接读取数据，那么有可能得到的将是不可预期的结果。 &nbsp;&nbsp;&nbsp;&nbsp;通常我们使用锁的机制来保证线程安全，即确保同一时刻只有同一个线程来对同一个数据源进行访问。在开发中我们经常使用以下几种锁: NSLock @synchronized NSRecursiveLock NSCondition NSConditionLock pthread_mutex pthread_rwlock dispatch_semaphore OSSpinLock NSLockNSLock实现了最基本的互斥锁，遵循了NSLocking协议，通过 lock 和 unlock 来进行锁定和解锁，其使用也非常简单 123456NSLock *lock = [[NSLock alloc]init]; [lock lock]; NSLog(@"加锁成功"); sleep(2); [lock unlock]; NSLog(@"解锁成功"); 注意：lock与unlock操作必须在同一线程，否则结果不确定甚至会引起死锁 由于是互斥锁，当一个线程进行访问的时候，该线程获得锁，其他线程进行访问的时候，将被操作系统挂起，直到该线程释放锁，其他线程才能对其进行访问，从而却确保了线程安全。但是如果连续锁定两次，则会造成死锁问题。 @synchronized@synchronized是 iOS 中最常见的锁，用法很简单： 123456 - (void)synchronizeDemo &#123; NSObject *object = [[NSObject alloc]init]; @synchronized(object) &#123; //这里添加一个OC对象，一般使用self // Everything between the braces is protected by the @synchronized directive. &#125;&#125; 注：1.加锁的代码尽量少 2.添加的OC对象必须在多个线程中都是同一对象，下面举一个反例 我们看一个经典的卖票例子： 12345678910111213141516171819202122232425262728293031- (void)viewDidLoad &#123; [super viewDidLoad]; // 设置车票总张数10 张 _tickets = 5; // 线程一 NSThread *threadOne = [[NSThread alloc]initWithTarget:self selector:@selector(saleTickets) object:nil]; // 线程二 NSThread *threadTwo = [[NSThread alloc]initWithTarget:self selector:@selector(saleTickets) object:nil]; // 开启线程 [threadOne start]; [threadTwo start];&#125;- (void)saleTickets &#123; NSObject *object = [[NSObject alloc]init]; while (1) &#123; @synchronized(object) &#123; [NSThread sleepForTimeInterval:1]; if (_tickets &gt; 0) &#123; _tickets --; NSLog(@"剩余票数= %ld",_tickets); &#125; else &#123; NSLog(@"票卖没了"); break; &#125; &#125; &#125;&#125; 结果卖票出错了，出现这个原因的问题是每个线程都会创建一个object对象，锁后面加的object在不同线程中了从而导致卖票出差。把@synchronized（object）改成 @synchronized（self）就能得到了正确结果]]></content>
