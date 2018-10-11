@@ -130,7 +130,11 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
-<meta property="og:updated_time" content="2018-10-11T09:05:47.256Z">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png">
+<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png">
+<meta property="og:updated_time" content="2018-10-11T12:36:57.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
@@ -420,7 +424,14 @@
 <li>分类中 +load 方法的调用顺序?</li>
 <li>分类中 +initialize 方法的调用顺序?</li>
 </ol>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1，新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类<code>MyClass</code>创建了几个分类了<img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png"> </p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类<code>MyClass</code>创建了几个分类了<img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png"> </p>
+<h5 id="主类、子类和分类中的-void-load方法的调用顺序"><a href="#主类、子类和分类中的-void-load方法的调用顺序" class="headerlink" title="主类、子类和分类中的+ (void)load方法的调用顺序"></a>主类、子类和分类中的<strong><code>+ (void)load</code></strong>方法的调用顺序</h5><p>在主类和子类、分类中重写+load方法</p>
+<ol>
+<li>情形一<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png"> </li>
+<li>情形二<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png"> </li>
+<li>情形三<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png"> </li>
+<li>情形四<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png"> </li>
+</ol>
 
       
     </div>
@@ -628,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主类、子类和分类中的-void-load方法的调用顺序"><span class="nav-number">1.1.</span> <span class="nav-text">主类、子类和分类中的+ (void)load方法的调用顺序</span></a></li></ol></li></ol></div>
             
 
           </div>
