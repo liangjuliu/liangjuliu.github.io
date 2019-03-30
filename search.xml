@@ -12,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[题目3:数组中重复的数字]]></title>
+    <url>%2F2019%2F03%2F28%2F%E5%89%91%E6%8C%87offer%2F201903%2F03.%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[找出数组中重复的数字在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复的，但是不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3},那么对应的输出是重复的数字2或者数字3。 123456789101112131415161718192021222324public static boolean duplicate(int[] numbers) &#123; int len = numbers.length; if (len == 0) &#123; return false; &#125; for (int i = 0; i &lt; len; i++) &#123; if (numbers[i] &lt; 0 || numbers[i] &gt; len - 1) &#123; return false; &#125; &#125; int[] dup = new int[1]; for (int i = 0, j = 0; i &lt; len; i++) &#123; while (numbers[i] != i) &#123; if (numbers[i] == numbers[numbers[i]]) &#123; dup[j++] = numbers[i]; return true; &#125; int tmp = numbers[i]; numbers[i] = numbers[tmp]; numbers[tmp] = tmp; &#125; &#125; return false;&#125;]]></content>
+      <categories>
+        <category>剑指Offer学习</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS - 分类中方法的调用顺序]]></title>
     <url>%2F2018%2F10%2F09%2FiOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%2F201810%2FiOS-%E5%88%86%E7%B1%BB%E4%B8%AD%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种： 通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzling，也就是所谓 的黑魔法。 通过第三方框架 Aspects 来修改私有方法，对于项目内有强 AOP 编程需求的很可能会选择这个方式。 通过Facebook开源的 Fishhook 对 C 语言方法进行了 Hook 的方式，它在逆向技术中占据了很大的作用。OC 的消息转发机制是依赖于 C 函数 objc_msgSend ，那么在一些特殊需求需要直接 Hook C 函数的话，Fishhook 就会派上用场了。 从而想到了总结下iOS在多个Category重名时，方法的调用这么一篇文章。 本文主要侧重于解决以下几个问题： 主类和分类中普通方法的调用顺序? 同一个主类的两个分类中的同名方法调用顺序? 分类中 +load 方法的调用顺序? 分类中 +initialize 方法的调用顺序? 准备工作新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类MyClass创建了几个分类了 主类、子类和分类中的+ (void)load方法的调用顺序在主类和子类、分类中重写+load方法 情形一 情形二 情形三 情形四 结论：1.&nbsp;主类和子类、分类的都会主动调用 +load 方法2.&nbsp;主类和子类加载顺序与编译顺序无关，调用优先级为父类优先于子类。3.&nbsp;分类间的加载顺序取决于编译的顺序:编译在前则先加载, 编译在后则后加载。4.&nbsp;父类、子类、分类的加载顺序为：父类优先于子类，子类优先于分类(父类&gt;子类&gt;分类)。]]></content>
@@ -86,17 +97,6 @@
       </categories>
       <tags>
         <tag>iOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[题目3:数组中重复的数字]]></title>
-    <url>%2F2018%2F04%2F05%2F%E5%89%91%E6%8C%87offer%2F201903%2F03.%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[找出数组中重复的数字在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复的，但是不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3},那么对应的输出是重复的数字2或者数字3。 123456789101112131415161718192021222324public static boolean duplicate(int[] numbers) &#123; int len = numbers.length; if (len == 0) &#123; return false; &#125; for (int i = 0; i &lt; len; i++) &#123; if (numbers[i] &lt; 0 || numbers[i] &gt; len - 1) &#123; return false; &#125; &#125; int[] dup = new int[1]; for (int i = 0, j = 0; i &lt; len; i++) &#123; while (numbers[i] != i) &#123; if (numbers[i] == numbers[numbers[i]]) &#123; dup[j++] = numbers[i]; return true; &#125; int tmp = numbers[i]; numbers[i] = numbers[tmp]; numbers[tmp] = tmp; &#125; &#125; return false;&#125;]]></content>
-      <categories>
-        <category>剑指Offer学习</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
