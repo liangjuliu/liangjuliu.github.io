@@ -121,18 +121,18 @@
 
 
 
-<meta name="description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
+<meta name="description" content="替换空格题目：请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入”We are happy.”，则输出”We%20are%20happy.”。 12345678910111213141516171819202122232425262728293031public static void replaceSpace(char[] string) &amp;#123;		if (string.le">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经典算法之插入排序(Insertion Sort)">
-<meta property="og:url" content="https://liuliangju.github.io/2018/04/27/剑指offer/201804/01.插入排序/index.html">
+<meta property="og:title" content="题目5:替换空格">
+<meta property="og:url" content="https://liuliangju.github.io/2018/04/16/剑指offer/201804/替换空格/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
+<meta property="og:description" content="替换空格题目：请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入”We are happy.”，则输出”We%20are%20happy.”。 12345678910111213141516171819202122232425262728293031public static void replaceSpace(char[] string) &amp;#123;		if (string.le">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T11:51:09.438Z">
+<meta property="og:updated_time" content="2019-03-30T11:57:44.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="经典算法之插入排序(Insertion Sort)">
-<meta name="twitter:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
+<meta name="twitter:title" content="题目5:替换空格">
+<meta name="twitter:description" content="替换空格题目：请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入”We are happy.”，则输出”We%20are%20happy.”。 12345678910111213141516171819202122232425262728293031public static void replaceSpace(char[] string) &amp;#123;		if (string.le">
 
 
 
@@ -162,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2018/04/27/剑指offer/201804/01.插入排序/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/2018/04/16/剑指offer/201804/替换空格/"/>
 
 
 
 
 
-  <title>经典算法之插入排序(Insertion Sort) | 良局｜博客</title>
+  <title>题目5:替换空格 | 良局｜博客</title>
   
 
 
@@ -314,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/04/27/剑指offer/201804/01.插入排序/">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/04/16/剑指offer/201804/替换空格/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiangJu">
@@ -331,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">经典算法之插入排序(Insertion Sort)</h2>
+          <h2 class="post-title" itemprop="name headline">题目5:替换空格</h2>
         
 
         <div class="post-meta">
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T06:08:07+08:00">
-                2018-04-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T21:33:26+08:00">
+                2018-04-16
               </time>
             
 
@@ -403,42 +403,8 @@
       
 
       
-        <p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><br></script></p>
-<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>设有一组关键字 {K<sub>1</sub>, K<sub>2</sub>, …, K<sub>n</sub>}; 排序开始就认为K<sub>1</sub>是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K<sub>3</sub>插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让K<sub>n</sub>插入上述表长为n-1的有序序列，得一个表长为n的有序序列。</p>
-<p>具体可以表述为下：</p>
-<ol>
-<li>从第一个元素开始，该元素可以认为已经排序</li>
-<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
-<li>如果该元素(已排序)大于新元素，将该元素移到下一个位置</li>
-<li>重复步骤3，直到找到已排序的元素小于或等于新元素的位置</li>
-<li>将新元素插入该位置后</li>
-<li>重复步骤2～5</li>
-</ol>
-<p>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1}; </p>
-<p>第一趟排序：原始数据：<font color="red"> 6 </font> 3 8 2 9 1 <code>i=0</code><br>从第一个元素开始，该元素可以认为已经排序<br>排序结果： 6 3 8 2 9 1</p>
-<hr>
-<p>第二趟排序： 6 <font color="red"> 3 </font> 8 2 9 1 <code>i=1</code><br>排序结果：3 6 8 2 9 1</p>
-<hr>
-<p>第三趟排序：3 6 <font color="red"> 8 </font>  2 9 1 <code>i=2</code><br>排序结果：3 6 8 2 9 1</p>
-<hr>
-<p>第四趟排序：3 6 8<font color="red"> 2 </font> 9 1 <code>i=3</code><br>排序结果：2 3 6 8 9 1</p>
-<hr>
-<p>第五趟排序：2 3 6 8<font color="red"> 9 </font> 1 <code>i=4</code><br>排序结果：2 3 6 8 9 1</p>
-<hr>
-<p>第六趟排序：2 3 6 8 9 <font color="red"> 1 </font>  <code>i=5</code><br>排序结果：1 2 3 6 8 9 </p>
-<hr>
-<p>最终结果：1  2  3  6  8  9</p>
-<hr>
-<blockquote>
-<p>注：(红色代表此轮要插入的元素，红色左边是已经排好序的，右边是待排序的)</p>
-</blockquote>
-<hr>
-<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>在最坏情况下，数组完全逆序，插入第2个元素时要考察前1个元素，插入第3个元素时，要考虑前2个元素，……，插入第n个元素，要考虑前 n - 1 个元素。因此，最坏情况下的比较次数是 1 + 2 + 3 + … + (n - 1)，等差数列求和，结果为 n<sup>2</sup> / 2，所以最坏情况下的复杂度为 O(n<sup>2</sup>)</p>
-<p>最好情况下，数组已经是有序的，每插入一个元素，只需要考查前一个元素，因此最好情况下，插入排序的时间复杂度为O(n)</p>
-<p>平均时间复杂度为：O(n<sup>2</sup>)</p>
-<p>所以，综上，插入排序的时间复杂度为 O(n<sup>2</sup>)。</p>
-<hr>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">int</span> j, tmp = <span class="number">0</span>;</span><br><span class="line">	  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">		 tmp = nums[i];</span><br><span class="line">		 j = i - <span class="number">1</span>;</span><br><span class="line">		 <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; nums[j]) &#123;</span><br><span class="line">		     nums[j + <span class="number">1</span>] = nums[j];</span><br><span class="line">		     j--;</span><br><span class="line">		&#125;</span><br><span class="line">		nums[j + <span class="number">1</span>] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h4><p>题目：请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入”We are happy.”，则输出”We%20are%20happy.”。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">replaceSpace</span><span class="params">(<span class="keyword">char</span>[] string)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (string.length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> originalLength = string.length;</span><br><span class="line">		<span class="keyword">int</span> spaceCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; originalLength; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (string[i] == <span class="string">' '</span>) &#123;</span><br><span class="line">				spaceCount++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> newLength = originalLength + <span class="number">2</span> * spaceCount;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">char</span>[] tmpChar = <span class="keyword">new</span> <span class="keyword">char</span>[newLength];</span><br><span class="line">		<span class="keyword">int</span> indexOfOriginal = originalLength - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> indexOfNew = newLength - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (indexOfOriginal &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (string[indexOfOriginal] == <span class="string">' '</span>) &#123;</span><br><span class="line">				tmpChar[indexOfNew--] = <span class="string">'0'</span>;</span><br><span class="line">				tmpChar[indexOfNew--] = <span class="string">'2'</span>;</span><br><span class="line">				tmpChar[indexOfNew--] = <span class="string">'%'</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				tmpChar[indexOfNew--] = string[indexOfOriginal];</span><br><span class="line">			&#125;</span><br><span class="line">			indexOfOriginal--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -469,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/24/剑指offer/201804/03.选择排序/" rel="next" title="经典算法之选择排序(Selection Sort)">
-                <i class="fa fa-chevron-left"></i> 经典算法之选择排序(Selection Sort)
+              <a href="/2018/04/10/iOS基础总结/201804/iOS define宏定义和const定义常量区别/" rel="next" title="define宏定义和const定义常量区别">
+                <i class="fa fa-chevron-left"></i> define宏定义和const定义常量区别
               </a>
             
           </div>
@@ -479,8 +445,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/" rel="prev" title="iOS中几种锁的总结">
-                iOS中几种锁的总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/17/剑指offer/201804/从尾到头打印链表/" rel="prev" title="题目6:从尾到头打印链表">
+                题目6:从尾到头打印链表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -567,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -650,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#替换空格"><span class="nav-number">1.</span> <span class="nav-text">替换空格</span></a></li></ol></div>
             
 
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuliangju.github.io/"/>
-  <updated>2019-03-30T11:51:09.442Z</updated>
+  <updated>2018-10-11T12:56:34.062Z</updated>
   <id>https://liuliangju.github.io/</id>
   
   <author>
@@ -15,81 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>06:从尾到头打印链表</title>
-    <link href="https://liuliangju.github.io/2019/03/30/%E5%89%91%E6%8C%87offer/201903/06%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
-    <id>https://liuliangju.github.io/2019/03/30/剑指offer/201903/06从尾到头打印链表/</id>
-    <published>2019-03-30T08:54:22.000Z</published>
-    <updated>2019-03-30T11:51:09.442Z</updated>
-    
-    <content type="html"><![CDATA[<p>输入一个链表的头节点，从尾到头反过来打印出每个节点的值，链表定义如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 自定义节点，包含数据域和指针域</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *String value;</span></span><br><span class="line"><span class="comment"> *  ListNode next;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *    public ListNode(String value, ListNode next) &#123;</span></span><br><span class="line"><span class="comment"> *      this.value = value;</span></span><br><span class="line"><span class="comment"> *      this.next = next;</span></span><br><span class="line"><span class="comment"> *    &#125;</span></span><br><span class="line"><span class="comment"> *   </span></span><br><span class="line"><span class="comment"> *    public ListNode(String value) &#123;</span></span><br><span class="line"><span class="comment"> *this.value = value;</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">reverseNode</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">ListNode head = <span class="keyword">new</span> ListNode(<span class="string">"a"</span>);</span><br><span class="line">ListNode node1 = <span class="keyword">new</span> ListNode(<span class="string">"b"</span>);</span><br><span class="line">ListNode node2 = <span class="keyword">new</span> ListNode(<span class="string">"c"</span>);</span><br><span class="line">ListNode node3 = <span class="keyword">new</span> ListNode(<span class="string">"d"</span>);</span><br><span class="line"><span class="comment">// 初始化链表</span></span><br><span class="line">head.next = node1;</span><br><span class="line">node1.next = node2;</span><br><span class="line">node2.next = node3;</span><br><span class="line">PrintReversingly_Iteratively(head);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">PrintReversingly_Iteratively</span><span class="params">(ListNode node)</span> </span>&#123;</span><br><span class="line">Stack&lt;ListNode&gt; nodeStack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">nodeStack.push(node);</span><br><span class="line">node = node.next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (!nodeStack.isEmpty()) &#123;</span><br><span class="line">ListNode tempNode = nodeStack.pop();</span><br><span class="line">System.out.println(tempNode.value);<span class="comment">// 打印元素</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;输入一个链表的头节点，从尾到头反过来打印出每个节点的值，链表定义如下：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>题目5:替换空格</title>
-    <link href="https://liuliangju.github.io/2019/03/30/%E5%89%91%E6%8C%87offer/201903/05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"/>
-    <id>https://liuliangju.github.io/2019/03/30/剑指offer/201903/05替换空格/</id>
-    <published>2019-03-30T02:47:12.000Z</published>
-    <updated>2019-03-30T11:51:09.442Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h4><p>请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入 “We are happy.”，则输出 “We%20are%20happy.”。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">replaceBlank</span><span class="params">(String string)</span> </span>&#123;</span><br><span class="line">StringBuilder str = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">str.append(string);</span><br><span class="line"><span class="keyword">if</span> (str.length() &lt;= <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> originalLength = str.length();</span><br><span class="line"><span class="keyword">int</span> numberOfBlank = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; originalLength; i++) &#123;</span><br><span class="line"><span class="keyword">if</span> (str.charAt(i) == <span class="string">' '</span>) &#123;</span><br><span class="line">numberOfBlank++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> newLength = originalLength + <span class="number">2</span> * numberOfBlank;</span><br><span class="line">str.setLength(newLength);</span><br><span class="line"><span class="keyword">int</span> indexOfOriginal = originalLength - <span class="number">1</span>; <span class="comment">// 原来字符串的索引</span></span><br><span class="line"><span class="keyword">int</span> indexOfNew = newLength - <span class="number">1</span>; <span class="comment">// 新字符串的索引</span></span><br><span class="line"><span class="keyword">while</span> (indexOfOriginal &gt;= <span class="number">0</span> &amp;&amp; indexOfNew &gt; indexOfOriginal) &#123;</span><br><span class="line"><span class="keyword">if</span> (str.charAt(indexOfOriginal) == <span class="string">' '</span>) &#123;</span><br><span class="line">str.setCharAt(indexOfNew--, <span class="string">'0'</span>);</span><br><span class="line">str.setCharAt(indexOfNew--, <span class="string">'2'</span>);</span><br><span class="line">str.setCharAt(indexOfNew--, <span class="string">'%'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">str.setCharAt(indexOfNew--, str.charAt(indexOfOriginal));</span><br><span class="line">&#125;</span><br><span class="line">--indexOfOriginal;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> str.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;替换空格&quot;&gt;&lt;a href=&quot;#替换空格&quot; class=&quot;headerlink&quot; title=&quot;替换空格&quot;&gt;&lt;/a&gt;替换空格&lt;/h4&gt;&lt;p&gt;请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入 “We are happy.”，则输出 “We%20are
-      
-    
-    </summary>
-    
-      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>题目3:数组中重复的数字</title>
-    <link href="https://liuliangju.github.io/2019/03/28/%E5%89%91%E6%8C%87offer/201903/03.%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
-    <id>https://liuliangju.github.io/2019/03/28/剑指offer/201903/03.数组中重复的数字/</id>
-    <published>2019-03-27T22:52:54.000Z</published>
-    <updated>2019-03-30T11:51:09.440Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="找出数组中重复的数字"><a href="#找出数组中重复的数字" class="headerlink" title="找出数组中重复的数字"></a>找出数组中重复的数字</h4><p>在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复的，但是不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3},那么对应的输出是重复的数字2或者数字3。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> len = numbers.length;</span><br><span class="line"><span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line"><span class="keyword">if</span> (numbers[i] &lt; <span class="number">0</span> || numbers[i] &gt; len - <span class="number">1</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span>[] dup = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line"><span class="keyword">while</span> (numbers[i] != i) &#123;</span><br><span class="line"><span class="keyword">if</span> (numbers[i] == numbers[numbers[i]]) &#123;</span><br><span class="line">dup[j++] = numbers[i];</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> tmp = numbers[i];</span><br><span class="line">numbers[i] = numbers[tmp];</span><br><span class="line">numbers[tmp] = tmp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;找出数组中重复的数字&quot;&gt;&lt;a href=&quot;#找出数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;找出数组中重复的数字&quot;&gt;&lt;/a&gt;找出数组中重复的数字&lt;/h4&gt;&lt;p&gt;在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复
-      
-    
-    </summary>
-    
-      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
-    
-  </entry>
   
   <entry>
     <title>iOS - 分类中方法的调用顺序</title>
@@ -144,10 +69,10 @@
   
   <entry>
     <title>经典算法之插入排序(Insertion Sort)</title>
-    <link href="https://liuliangju.github.io/2018/04/27/%E5%89%91%E6%8C%87offer/201804/01.%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
-    <id>https://liuliangju.github.io/2018/04/27/剑指offer/201804/01.插入排序/</id>
+    <link href="https://liuliangju.github.io/2018/04/27/%E5%89%91%E6%8C%87offer/201804/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    <id>https://liuliangju.github.io/2018/04/27/剑指offer/201804/插入排序/</id>
     <published>2018-04-26T22:08:07.000Z</published>
-    <updated>2019-03-30T11:51:09.438Z</updated>
+    <updated>2019-03-30T11:57:44.459Z</updated>
     
     <content type="html"><![CDATA[<p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><br></script></p><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>设有一组关键字 {K<sub>1</sub>, K<sub>2</sub>, …, K<sub>n</sub>}; 排序开始就认为K<sub>1</sub>是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K<sub>3</sub>插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让K<sub>n</sub>插入上述表长为n-1的有序序列，得一个表长为n的有序序列。</p><p>具体可以表述为下：</p><ol><li>从第一个元素开始，该元素可以认为已经排序</li><li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li><li>如果该元素(已排序)大于新元素，将该元素移到下一个位置</li><li>重复步骤3，直到找到已排序的元素小于或等于新元素的位置</li><li>将新元素插入该位置后</li><li>重复步骤2～5</li></ol><p>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1}; </p><p>第一趟排序：原始数据：<font color="red"> 6 </font> 3 8 2 9 1 <code>i=0</code><br>从第一个元素开始，该元素可以认为已经排序<br>排序结果： 6 3 8 2 9 1</p><hr><p>第二趟排序： 6 <font color="red"> 3 </font> 8 2 9 1 <code>i=1</code><br>排序结果：3 6 8 2 9 1</p><hr><p>第三趟排序：3 6 <font color="red"> 8 </font>  2 9 1 <code>i=2</code><br>排序结果：3 6 8 2 9 1</p><hr><p>第四趟排序：3 6 8<font color="red"> 2 </font> 9 1 <code>i=3</code><br>排序结果：2 3 6 8 9 1</p><hr><p>第五趟排序：2 3 6 8<font color="red"> 9 </font> 1 <code>i=4</code><br>排序结果：2 3 6 8 9 1</p><hr><p>第六趟排序：2 3 6 8 9 <font color="red"> 1 </font>  <code>i=5</code><br>排序结果：1 2 3 6 8 9 </p><hr><p>最终结果：1  2  3  6  8  9</p><hr><blockquote><p>注：(红色代表此轮要插入的元素，红色左边是已经排好序的，右边是待排序的)</p></blockquote><hr><h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>在最坏情况下，数组完全逆序，插入第2个元素时要考察前1个元素，插入第3个元素时，要考虑前2个元素，……，插入第n个元素，要考虑前 n - 1 个元素。因此，最坏情况下的比较次数是 1 + 2 + 3 + … + (n - 1)，等差数列求和，结果为 n<sup>2</sup> / 2，所以最坏情况下的复杂度为 O(n<sup>2</sup>)</p><p>最好情况下，数组已经是有序的，每插入一个元素，只需要考查前一个元素，因此最好情况下，插入排序的时间复杂度为O(n)</p><p>平均时间复杂度为：O(n<sup>2</sup>)</p><p>所以，综上，插入排序的时间复杂度为 O(n<sup>2</sup>)。</p><hr><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> j, tmp = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line"> tmp = nums[i];</span><br><span class="line"> j = i - <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; nums[j]) &#123;</span><br><span class="line">     nums[j + <span class="number">1</span>] = nums[j];</span><br><span class="line">     j--;</span><br><span class="line">&#125;</span><br><span class="line">nums[j + <span class="number">1</span>] = tmp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -170,10 +95,10 @@
   
   <entry>
     <title>经典算法之选择排序(Selection Sort)</title>
-    <link href="https://liuliangju.github.io/2018/04/24/%E5%89%91%E6%8C%87offer/201804/03.%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
-    <id>https://liuliangju.github.io/2018/04/24/剑指offer/201804/03.选择排序/</id>
+    <link href="https://liuliangju.github.io/2018/04/24/%E5%89%91%E6%8C%87offer/201804/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
+    <id>https://liuliangju.github.io/2018/04/24/剑指offer/201804/选择排序/</id>
     <published>2018-04-23T23:19:54.000Z</published>
-    <updated>2019-03-30T11:51:09.439Z</updated>
+    <updated>2019-03-30T11:57:44.460Z</updated>
     
     <content type="html"><![CDATA[<p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><br></script></p><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>选择排序是一种简单直观的排序算法，其基本原理如下：对于给定的一组记录，经过第一轮比较后得到最小的记录，然后将该记录的位置与第一个记录的位置交换；接着对不包括第一个记录以外的其他记录进行第二次比较，得到最小记录并与第二个位置记录交换；重复该过程，直到进行比较的记录只剩下一个为止。<br>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1}; </p><p>第一趟排序：原始数据：6 3 8 2 9 1<br>最小数据为1，把1放在首位，也就是1和6交换位置，<br>排序结果：1 3 8 2 9 6</p><hr><p>第二趟排序：除第一个元素以外的其他数据进行比较{3 8 2 9 6}, 2最小，2和3交换位置，<br>排序结果：1 2 8 3 9 6</p><hr><p>第三趟排序：除1、2以外的其他数据进行比较{8 3 9 6}, 3最小，3和8交换位置，<br>排序结果：1 2 3 8 9 6</p><hr><p>第四趟排序：除1、2、3以外的其他数据进行比较{8 9 6}, 6最小，6和8交换位置，<br>排序结果：1 2 3 6 9 8</p><hr><p>第五趟排序：除1、2、3、6以外的其他数据进行比较{8 9}, 8最小，8和9交换位置，<br>排序结果：1 2 3 6 8 9</p><hr><p>最终结果：1  2  3  6  8  9</p><hr><p>注：每一趟排序获取最小数的方法：for循环进行比较，将当前下标定义为最小值下标值用临时变量<code>temp</code>保存，然后用<code>temp</code>再去跟剩下的数据比较，如果出现比<code>temp</code>小的数据，就用它代替<code>temp</code>中原有的数据。</p><hr><h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>简单选择排序的比较次数与序列的初始排序无关。 假设待排序的序列有 n 个元素，则比较次数永远都是n (n - 1) / 2。而移动次数与序列的初始排序有关。当序列正序时，移动次数最少，为 0。当序列反序时，移动次数最多，为3n (n - 1) /  2。</p><p>所以，综上，简单排序的时间复杂度为 O(n<sup>2</sup>)。</p><p>尽管与冒泡排序同为O(n<sup>2</sup>)，但简单选择排序的性能要优于冒泡排序。</p><hr><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SelectionSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> length = nums.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>; i++) &#123;</span><br><span class="line"><span class="keyword">int</span> k = i;  <span class="comment">//临时变量k，假使k为最小元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length; j++) &#123; <span class="comment">// 选最小的记录</span></span><br><span class="line"><span class="keyword">if</span> (nums[j] &lt; nums[k]) &#123;</span><br><span class="line">     k = j;  <span class="comment">//记下目前找到的最小值所在的位置</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (i != k) &#123;</span><br><span class="line">     swapNums(nums, i, k);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">    System.out.println(i + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] swapNums(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j) &#123;</span><br><span class="line"><span class="comment">//int tmp = nums[i];</span></span><br><span class="line"><span class="comment">//nums[i] = nums[j];</span></span><br><span class="line"><span class="comment">//nums[j] = tmp;</span></span><br><span class="line"></span><br><span class="line">nums[i] = nums[i]^nums[j];</span><br><span class="line">nums[j] = nums[i]^nums[j];</span><br><span class="line">nums[i] = nums[i]^nums[j];</span><br><span class="line"><span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -196,10 +121,10 @@
   
   <entry>
     <title>经典算法之冒泡排序(Bubble Sort)</title>
-    <link href="https://liuliangju.github.io/2018/04/24/%E5%89%91%E6%8C%87offer/201804/02.%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
-    <id>https://liuliangju.github.io/2018/04/24/剑指offer/201804/02.冒泡排序/</id>
+    <link href="https://liuliangju.github.io/2018/04/24/%E5%89%91%E6%8C%87offer/201804/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+    <id>https://liuliangju.github.io/2018/04/24/剑指offer/201804/冒泡排序/</id>
     <published>2018-04-23T22:05:13.000Z</published>
-    <updated>2019-03-30T11:51:09.438Z</updated>
+    <updated>2019-03-30T11:57:44.458Z</updated>
     
     <content type="html"><![CDATA[<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>比较两个相邻的元素，将值大的元素交换至右端。<br>思路：依次比较相邻的两个数，将小数放在前面，大数放在后面。即在第一趟：首先比较第1个和第2个数，将小数放前，大数放后。然后比较第2个数和第3个数，将小数放前，大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后。重复第一趟步骤，直至全部排序完成。基于此思想的算法主要有简单选择排序、树型选择排序和堆排序。（这里只介绍常用的简单选择排序）</p><p>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1};   </p><p>第一趟排序：</p><p>　　　　第一次排序：6和3比较，6大于3，交换位置：  3  6  8  2  9  1</p><p>　　　　第二次排序：6和8比较，6小于8，不交换位置：3  6  8  2  9  1</p><p>　　　　第三次排序：8和2比较，8大于2，交换位置：  3  6  2  8  9  1</p><p>　　　　第四次排序：8和9比较，8小于9，不交换位置：3  6  2  8  9  1</p><p>　　　　第五次排序：9和1比较：9大于1，交换位置：  3  6  2  8  1  9</p><p>　　　　第一趟总共进行了5次比较， 排序结果：      3  6  2  8  1  9</p><hr><p>第二趟排序：</p><p>　　　　第一次排序：3和6比较，3小于6，不交换位置：3  6  2  8  1  9</p><p>　　　　第二次排序：6和2比较，6大于2，交换位置：  3  2  6  8  1  9</p><p>　　　　第三次排序：6和8比较，6大于8，不交换位置：3  2  6  8  1  9</p><p>　　　　第四次排序：8和1比较，8大于1，交换位置：  3  2  6  1  8  9</p><p>　　　　第二趟总共进行了4次比较， 排序结果：      3  2  6  1  8  9</p><hr><p>第三趟排序：</p><p>　　　　第一次排序：3和2比较，3大于2，交换位置：  2  3  6  1  8  9</p><p>　　　　第二次排序：3和6比较，3小于6，不交换位置：2  3  6  1  8  9</p><p>　　　　第三次排序：6和1比较，6大于1，交换位置：  2  3  1  6  8  9</p><p>　　　　第二趟总共进行了3次比较， 排序结果：         2  3  1  6  8  9</p><hr><p>第四趟排序：</p><p>　　　　第一次排序：2和3比较，2小于3，不交换位置：2  3  1  6  8  9</p><p>　　　　第二次排序：3和1比较，3大于1，交换位置：  2  1  3  6  8  9</p><p>　　　　第二趟总共进行了2次比较， 排序结果：        2  1  3  6  8  9</p><hr><p>第五趟排序：</p><p>　　　　第一次排序：2和1比较，2大于1，交换位置：  1  2  3  6  8  9</p><p>　　　　第二趟总共进行了1次比较， 排序结果：  1  2  3  6  8  9</p><hr><p>最终结果：1  2  3  6  8  9</p><hr><p>由此可见：N个数字要排序完成，总共进行N-1趟排序，每i趟的排序次数为(N-i)次，所以可以用双重循环语句，外层控制循环多少趟，内层控制每一趟的循环次数，即</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;arr.length-i;j++)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>　1.如果我们的数据正序，只需要走一趟即可完成排序。所需的比较次数C和记录移动次数M均达到最小值，即：Cmin=n-1;Mmin=0;所以，冒泡排序最好的时间复杂度为O(n)。</p><p>　2.如果很不幸我们的数据是反序的，则需要进行n-1趟排序。每趟排序要进行n-i次比较(1≤i≤n-1)，且每次比较都必须移动记录三次来达到交换记录位置。在这种情况下，比较和移动次数均达到最大值：冒泡排序的最坏时间复杂度为：O(n<sup>2</sup>) 。</p><p>综上所述：冒泡排序总的平均时间复杂度为：O(n<sup>2</sup>) 。</p><hr><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 冒泡排序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> length = nums.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>; i++) &#123; <span class="comment">//外层循环控制排序趟数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length -<span class="number">1</span> - i; j++) &#123; <span class="comment">//内层循环控制每一趟排序多少次</span></span><br><span class="line"><span class="keyword">if</span> (nums[j] &gt; nums[j+<span class="number">1</span>]) &#123;</span><br><span class="line">swapNums(nums, j, j+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">System.out.println(i + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] swapNums(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j) &#123;</span><br><span class="line"><span class="comment">//int tmp = nums[i];</span></span><br><span class="line"><span class="comment">//nums[i] = nums[j];</span></span><br><span class="line"><span class="comment">//nums[j] = tmp;</span></span><br><span class="line"></span><br><span class="line">nums[i] = nums[i]^nums[j];</span><br><span class="line">nums[j] = nums[i]^nums[j];</span><br><span class="line">nums[i] = nums[i]^nums[j];</span><br><span class="line"><span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -248,6 +173,82 @@
   </entry>
   
   <entry>
+    <title>题目7:重建二叉树</title>
+    <link href="https://liuliangju.github.io/2018/04/18/%E5%89%91%E6%8C%87offer/201804/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://liuliangju.github.io/2018/04/18/剑指offer/201804/重建二叉树/</id>
+    <published>2018-04-18T05:26:35.000Z</published>
+    <updated>2019-03-30T11:57:44.460Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h4><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8} 和 中序遍历序列 {4,7,2,1,5,3,8,6} ，则重建出如下图所示的二叉树并输出它的头结点。<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201804/2018041801.jpg"> 　</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;重建二叉树&quot;&gt;&lt;a href=&quot;#重建二叉树&quot; class=&quot;headerlink&quot; title=&quot;重建二叉树&quot;&gt;&lt;/a&gt;重建二叉树&lt;/h4&gt;&lt;p&gt;输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如
+      
+    
+    </summary>
+    
+      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>题目6:从尾到头打印链表</title>
+    <link href="https://liuliangju.github.io/2018/04/17/%E5%89%91%E6%8C%87offer/201804/%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
+    <id>https://liuliangju.github.io/2018/04/17/剑指offer/201804/从尾到头打印链表/</id>
+    <published>2018-04-16T23:17:35.000Z</published>
+    <updated>2019-03-30T11:57:44.457Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="从尾到头打印链表"><a href="#从尾到头打印链表" class="headerlink" title="从尾到头打印链表"></a>从尾到头打印链表</h4><p>输入一个链表的头节点，从尾到头反过来打印每个节点的值，链表节点定义如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*    public class ListNode &#123;</span></span><br><span class="line"><span class="comment">*        int val;</span></span><br><span class="line"><span class="comment">*        ListNode next = null;</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*        ListNode(int val) &#123;</span></span><br><span class="line"><span class="comment">*            this.val = val;</span></span><br><span class="line"><span class="comment">*        &#125;</span></span><br><span class="line"><span class="comment">*    &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Stack; </span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">printListFromTailToHead</span><span class="params">(ListNode listNode)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">while</span> (listNode != <span class="keyword">null</span>) &#123;</span><br><span class="line">stack.push(listNode.val);</span><br><span class="line">listNode = listNode.next;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">list.add(stack.pop());</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;从尾到头打印链表&quot;&gt;&lt;a href=&quot;#从尾到头打印链表&quot; class=&quot;headerlink&quot; title=&quot;从尾到头打印链表&quot;&gt;&lt;/a&gt;从尾到头打印链表&lt;/h4&gt;&lt;p&gt;输入一个链表的头节点，从尾到头反过来打印每个节点的值，链表节点定义如下：&lt;/p&gt;
+&lt;figu
+      
+    
+    </summary>
+    
+      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>题目5:替换空格</title>
+    <link href="https://liuliangju.github.io/2018/04/16/%E5%89%91%E6%8C%87offer/201804/%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"/>
+    <id>https://liuliangju.github.io/2018/04/16/剑指offer/201804/替换空格/</id>
+    <published>2018-04-16T13:33:26.000Z</published>
+    <updated>2019-03-30T11:57:44.459Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h4><p>题目：请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入”We are happy.”，则输出”We%20are%20happy.”。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">replaceSpace</span><span class="params">(<span class="keyword">char</span>[] string)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (string.length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> originalLength = string.length;</span><br><span class="line"><span class="keyword">int</span> spaceCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; originalLength; i++) &#123;</span><br><span class="line"><span class="keyword">if</span> (string[i] == <span class="string">' '</span>) &#123;</span><br><span class="line">spaceCount++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> newLength = originalLength + <span class="number">2</span> * spaceCount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>[] tmpChar = <span class="keyword">new</span> <span class="keyword">char</span>[newLength];</span><br><span class="line"><span class="keyword">int</span> indexOfOriginal = originalLength - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> indexOfNew = newLength - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (indexOfOriginal &gt;= <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">if</span> (string[indexOfOriginal] == <span class="string">' '</span>) &#123;</span><br><span class="line">tmpChar[indexOfNew--] = <span class="string">'0'</span>;</span><br><span class="line">tmpChar[indexOfNew--] = <span class="string">'2'</span>;</span><br><span class="line">tmpChar[indexOfNew--] = <span class="string">'%'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">tmpChar[indexOfNew--] = string[indexOfOriginal];</span><br><span class="line">&#125;</span><br><span class="line">indexOfOriginal--;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;替换空格&quot;&gt;&lt;a href=&quot;#替换空格&quot; class=&quot;headerlink&quot; title=&quot;替换空格&quot;&gt;&lt;/a&gt;替换空格&lt;/h4&gt;&lt;p&gt;题目：请实现一个函数，把字符串中的每个空格替换成”%20”。例如，输入”We are happy.”，则输出”We%20ar
+      
+    
+    </summary>
+    
+      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>define宏定义和const定义常量区别</title>
     <link href="https://liuliangju.github.io/2018/04/10/iOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/201804/iOS%20define%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%92%8Cconst%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F%E5%8C%BA%E5%88%AB/"/>
     <id>https://liuliangju.github.io/2018/04/10/iOS基础总结/201804/iOS define宏定义和const定义常量区别/</id>
@@ -273,6 +274,31 @@
     
     
       <category term="iOS" scheme="https://liuliangju.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>题目3:数组中重复的数字</title>
+    <link href="https://liuliangju.github.io/2018/04/05/%E5%89%91%E6%8C%87offer/201804/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+    <id>https://liuliangju.github.io/2018/04/05/剑指offer/201804/数组中重复的数字/</id>
+    <published>2018-04-04T22:52:54.000Z</published>
+    <updated>2019-03-30T11:57:44.459Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="找出数组中重复的数字"><a href="#找出数组中重复的数字" class="headerlink" title="找出数组中重复的数字"></a>找出数组中重复的数字</h4><p>在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复的，但是不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3},那么对应的输出是重复的数字2或者数字3。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">dumplicate</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> len = numbers.length;</span><br><span class="line"><span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line"><span class="keyword">if</span> (numbers[i] &lt; <span class="number">0</span> || numbers[i] &gt; len - <span class="number">1</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line"><span class="keyword">while</span> (numbers[i] != i) &#123;</span><br><span class="line"><span class="keyword">if</span> (numbers[i] == numbers[numbers[i]]) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> tmp = numbers[i];</span><br><span class="line">numbers[i] = numbers[tmp];</span><br><span class="line">numbers[tmp] = tmp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;找出数组中重复的数字&quot;&gt;&lt;a href=&quot;#找出数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;找出数组中重复的数字&quot;&gt;&lt;/a&gt;找出数组中重复的数字&lt;/h4&gt;&lt;p&gt;在一个长度为n的数组里的所有数字都在n～n-1范围内，数组中的某个数字是重复
+      
+    
+    </summary>
+    
+      <category term="剑指Offer学习" scheme="https://liuliangju.github.io/categories/%E5%89%91%E6%8C%87Offer%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Java" scheme="https://liuliangju.github.io/tags/Java/"/>
     
   </entry>
   
