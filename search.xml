@@ -56,7 +56,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[经典算法之归并排序]]></title>
+    <title><![CDATA[经典算法之归并排序(Merge Sort)]]></title>
     <url>%2F2018%2F04%2F28%2F%E5%89%91%E6%8C%87offer%2F201804%2F04.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[原理归并排序是一种概念上最简单的排序算法，与快速排序一样，归并排序也是基于分治法的。归并排序将待排序的元素序列分成两个长度相等的子序列，为每一个子序列排序，然后再将他们合并成一个子序列。合并两个子序列的过程也就是两路归并。 时间复杂度归并排序是一种稳定的排序算法，归并排序的主要问题在于它需要一个与待排序数组一样大的辅助数组空间。由于归并排序每次划分时两个子序列的长度基本一样，所以归并排序最好、最差和平均时间复杂度都是O(N*logN)。 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445public class MergeSort_01 &#123; public static void main(String[] args) &#123; // TODO Auto-generated method stub int[] nums = &#123; 14, 12, 15, 13, 11, 16 &#125;; mergeSort(nums, 0, nums.length - 1); System.out.println("排好序的数组："); for (int e : nums) System.out.print(e + " "); &#125; private static void mergeSort(int[] nums, int low, int high) &#123; int mid = low + (high - low) / 2; if (low &lt; high) &#123; mergeSort(nums, low, mid); mergeSort(nums, mid + 1, high); merge(nums, low, mid, high); &#125; &#125; public static void merge(int[] nums, int low, int mid, int high) &#123; int[] tmp = new int[high - low + 1]; int i = low; int j = mid + 1; int k = 0; while (i &lt;= mid &amp;&amp; j &lt;= high) &#123; if (nums[i] &lt; nums[j]) &#123; tmp[k++] = nums[i++]; &#125; else &#123; tmp[k++] = nums[j++]; &#125; &#125; while (i &lt;= mid) &#123; tmp[k++] = nums[i++]; &#125; while (j &lt;= high) &#123; tmp[k++] = nums[j++]; &#125; // 把新数组中的数覆盖nums数组 for (int x = 0; x &lt; tmp.length; x++) &#123; nums[x + low] = tmp[x]; &#125; &#125;&#125;]]></content>
       <categories>
