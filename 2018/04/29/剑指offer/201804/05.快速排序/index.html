@@ -121,15 +121,18 @@
 
 
 
+<meta name="description" content="原理快速排序(Quick Sort)使用分治法策略。它的基本思想是：选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。 快速排序流程：(1) 从数列中挑出一个基准值。(2) 将所有比基准值小的摆放在基准前面，所有比基准值大的摆在基准">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经典算法之快速排序(Quick Sort)">
 <meta property="og:url" content="https://liuliangju.github.io/2018/04/29/剑指offer/201804/05.快速排序/index.html">
 <meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="原理快速排序(Quick Sort)使用分治法策略。它的基本思想是：选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。 快速排序流程：(1) 从数列中挑出一个基准值。(2) 将所有比基准值小的摆放在基准前面，所有比基准值大的摆在基准">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T12:10:28.034Z">
+<meta property="og:updated_time" content="2019-04-06T00:17:47.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典算法之快速排序(Quick Sort)">
+<meta name="twitter:description" content="原理快速排序(Quick Sort)使用分治法策略。它的基本思想是：选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。 快速排序流程：(1) 从数列中挑出一个基准值。(2) 将所有比基准值小的摆放在基准前面，所有比基准值大的摆在基准">
 
 
 
@@ -400,7 +403,11 @@
       
 
       
-        
+        <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>快速排序(Quick Sort)使用分治法策略。<br>它的基本思想是：选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+<p>快速排序流程：<br>(1) 从数列中挑出一个基准值。<br>(2) 将所有比基准值小的摆放在基准前面，所有比基准值大的摆在基准的后面(相同的数可以到任一边)；在这个分区退出之后，该基准就处于数列的中间位置。<br>(3) 递归地把”基准值前面的子数列”和”基准值后面的子数列”进行排序。</p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>快速排序之所比较快，因为相比冒泡排序，每次交换是跳跃式的。每次排序的时候设置一个基准点，将小于等于基准点的数全部放到基准点的左边，将大于等于基准点的数全部放到基准点的右边。这样在每次交换的时候就不会像冒泡排序一样每次只能在相邻的数之间进行交换，交换的距离就大的多了。因此总的比较和交换次数就少了，速度自然就提高了。当然在最坏的情况下，仍可能是相邻的两个数进行了交换。因此快速排序的最差时间复杂度和冒泡排序是一样的都是O(n^2 )，它的平均时间复杂度为O(N*logN)。</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort_01</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">int</span>[] nums = &#123; <span class="number">5</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span> &#125;;</span><br><span class="line">		quickSort(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">		System.out.println(Arrays.toString(nums));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">			<span class="keyword">int</span> index = getIndex(nums, low, high);</span><br><span class="line">			<span class="comment">// 进行迭代对index之前和之后的数组进行相同的操作使整个数组变成有序</span></span><br><span class="line">			quickSort(nums, <span class="number">0</span>, index - <span class="number">1</span>);</span><br><span class="line">			quickSort(nums, index + <span class="number">1</span>, high);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getIndex</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> base = nums[low];</span><br><span class="line">		<span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">			<span class="comment">// 当队尾的元素大于等于基准数据时,向前挪动high指针</span></span><br><span class="line">			<span class="keyword">while</span> (low &lt; high &amp;&amp; nums[high] &gt; base) &#123;</span><br><span class="line">				high--;</span><br><span class="line">			&#125;</span><br><span class="line">			nums[low] = nums[high];</span><br><span class="line">			<span class="keyword">while</span> (low &lt; high &amp;&amp; nums[low] &lt; base) &#123;</span><br><span class="line">				low++;</span><br><span class="line">			&#125;</span><br><span class="line">			nums[high] = nums[low];</span><br><span class="line">		&#125;</span><br><span class="line">		nums[low] = base;</span><br><span class="line">		<span class="keyword">return</span> low; <span class="comment">// 返回base的正确位置</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -499,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -592,6 +608,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
