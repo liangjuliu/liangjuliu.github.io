@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -121,24 +121,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="keywords" content="iOS">
+<meta name="description" content="原理归并排序是一种概念上最简单的排序算法，与快速排序一样，归并排序也是基于分治法的。归并排序将待排序的元素序列分成两个长度相等的子序列，为每一个子序列排序，然后再将他们合并成一个子序列。合并两个子序列的过程也就是两路归并。 时间复杂度归并排序是一种稳定的排序算法，归并排序的主要问题在于它需要一个与待排序数组一样大的辅助数组空间。由于归并排序每次划分时两个子序列的长度基本一样，所以归并排序最好、最差">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS - 分类中方法的调用顺序">
-<meta property="og:url" content="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/index.html">
+<meta property="og:title" content="经典算法之归并排序(Merge Sort)">
+<meta property="og:url" content="https://liuliangju.github.io/2018/04/28/算法/201804/04.归并排序/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
+<meta property="og:description" content="原理归并排序是一种概念上最简单的排序算法，与快速排序一样，归并排序也是基于分治法的。归并排序将待排序的元素序列分成两个长度相等的子序列，为每一个子序列排序，然后再将他们合并成一个子序列。合并两个子序列的过程也就是两路归并。 时间复杂度归并排序是一种稳定的排序算法，归并排序的主要问题在于它需要一个与待排序数组一样大的辅助数组空间。由于归并排序每次划分时两个子序列的长度基本一样，所以归并排序最好、最差">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png">
-<meta property="og:updated_time" content="2018-10-11T12:56:34.062Z">
+<meta property="og:updated_time" content="2019-04-07T10:28:39.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
+<meta name="twitter:title" content="经典算法之归并排序(Merge Sort)">
+<meta name="twitter:description" content="原理归并排序是一种概念上最简单的排序算法，与快速排序一样，归并排序也是基于分治法的。归并排序将待排序的元素序列分成两个长度相等的子序列，为每一个子序列排序，然后再将他们合并成一个子序列。合并两个子序列的过程也就是两路归并。 时间复杂度归并排序是一种稳定的排序算法，归并排序的主要问题在于它需要一个与待排序数组一样大的辅助数组空间。由于归并排序每次划分时两个子序列的长度基本一样，所以归并排序最好、最差">
 
 
 
@@ -168,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/2018/04/28/算法/201804/04.归并排序/"/>
 
 
 
 
 
-  <title>iOS - 分类中方法的调用顺序 | 良局｜博客</title>
+  <title>经典算法之归并排序(Merge Sort) | 良局｜博客</title>
   
 
 
@@ -320,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/04/28/算法/201804/04.归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiangJu">
@@ -337,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS - 分类中方法的调用顺序</h2>
+          <h2 class="post-title" itemprop="name headline">经典算法之归并排序(Merge Sort)</h2>
         
 
         <div class="post-meta">
@@ -349,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T22:04:51+08:00">
-                2018-10-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-28T06:08:07+08:00">
+                2018-04-28
               </time>
             
 
@@ -372,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -409,35 +403,9 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;前几日看老司机专栏发布过一篇文章-<a href="https://xiaozhuanlan.com/topic/1278405369" target="_blank" rel="noopener">iOS 上修改私有方法的几种方式解析</a>，文章中提到了我们通常修改一个类私有方法的方式有以下四种：</p>
-<ul>
-<li>通过创建 Category 复写，这种方式简单而粗暴。</li>
-<li>通过 <code>void method_exchangeImplementations(Method m1, Method m2)</code> 等类似方式实现 <code>Method Swizzling</code>，也就是所谓 的黑魔法。</li>
-<li>通过第三方框架 <code>Aspects</code> 来修改私有方法，对于项目内有强 AOP 编程需求的很可能会选择这个方式。</li>
-<li>通过Facebook开源的 Fishhook 对 C 语言方法进行了 Hook 的方式，它在逆向技术中占据了很大的作用。OC 的消息转发机制是依赖于 C 函数 objc_msgSend ，那么在一些特殊需求需要直接 Hook C 函数的话，Fishhook 就会派上用场了。</li>
-</ul>
-<p>从而想到了总结下iOS在多个<code>Category</code>重名时，方法的调用这么一篇文章。</p>
-<p>本文主要侧重于解决以下几个问题：</p>
-<ol>
-<li>主类和分类中普通方法的调用顺序?</li>
-<li>同一个主类的两个分类中的同名方法调用顺序?</li>
-<li>分类中 +load 方法的调用顺序?</li>
-<li>分类中 +initialize 方法的调用顺序?</li>
-</ol>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类<code>MyClass</code>创建了几个分类了<img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png"> </p>
-<h5 id="主类、子类和分类中的-void-load方法的调用顺序"><a href="#主类、子类和分类中的-void-load方法的调用顺序" class="headerlink" title="主类、子类和分类中的+ (void)load方法的调用顺序"></a>主类、子类和分类中的<strong><code>+ (void)load</code></strong>方法的调用顺序</h5><p>在主类和子类、分类中重写+load方法</p>
-<ol>
-<li>情形一<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png"> </li>
-<li>情形二<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png"> </li>
-<li>情形三<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png"> </li>
-<li>情形四<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png"> <h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">1.&nbsp;主类和子类、分类的都会主动调用 +load 方法<br>2.&nbsp;主类和子类加载顺序与编译顺序无关，调用优先级为<font color="purple">父类优先于子类</font>。<br>3.&nbsp;分类间的加载顺序取决于编译的顺序:编译在前则先加载, 编译在后则后加载。<br>4.&nbsp;父类、子类、分类的加载顺序为：父类优先于子类，子类优先于分类<font color="purple">(父类&gt;子类&gt;分类)</font>。</td></tr></table>
-
-
-
-
-
-</li>
-</ol>
+        <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>归并排序是一种概念上最简单的排序算法，与快速排序一样，归并排序也是基于分治法的。归并排序将待排序的元素序列分成两个长度相等的子序列，为每一个子序列排序，然后再将他们合并成一个子序列。合并两个子序列的过程也就是两路归并。</p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>归并排序是一种稳定的排序算法，归并排序的主要问题在于它需要一个与待排序数组一样大的辅助数组空间。由于归并排序每次划分时两个子序列的长度基本一样，所以归并排序最好、最差和平均时间复杂度都是O(N*logN)。 </p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort_01</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">int</span>[] nums = &#123; <span class="number">14</span>, <span class="number">12</span>, <span class="number">15</span>, <span class="number">13</span>, <span class="number">11</span>, <span class="number">16</span> &#125;;</span><br><span class="line">		mergeSort(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">		System.out.println(<span class="string">"排好序的数组："</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> e : nums)</span><br><span class="line">			System.out.print(e + <span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">			mergeSort(nums, low, mid);</span><br><span class="line">			mergeSort(nums, mid + <span class="number">1</span>, high);</span><br><span class="line">			merge(nums, low, mid, high);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] tmp = <span class="keyword">new</span> <span class="keyword">int</span>[high - low + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> i = low;</span><br><span class="line">		<span class="keyword">int</span> j = mid + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= high) &#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[i] &lt; nums[j]) &#123;</span><br><span class="line">				tmp[k++] = nums[i++];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				tmp[k++] = nums[j++];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (i &lt;= mid) &#123;</span><br><span class="line">			tmp[k++] = nums[i++];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (j &lt;= high) &#123;</span><br><span class="line">			tmp[k++] = nums[j++];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 把新数组中的数覆盖nums数组</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; tmp.length; x++) &#123;</span><br><span class="line">			nums[x + low] = tmp[x];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,7 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -468,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/" rel="next" title="iOS中几种锁的总结">
-                <i class="fa fa-chevron-left"></i> iOS中几种锁的总结
+              <a href="/2018/04/27/算法/201804/01.插入排序/" rel="next" title="经典算法之插入排序(Insertion Sort)">
+                <i class="fa fa-chevron-left"></i> 经典算法之插入排序(Insertion Sort)
               </a>
             
           </div>
@@ -478,8 +446,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/28/算法/201903/03.数组中重复的数字/" rel="prev" title="题目3:数组中重复的数字">
-                题目3:数组中重复的数字 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/29/算法/201804/05.快速排序/" rel="prev" title="经典算法之快速排序(Quick Sort)">
+                经典算法之快速排序(Quick Sort) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -649,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主类、子类和分类中的-void-load方法的调用顺序"><span class="nav-number">1.1.</span> <span class="nav-text">主类、子类和分类中的+ (void)load方法的调用顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论："><span class="nav-number">1.2.</span> <span class="nav-text">结论：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
             
 
           </div>

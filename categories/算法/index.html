@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="iOS,iOS博客,liangju" />
 
 
 
@@ -121,24 +121,13 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="keywords" content="iOS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS - 分类中方法的调用顺序">
-<meta property="og:url" content="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="良局｜博客">
+<meta property="og:url" content="https://liuliangju.github.io/categories/算法/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png">
-<meta property="og:updated_time" content="2018-10-11T12:56:34.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
+<meta name="twitter:title" content="良局｜博客">
 
 
 
@@ -168,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/categories/算法/"/>
 
 
 
 
 
-  <title>iOS - 分类中方法的调用顺序 | 良局｜博客</title>
+  <title>分类: 算法 | 良局｜博客</title>
   
 
 
@@ -212,7 +201,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,201 +295,279 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>算法<small>分类</small>
+        </h2>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiangJu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="良局｜博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+            <a class="post-title-link" href="/2019/04/05/算法/201904/字符串相关习题/" itemprop="url">
+              
+                <span itemprop="name">字符串相关习题</span>
+              
+            </a>
         
-          <h2 class="post-title" itemprop="name headline">iOS - 分类中方法的调用顺序</h2>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T22:04:51+08:00">
-                2018-10-09
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-04-05T20:09:06+08:00"
+              content="2019-04-05" >
+          04-05
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;前几日看老司机专栏发布过一篇文章-<a href="https://xiaozhuanlan.com/topic/1278405369" target="_blank" rel="noopener">iOS 上修改私有方法的几种方式解析</a>，文章中提到了我们通常修改一个类私有方法的方式有以下四种：</p>
-<ul>
-<li>通过创建 Category 复写，这种方式简单而粗暴。</li>
-<li>通过 <code>void method_exchangeImplementations(Method m1, Method m2)</code> 等类似方式实现 <code>Method Swizzling</code>，也就是所谓 的黑魔法。</li>
-<li>通过第三方框架 <code>Aspects</code> 来修改私有方法，对于项目内有强 AOP 编程需求的很可能会选择这个方式。</li>
-<li>通过Facebook开源的 Fishhook 对 C 语言方法进行了 Hook 的方式，它在逆向技术中占据了很大的作用。OC 的消息转发机制是依赖于 C 函数 objc_msgSend ，那么在一些特殊需求需要直接 Hook C 函数的话，Fishhook 就会派上用场了。</li>
-</ul>
-<p>从而想到了总结下iOS在多个<code>Category</code>重名时，方法的调用这么一篇文章。</p>
-<p>本文主要侧重于解决以下几个问题：</p>
-<ol>
-<li>主类和分类中普通方法的调用顺序?</li>
-<li>同一个主类的两个分类中的同名方法调用顺序?</li>
-<li>分类中 +load 方法的调用顺序?</li>
-<li>分类中 +initialize 方法的调用顺序?</li>
-</ol>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类<code>MyClass</code>创建了几个分类了<img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png"> </p>
-<h5 id="主类、子类和分类中的-void-load方法的调用顺序"><a href="#主类、子类和分类中的-void-load方法的调用顺序" class="headerlink" title="主类、子类和分类中的+ (void)load方法的调用顺序"></a>主类、子类和分类中的<strong><code>+ (void)load</code></strong>方法的调用顺序</h5><p>在主类和子类、分类中重写+load方法</p>
-<ol>
-<li>情形一<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png"> </li>
-<li>情形二<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png"> </li>
-<li>情形三<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png"> </li>
-<li>情形四<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png"> <h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">1.&nbsp;主类和子类、分类的都会主动调用 +load 方法<br>2.&nbsp;主类和子类加载顺序与编译顺序无关，调用优先级为<font color="purple">父类优先于子类</font>。<br>3.&nbsp;分类间的加载顺序取决于编译的顺序:编译在前则先加载, 编译在后则后加载。<br>4.&nbsp;父类、子类、分类的加载顺序为：父类优先于子类，子类优先于分类<font color="purple">(父类&gt;子类&gt;分类)</font>。</td></tr></table>
-
-
-
-
-
-</li>
-</ol>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/" rel="next" title="iOS中几种锁的总结">
-                <i class="fa fa-chevron-left"></i> iOS中几种锁的总结
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/28/算法/201903/03.数组中重复的数字/" rel="prev" title="题目3:数组中重复的数字">
-                题目3:数组中重复的数字 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+        
 
-    <div class="post-spread">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2019/03/30/算法/201903/06从尾到头打印链表/" itemprop="url">
+              
+                <span itemprop="name">06:从尾到头打印链表</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-03-30T16:54:22+08:00"
+              content="2019-03-30" >
+          03-30
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2019/03/30/算法/201903/05替换空格/" itemprop="url">
+              
+                <span itemprop="name">题目5:替换空格</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-03-30T10:47:12+08:00"
+              content="2019-03-30" >
+          03-30
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2019/03/28/算法/201903/03.数组中重复的数字/" itemprop="url">
+              
+                <span itemprop="name">题目3:数组中重复的数字</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-03-28T06:52:54+08:00"
+              content="2019-03-28" >
+          03-28
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/04/29/算法/201804/05.快速排序/" itemprop="url">
+              
+                <span itemprop="name">经典算法之快速排序(Quick Sort)</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-04-29T20:09:06+08:00"
+              content="2018-04-29" >
+          04-29
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/04/28/算法/201804/04.归并排序/" itemprop="url">
+              
+                <span itemprop="name">经典算法之归并排序(Merge Sort)</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-04-28T06:08:07+08:00"
+              content="2018-04-28" >
+          04-28
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/04/27/算法/201804/01.插入排序/" itemprop="url">
+              
+                <span itemprop="name">经典算法之插入排序(Insertion Sort)</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-04-27T06:08:07+08:00"
+              content="2018-04-27" >
+          04-27
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/04/24/算法/201804/03.选择排序/" itemprop="url">
+              
+                <span itemprop="name">经典算法之选择排序(Selection Sort)</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-04-24T07:19:54+08:00"
+              content="2018-04-24" >
+          04-24
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/04/24/算法/201804/02.冒泡排序/" itemprop="url">
+              
+                <span itemprop="name">经典算法之冒泡排序(Bubble Sort)</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-04-24T06:05:13+08:00"
+              content="2018-04-24" >
+          04-24
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -508,15 +575,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTUzNy84MTAx"></div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -537,17 +595,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,22 +688,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主类、子类和分类中的-void-load方法的调用顺序"><span class="nav-number">1.1.</span> <span class="nav-text">主类、子类和分类中的+ (void)load方法的调用顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论："><span class="nav-number">1.2.</span> <span class="nav-text">结论：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -789,10 +822,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 
@@ -821,17 +850,6 @@
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 

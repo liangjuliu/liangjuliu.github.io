@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -121,24 +121,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="keywords" content="iOS">
+<meta name="description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS - 分类中方法的调用顺序">
-<meta property="og:url" content="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/index.html">
+<meta property="og:title" content="经典算法之插入排序(Insertion Sort)">
+<meta property="og:url" content="https://liuliangju.github.io/2018/04/27/算法/201804/01.插入排序/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
+<meta property="og:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png">
-<meta property="og:updated_time" content="2018-10-11T12:56:34.062Z">
+<meta property="og:updated_time" content="2019-04-07T10:28:22.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
+<meta name="twitter:title" content="经典算法之插入排序(Insertion Sort)">
+<meta name="twitter:description" content="原理设有一组关键字 {K1, K2, …, Kn}; 排序开始就认为K1是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K3插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让Kn插入上述表长为n-1的有序序列，得一个表长为n的有序序列。 具体可以表述为下：  从第一个元素开始，该元素可以认为已经排序 取出下一个元素，在已经排序的元素序列中从后向前扫描 如果该元素">
 
 
 
@@ -168,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/2018/04/27/算法/201804/01.插入排序/"/>
 
 
 
 
 
-  <title>iOS - 分类中方法的调用顺序 | 良局｜博客</title>
+  <title>经典算法之插入排序(Insertion Sort) | 良局｜博客</title>
   
 
 
@@ -320,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/04/27/算法/201804/01.插入排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiangJu">
@@ -337,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS - 分类中方法的调用顺序</h2>
+          <h2 class="post-title" itemprop="name headline">经典算法之插入排序(Insertion Sort)</h2>
         
 
         <div class="post-meta">
@@ -349,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T22:04:51+08:00">
-                2018-10-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T06:08:07+08:00">
+                2018-04-27
               </time>
             
 
@@ -372,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -409,35 +403,42 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;前几日看老司机专栏发布过一篇文章-<a href="https://xiaozhuanlan.com/topic/1278405369" target="_blank" rel="noopener">iOS 上修改私有方法的几种方式解析</a>，文章中提到了我们通常修改一个类私有方法的方式有以下四种：</p>
-<ul>
-<li>通过创建 Category 复写，这种方式简单而粗暴。</li>
-<li>通过 <code>void method_exchangeImplementations(Method m1, Method m2)</code> 等类似方式实现 <code>Method Swizzling</code>，也就是所谓 的黑魔法。</li>
-<li>通过第三方框架 <code>Aspects</code> 来修改私有方法，对于项目内有强 AOP 编程需求的很可能会选择这个方式。</li>
-<li>通过Facebook开源的 Fishhook 对 C 语言方法进行了 Hook 的方式，它在逆向技术中占据了很大的作用。OC 的消息转发机制是依赖于 C 函数 objc_msgSend ，那么在一些特殊需求需要直接 Hook C 函数的话，Fishhook 就会派上用场了。</li>
-</ul>
-<p>从而想到了总结下iOS在多个<code>Category</code>重名时，方法的调用这么一篇文章。</p>
-<p>本文主要侧重于解决以下几个问题：</p>
+        <p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><br></script></p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>设有一组关键字 {K<sub>1</sub>, K<sub>2</sub>, …, K<sub>n</sub>}; 排序开始就认为K<sub>1</sub>是一个有序的序列，使之成为一个表厂为2的有序序列；然后让K<sub>3</sub>插入上述表长为2的有序序列，使之成为一个表长为3的有序序列，以此类推，最后让K<sub>n</sub>插入上述表长为n-1的有序序列，得一个表长为n的有序序列。</p>
+<p>具体可以表述为下：</p>
 <ol>
-<li>主类和分类中普通方法的调用顺序?</li>
-<li>同一个主类的两个分类中的同名方法调用顺序?</li>
-<li>分类中 +load 方法的调用顺序?</li>
-<li>分类中 +initialize 方法的调用顺序?</li>
+<li>从第一个元素开始，该元素可以认为已经排序</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+<li>如果该元素(已排序)大于新元素，将该元素移到下一个位置</li>
+<li>重复步骤3，直到找到已排序的元素小于或等于新元素的位置</li>
+<li>将新元素插入该位置后</li>
+<li>重复步骤2～5</li>
 </ol>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类<code>MyClass</code>创建了几个分类了<img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png"> </p>
-<h5 id="主类、子类和分类中的-void-load方法的调用顺序"><a href="#主类、子类和分类中的-void-load方法的调用顺序" class="headerlink" title="主类、子类和分类中的+ (void)load方法的调用顺序"></a>主类、子类和分类中的<strong><code>+ (void)load</code></strong>方法的调用顺序</h5><p>在主类和子类、分类中重写+load方法</p>
-<ol>
-<li>情形一<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png"> </li>
-<li>情形二<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png"> </li>
-<li>情形三<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png"> </li>
-<li>情形四<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png"> <h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">1.&nbsp;主类和子类、分类的都会主动调用 +load 方法<br>2.&nbsp;主类和子类加载顺序与编译顺序无关，调用优先级为<font color="purple">父类优先于子类</font>。<br>3.&nbsp;分类间的加载顺序取决于编译的顺序:编译在前则先加载, 编译在后则后加载。<br>4.&nbsp;父类、子类、分类的加载顺序为：父类优先于子类，子类优先于分类<font color="purple">(父类&gt;子类&gt;分类)</font>。</td></tr></table>
-
-
-
-
-
-</li>
-</ol>
+<p>举例说明：要排序数组：int[] arr = {6, 3, 8, 2, 9, 1}; </p>
+<p>第一趟排序：原始数据：<font color="red"> 6 </font> 3 8 2 9 1 <code>i=0</code><br>从第一个元素开始，该元素可以认为已经排序<br>排序结果： 6 3 8 2 9 1</p>
+<hr>
+<p>第二趟排序： 6 <font color="red"> 3 </font> 8 2 9 1 <code>i=1</code><br>排序结果：3 6 8 2 9 1</p>
+<hr>
+<p>第三趟排序：3 6 <font color="red"> 8 </font>  2 9 1 <code>i=2</code><br>排序结果：3 6 8 2 9 1</p>
+<hr>
+<p>第四趟排序：3 6 8<font color="red"> 2 </font> 9 1 <code>i=3</code><br>排序结果：2 3 6 8 9 1</p>
+<hr>
+<p>第五趟排序：2 3 6 8<font color="red"> 9 </font> 1 <code>i=4</code><br>排序结果：2 3 6 8 9 1</p>
+<hr>
+<p>第六趟排序：2 3 6 8 9 <font color="red"> 1 </font>  <code>i=5</code><br>排序结果：1 2 3 6 8 9 </p>
+<hr>
+<p>最终结果：1  2  3  6  8  9</p>
+<hr>
+<blockquote>
+<p>注：(红色代表此轮要插入的元素，红色左边是已经排好序的，右边是待排序的)</p>
+</blockquote>
+<hr>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>在最坏情况下，数组完全逆序，插入第2个元素时要考察前1个元素，插入第3个元素时，要考虑前2个元素，……，插入第n个元素，要考虑前 n - 1 个元素。因此，最坏情况下的比较次数是 1 + 2 + 3 + … + (n - 1)，等差数列求和，结果为 n<sup>2</sup> / 2，所以最坏情况下的复杂度为 O(n<sup>2</sup>)</p>
+<p>最好情况下，数组已经是有序的，每插入一个元素，只需要考查前一个元素，因此最好情况下，插入排序的时间复杂度为O(n)</p>
+<p>平均时间复杂度为：O(n<sup>2</sup>)</p>
+<p>所以，综上，插入排序的时间复杂度为 O(n<sup>2</sup>)。</p>
+<hr>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">InsertionSortTest</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (nums.length &lt; <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[j] &lt; nums[j - <span class="number">1</span>]) &#123;</span><br><span class="line">				swapNums(nums, j, j - <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] swapNums(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j) &#123;</span><br><span class="line"><span class="comment">//		int tmp = nums[i];</span></span><br><span class="line"><span class="comment">//		nums[i] = nums[j];</span></span><br><span class="line"><span class="comment">//		nums[j] = tmp;</span></span><br><span class="line"></span><br><span class="line">	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">	nums[j] = nums[i] ^ nums[j];</span><br><span class="line">	nums[i] = nums[i] ^ nums[j];</span><br><span class="line">	<span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -468,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/" rel="next" title="iOS中几种锁的总结">
-                <i class="fa fa-chevron-left"></i> iOS中几种锁的总结
+              <a href="/2018/04/24/算法/201804/03.选择排序/" rel="next" title="经典算法之选择排序(Selection Sort)">
+                <i class="fa fa-chevron-left"></i> 经典算法之选择排序(Selection Sort)
               </a>
             
           </div>
@@ -478,8 +479,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/28/算法/201903/03.数组中重复的数字/" rel="prev" title="题目3:数组中重复的数字">
-                题目3:数组中重复的数字 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/28/算法/201804/04.归并排序/" rel="prev" title="经典算法之归并排序(Merge Sort)">
+                经典算法之归并排序(Merge Sort) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -649,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主类、子类和分类中的-void-load方法的调用顺序"><span class="nav-number">1.1.</span> <span class="nav-text">主类、子类和分类中的+ (void)load方法的调用顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论："><span class="nav-number">1.2.</span> <span class="nav-text">结论：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
             
 
           </div>

@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -121,24 +121,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="keywords" content="iOS">
+<meta name="description" content="输入一个链表的头节点，从尾到头反过来打印出每个节点的值，链表定义如下：12345678910111213141516171819202122232425262728293031323334353637383940/** 自定义节点，包含数据域和指针域 * class ListNode &amp;#123; *	String value; *  ListNode next; * *    public Li">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS - 分类中方法的调用顺序">
-<meta property="og:url" content="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/index.html">
+<meta property="og:title" content="06:从尾到头打印链表">
+<meta property="og:url" content="https://liuliangju.github.io/2019/03/30/算法/201903/06从尾到头打印链表/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
+<meta property="og:description" content="输入一个链表的头节点，从尾到头反过来打印出每个节点的值，链表定义如下：12345678910111213141516171819202122232425262728293031323334353637383940/** 自定义节点，包含数据域和指针域 * class ListNode &amp;#123; *	String value; *  ListNode next; * *    public Li">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png">
-<meta property="og:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png">
-<meta property="og:updated_time" content="2018-10-11T12:56:34.062Z">
+<meta property="og:updated_time" content="2019-04-07T10:28:06.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS - 分类中方法的调用顺序">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前几日看老司机专栏发布过一篇文章-iOS 上修改私有方法的几种方式解析，文章中提到了我们通常修改一个类私有方法的方式有以下四种：  通过创建 Category 复写，这种方式简单而粗暴。 通过 void method_exchangeImplementations(Method m1, Method m2) 等类似方式实现 Method Swizzl">
-<meta name="twitter:image" content="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png">
+<meta name="twitter:title" content="06:从尾到头打印链表">
+<meta name="twitter:description" content="输入一个链表的头节点，从尾到头反过来打印出每个节点的值，链表定义如下：12345678910111213141516171819202122232425262728293031323334353637383940/** 自定义节点，包含数据域和指针域 * class ListNode &amp;#123; *	String value; *  ListNode next; * *    public Li">
 
 
 
@@ -168,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/2019/03/30/算法/201903/06从尾到头打印链表/"/>
 
 
 
 
 
-  <title>iOS - 分类中方法的调用顺序 | 良局｜博客</title>
+  <title>06:从尾到头打印链表 | 良局｜博客</title>
   
 
 
@@ -320,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2018/10/09/iOS基础总结/201810/iOS-分类中方法的调用顺序/">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2019/03/30/算法/201903/06从尾到头打印链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiangJu">
@@ -337,7 +331,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">iOS - 分类中方法的调用顺序</h2>
+          <h2 class="post-title" itemprop="name headline">06:从尾到头打印链表</h2>
         
 
         <div class="post-meta">
@@ -349,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T22:04:51+08:00">
-                2018-10-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T16:54:22+08:00">
+                2019-03-30
               </time>
             
 
@@ -372,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -409,35 +403,7 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;前几日看老司机专栏发布过一篇文章-<a href="https://xiaozhuanlan.com/topic/1278405369" target="_blank" rel="noopener">iOS 上修改私有方法的几种方式解析</a>，文章中提到了我们通常修改一个类私有方法的方式有以下四种：</p>
-<ul>
-<li>通过创建 Category 复写，这种方式简单而粗暴。</li>
-<li>通过 <code>void method_exchangeImplementations(Method m1, Method m2)</code> 等类似方式实现 <code>Method Swizzling</code>，也就是所谓 的黑魔法。</li>
-<li>通过第三方框架 <code>Aspects</code> 来修改私有方法，对于项目内有强 AOP 编程需求的很可能会选择这个方式。</li>
-<li>通过Facebook开源的 Fishhook 对 C 语言方法进行了 Hook 的方式，它在逆向技术中占据了很大的作用。OC 的消息转发机制是依赖于 C 函数 objc_msgSend ，那么在一些特殊需求需要直接 Hook C 函数的话，Fishhook 就会派上用场了。</li>
-</ul>
-<p>从而想到了总结下iOS在多个<code>Category</code>重名时，方法的调用这么一篇文章。</p>
-<p>本文主要侧重于解决以下几个问题：</p>
-<ol>
-<li>主类和分类中普通方法的调用顺序?</li>
-<li>同一个主类的两个分类中的同名方法调用顺序?</li>
-<li>分类中 +load 方法的调用顺序?</li>
-<li>分类中 +initialize 方法的调用顺序?</li>
-</ol>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>新建一个workspace工程，我创建了一个TestDemo工程然后创建对主类<code>MyClass</code>创建了几个分类了<img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011001.png"> </p>
-<h5 id="主类、子类和分类中的-void-load方法的调用顺序"><a href="#主类、子类和分类中的-void-load方法的调用顺序" class="headerlink" title="主类、子类和分类中的+ (void)load方法的调用顺序"></a>主类、子类和分类中的<strong><code>+ (void)load</code></strong>方法的调用顺序</h5><p>在主类和子类、分类中重写+load方法</p>
-<ol>
-<li>情形一<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011002.png"> </li>
-<li>情形二<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011003.png"> </li>
-<li>情形三<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011004.png"> </li>
-<li>情形四<br><img src="https://github.com/liuliangju/liuliangju.github.io/raw/master/blogImg/201810/20181011005.png"> <h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><table class="table table-bordered table-condensed"><tr><td bgcolor="Gainsboro">1.&nbsp;主类和子类、分类的都会主动调用 +load 方法<br>2.&nbsp;主类和子类加载顺序与编译顺序无关，调用优先级为<font color="purple">父类优先于子类</font>。<br>3.&nbsp;分类间的加载顺序取决于编译的顺序:编译在前则先加载, 编译在后则后加载。<br>4.&nbsp;父类、子类、分类的加载顺序为：父类优先于子类，子类优先于分类<font color="purple">(父类&gt;子类&gt;分类)</font>。</td></tr></table>
-
-
-
-
-
-</li>
-</ol>
+        <p>输入一个链表的头节点，从尾到头反过来打印出每个节点的值，链表定义如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 自定义节点，包含数据域和指针域</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *	String value;</span></span><br><span class="line"><span class="comment"> *  ListNode next;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *    public ListNode(String value, ListNode next) &#123;</span></span><br><span class="line"><span class="comment"> *      this.value = value;</span></span><br><span class="line"><span class="comment"> *      this.next = next;</span></span><br><span class="line"><span class="comment"> *    &#125;</span></span><br><span class="line"><span class="comment"> *   </span></span><br><span class="line"><span class="comment"> *    public ListNode(String value) &#123;</span></span><br><span class="line"><span class="comment"> *		this.value = value;</span></span><br><span class="line"><span class="comment"> *	  &#125;</span></span><br><span class="line"><span class="comment"> *  &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">reverseNode</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ListNode head = <span class="keyword">new</span> ListNode(<span class="string">"a"</span>);</span><br><span class="line">		ListNode node1 = <span class="keyword">new</span> ListNode(<span class="string">"b"</span>);</span><br><span class="line">		ListNode node2 = <span class="keyword">new</span> ListNode(<span class="string">"c"</span>);</span><br><span class="line">		ListNode node3 = <span class="keyword">new</span> ListNode(<span class="string">"d"</span>);</span><br><span class="line">		<span class="comment">// 初始化链表</span></span><br><span class="line">		head.next = node1;</span><br><span class="line">		node1.next = node2;</span><br><span class="line">		node2.next = node3;</span><br><span class="line">		PrintReversingly_Iteratively(head);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">PrintReversingly_Iteratively</span><span class="params">(ListNode node)</span> </span>&#123;</span><br><span class="line">		Stack&lt;ListNode&gt; nodeStack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">		<span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">			nodeStack.push(node);</span><br><span class="line">			node = node.next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (!nodeStack.isEmpty()) &#123;</span><br><span class="line">			ListNode tempNode = nodeStack.pop();</span><br><span class="line">			System.out.println(tempNode.value);<span class="comment">// 打印元素</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -455,7 +421,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -468,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/iOS基础总结/201805/iOS中几种锁的总结/" rel="next" title="iOS中几种锁的总结">
-                <i class="fa fa-chevron-left"></i> iOS中几种锁的总结
+              <a href="/2019/03/30/算法/201903/05替换空格/" rel="next" title="题目5:替换空格">
+                <i class="fa fa-chevron-left"></i> 题目5:替换空格
               </a>
             
           </div>
@@ -478,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/28/算法/201903/03.数组中重复的数字/" rel="prev" title="题目3:数组中重复的数字">
-                题目3:数组中重复的数字 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/05/算法/201904/字符串相关习题/" rel="prev" title="字符串相关习题">
+                字符串相关习题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -537,17 +503,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,22 +596,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主类、子类和分类中的-void-load方法的调用顺序"><span class="nav-number">1.1.</span> <span class="nav-text">主类、子类和分类中的+ (void)load方法的调用顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论："><span class="nav-number">1.2.</span> <span class="nav-text">结论：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
