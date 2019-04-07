@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -121,18 +121,18 @@
 
 
 
-<meta name="description" content="判断两个字符串是否互为变形词 题目&amp;emsp;&amp;emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。   举例　　str1=”396”,str2=”936”,返回true。　　str1=”396”,str2=”3691”,返回false">
-<meta name="keywords" content="Java">
+<meta name="description" content="1、判断两个字符串是否互为变形词 题目&amp;emsp;&amp;emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。   举例　　str1=”396”,str2=”936”,返回true。　　str1=”396”,str2=”3691”,返回false 思路  如果字符串st">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串相关习题">
 <meta property="og:url" content="https://liuliangju.github.io/2019/04/05/剑指offer/201904/字符串相关习题/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="判断两个字符串是否互为变形词 题目&amp;emsp;&amp;emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。   举例　　str1=”396”,str2=”936”,返回true。　　str1=”396”,str2=”3691”,返回false">
+<meta property="og:description" content="1、判断两个字符串是否互为变形词 题目&amp;emsp;&amp;emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。   举例　　str1=”396”,str2=”936”,返回true。　　str1=”396”,str2=”3691”,返回false 思路  如果字符串st">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T10:13:29.937Z">
+<meta property="og:updated_time" content="2019-04-07T10:24:01.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串相关习题">
-<meta name="twitter:description" content="判断两个字符串是否互为变形词 题目&amp;emsp;&amp;emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。   举例　　str1=”396”,str2=”936”,返回true。　　str1=”396”,str2=”3691”,返回false">
+<meta name="twitter:description" content="1、判断两个字符串是否互为变形词 题目&amp;emsp;&amp;emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。   举例　　str1=”396”,str2=”936”,返回true。　　str1=”396”,str2=”3691”,返回false 思路  如果字符串st">
 
 
 
@@ -403,8 +403,14 @@
       
 
       
-        <h4 id="判断两个字符串是否互为变形词"><a href="#判断两个字符串是否互为变形词" class="headerlink" title="判断两个字符串是否互为变形词"></a>判断两个字符串是否互为变形词</h4><p> <font color="red"><strong>题目</strong></font><br>&emsp;&emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。</p>
+        <h4 id="1、判断两个字符串是否互为变形词"><a href="#1、判断两个字符串是否互为变形词" class="headerlink" title="1、判断两个字符串是否互为变形词"></a>1、判断两个字符串是否互为变形词</h4><p> <font color="red"><strong>题目</strong></font><br>&emsp;&emsp;给定两个字符串str1和str2，如果str1和str2中出现的字符种类一样且每种字符出现的次数也一样，那么str1和str2互为变形词。请实现函数判断两个字符串是否互为变形词。</p>
 <p>  <font color="red"><strong>举例</strong></font><br>　　str1=”396”,str2=”936”,返回true。<br>　　str1=”396”,str2=”3691”,返回false</p>
+<p><font color="red"><strong>思路</strong></font></p>
+<ol>
+<li>如果字符串str1和str2的长度不一样，直接返回</li>
+<li>如果长度相同，假设出现的字符编码值在0～255之间，则可以申请一个整型数组arr，长度为256，arr[a]=b代表字符编码为a的字符出现了b次，初始时arr[0~255]的值都为0，然后遍历字符串str1，计算每种字符出现的次数。比如，遍历的字符为‘a’，其编码值为97，咋arr[97]++，同理遍历字符串str2，arr[97]–，如果减少之后的值小于0，返回false，如果遍历完str2，arr中的值也没有出现，则返回false。</li>
+<li>如果字符的种类比较多，可以用哈希表代替整型数组。</li>
+</ol>
 
       
     </div>
@@ -422,7 +428,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
       
@@ -551,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -612,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#判断两个字符串是否互为变形词"><span class="nav-number">1.</span> <span class="nav-text">判断两个字符串是否互为变形词</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、判断两个字符串是否互为变形词"><span class="nav-number">1.</span> <span class="nav-text">1、判断两个字符串是否互为变形词</span></a></li></ol></div>
             
 
           </div>
