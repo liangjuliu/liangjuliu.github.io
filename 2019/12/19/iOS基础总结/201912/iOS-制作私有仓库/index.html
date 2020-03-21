@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="VKdA3TQY2rn0f2GikCI7GjJD5vLS6vWmNIAQKB8G7Zc" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="qBYIdkhKQ8" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Menlo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="制作私有仓库创建两个仓库地址一个存放代码仓库、一个存放配置.podspec1234// 存放代码https://gitlab.sspp.com/flutter/flutter_product.git // 存放配置https://gitlab.sspp.com/flutter/FlutterSpecs.git 将这个远程的私有版本仓库添加到本地,终端执行1pod repo add FlutterS">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - 制作私有仓库">
+<meta property="og:url" content="https://liuliangju.github.io/2019/12/19/iOS基础总结/201912/iOS-制作私有仓库/index.html">
+<meta property="og:site_name" content="良局｜博客">
+<meta property="og:description" content="制作私有仓库创建两个仓库地址一个存放代码仓库、一个存放配置.podspec1234// 存放代码https://gitlab.sspp.com/flutter/flutter_product.git // 存放配置https://gitlab.sspp.com/flutter/FlutterSpecs.git 将这个远程的私有版本仓库添加到本地,终端执行1pod repo add FlutterS">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-21T01:47:13.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS - 制作私有仓库">
+<meta name="twitter:description" content="制作私有仓库创建两个仓库地址一个存放代码仓库、一个存放配置.podspec1234// 存放代码https://gitlab.sspp.com/flutter/flutter_product.git // 存放配置https://gitlab.sspp.com/flutter/FlutterSpecs.git 将这个远程的私有版本仓库添加到本地,终端执行1pod repo add FlutterS">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liuliangju.github.io/2019/12/19/iOS基础总结/201912/iOS-制作私有仓库/"/>
+
+
+
+
+
+  <title>iOS - 制作私有仓库 | 良局｜博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '96201675-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8b3fde196e8e9ae9d698118e7c8a3e97";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">良局｜博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">我走的很慢，但我永不后退。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuliangju.github.io/2019/12/19/iOS基础总结/201912/iOS-制作私有仓库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiangJu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="良局｜博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS - 制作私有仓库</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T22:04:51+08:00">
+                2019-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="制作私有仓库"><a href="#制作私有仓库" class="headerlink" title="制作私有仓库"></a>制作私有仓库</h4><h5 id="创建两个仓库地址一个存放代码仓库、一个存放配置-podspec"><a href="#创建两个仓库地址一个存放代码仓库、一个存放配置-podspec" class="headerlink" title="创建两个仓库地址一个存放代码仓库、一个存放配置.podspec"></a>创建两个仓库地址一个存放代码仓库、一个存放配置.podspec</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存放代码</span></span><br><span class="line">https:<span class="comment">//gitlab.sspp.com/flutter/flutter_product.git </span></span><br><span class="line"><span class="comment">// 存放配置</span></span><br><span class="line">https:<span class="comment">//gitlab.sspp.com/flutter/FlutterSpecs.git</span></span><br></pre></td></tr></table></figure>
+<h5 id="将这个远程的私有版本仓库添加到本地-终端执行"><a href="#将这个远程的私有版本仓库添加到本地-终端执行" class="headerlink" title="将这个远程的私有版本仓库添加到本地,终端执行"></a>将这个远程的私有版本仓库添加到本地,终端执行</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo add FlutterSpec https:<span class="comment">//gitlab.sspp.com/flutter/FlutterSpecs.git</span></span><br></pre></td></tr></table></figure>
+<h5 id="创建pod项目文件"><a href="#创建pod项目文件" class="headerlink" title="创建pod项目文件"></a>创建pod项目文件</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib create flutter_product</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>根据提示创建项目，进入Example文件，打开工程，替换Classes下的文件，修改XXX.podspec文件<br>如果工程已经存在缺少配置文件：<code>pod spec create SPUIKit</code><br>本地工程与远程代码库链接，参考：<a href="#goTop" class="btn" style="border:0px" title="备注"><font color="purple"> 备注 </font></a> </p>
+</blockquote>
+<h5 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add -A </span><br><span class="line">git commit -a -m <span class="string">"init library"</span></span><br><span class="line">git remote add origin https:<span class="comment">//gitlab.sspp.com/flutter/flutter_product.git </span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<h5 id="因为podspec文件获取版本控制的项目需要tag号，所以还要打上一个tag"><a href="#因为podspec文件获取版本控制的项目需要tag号，所以还要打上一个tag" class="headerlink" title="因为podspec文件获取版本控制的项目需要tag号，所以还要打上一个tag"></a>因为podspec文件获取版本控制的项目需要tag号，所以还要打上一个tag</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag -m <span class="string">"first release"</span> <span class="number">0.0</span><span class="number">.1</span></span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+<h5 id="验证-podspec"><a href="#验证-podspec" class="headerlink" title="验证.podspec"></a>验证.podspec</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib lint</span><br></pre></td></tr></table></figure>
+<h5 id="通过验证之后，提交podspec"><a href="#通过验证之后，提交podspec" class="headerlink" title="通过验证之后，提交podspec"></a>通过验证之后，提交podspec</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod repo push FlutterSpecs flutter_product.podspec</span><br></pre></td></tr></table></figure>
+<h5 id="pod-导入使用"><a href="#pod-导入使用" class="headerlink" title="pod 导入使用"></a>pod 导入使用</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表示使用静态库或者framework</span></span><br><span class="line">pod lib lint --use-libraries</span><br><span class="line"><span class="comment">// 允许警告</span></span><br><span class="line">pod lib lint --allow-warnings`</span><br><span class="line"><span class="comment">// push repo报错，需要重新打tag重新上传，</span></span><br><span class="line">pod repo push FlutterSpecs flutter_product.podspec --use-libraries --allow-warnings</span><br></pre></td></tr></table></figure>
+<h5 id="更新私有库"><a href="#更新私有库" class="headerlink" title="更新私有库"></a>更新私有库</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在代码仓库如：FlutterModule，添加代码，提交，记得修改podspecs文件中的版本号</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"新增功能"</span></span><br><span class="line">git push origin master</span><br><span class="line"><span class="comment">// 添加tag，跟podspecs配置中的版本号一致</span></span><br><span class="line">git tag <span class="number">0.0</span><span class="number">.2</span></span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+<h5 id="提交配置文件"><a href="#提交配置文件" class="headerlink" title="提交配置文件"></a>提交配置文件</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证podspecs</span></span><br><span class="line">pod lib lint</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这一步可省略(步骤2已经做过)</span></span><br><span class="line">pod repo add SPSpecs https:<span class="comment">//gitlab.sspp.com/privatePod/SPSpecs.git </span></span><br><span class="line"></span><br><span class="line">pod repo push SPSpecs FlutterModule.podspec</span><br></pre></td></tr></table></figure>
+<h5 id="验证是否配置成功"><a href="#验证是否配置成功" class="headerlink" title="验证是否配置成功"></a>验证是否配置成功</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证是否上传成功：</span></span><br><span class="line">pod search FlutterModule</span><br><span class="line"><span class="comment">// 在项目的podfile中添加</span></span><br><span class="line">pod 'FlutterModule', '~&gt; 0.0.2'</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>记得使用: <code>pod repo update</code>更新库<br>此时也可以在 ~/.cocoapods/repos/ 中查看FlutterModule中有新增<font color="purple"> 0.0.2 </font>版本</p>
+</blockquote>
+<h4 id="备注"><a href="#备注" class="headerlink" title=" 备注 "></a><div id="goTop"> 备注 </div></h4><h5 id="Git全局设置"><a href="#Git全局设置" class="headerlink" title="Git全局设置"></a>Git全局设置</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"your name"</span></span><br><span class="line">git config --global user.email <span class="string">"your email"</span></span><br></pre></td></tr></table></figure>
+<h5 id="创建新版本库"><a href="#创建新版本库" class="headerlink" title="创建新版本库"></a>创建新版本库</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone git@gitlab.sspp.com:privatePod/SPShare.git</span><br><span class="line">cd SPShare</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">"add README"</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h5 id="已存在的文件夹"><a href="#已存在的文件夹" class="headerlink" title="已存在的文件夹"></a>已存在的文件夹</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd existing_folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin git@gitlab.sspp.com:privatePod/SPShare.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h5 id="已存在的git版本库"><a href="#已存在的git版本库" class="headerlink" title="已存在的git版本库"></a>已存在的git版本库</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd existing_repo</span><br><span class="line">git remote rename origin old-origin</span><br><span class="line">git remote add origin git@gitlab.sspp.com:privatePod/SPShare.git</span><br><span class="line">git push -u origin --all</span><br><span class="line">git push -u origin --tags</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/05/算法/201904/字符串相关习题/" rel="next" title="字符串相关习题">
+                <i class="fa fa-chevron-left"></i> 字符串相关习题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/01/iOS基础总结/202001/iOS-基础知识点回顾(一)/" rel="prev" title="iOS - 基础知识点回顾(一)">
+                iOS - 基础知识点回顾(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTUzNy84MTAx"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="LiangJu" />
+            
+              <p class="site-author-name" itemprop="name">LiangJu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuliangju" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/liuliangju" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/liuliangju" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/liuliangju" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#制作私有仓库"><span class="nav-number">1.</span> <span class="nav-text">制作私有仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建两个仓库地址一个存放代码仓库、一个存放配置-podspec"><span class="nav-number">1.1.</span> <span class="nav-text">创建两个仓库地址一个存放代码仓库、一个存放配置.podspec</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将这个远程的私有版本仓库添加到本地-终端执行"><span class="nav-number">1.2.</span> <span class="nav-text">将这个远程的私有版本仓库添加到本地,终端执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建pod项目文件"><span class="nav-number">1.3.</span> <span class="nav-text">创建pod项目文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提交代码"><span class="nav-number">1.4.</span> <span class="nav-text">提交代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#因为podspec文件获取版本控制的项目需要tag号，所以还要打上一个tag"><span class="nav-number">1.5.</span> <span class="nav-text">因为podspec文件获取版本控制的项目需要tag号，所以还要打上一个tag</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#验证-podspec"><span class="nav-number">1.6.</span> <span class="nav-text">验证.podspec</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过验证之后，提交podspec"><span class="nav-number">1.7.</span> <span class="nav-text">通过验证之后，提交podspec</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pod-导入使用"><span class="nav-number">1.8.</span> <span class="nav-text">pod 导入使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新私有库"><span class="nav-number">1.9.</span> <span class="nav-text">更新私有库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提交配置文件"><span class="nav-number">1.10.</span> <span class="nav-text">提交配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#验证是否配置成功"><span class="nav-number">1.11.</span> <span class="nav-text">验证是否配置成功</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备注"><span class="nav-number">2.</span> <span class="nav-text"> 备注 </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Git全局设置"><span class="nav-number">2.1.</span> <span class="nav-text">Git全局设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建新版本库"><span class="nav-number">2.2.</span> <span class="nav-text">创建新版本库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#已存在的文件夹"><span class="nav-number">2.3.</span> <span class="nav-text">已存在的文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#已存在的git版本库"><span class="nav-number">2.4.</span> <span class="nav-text">已存在的git版本库</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiangJu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
