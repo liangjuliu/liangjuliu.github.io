@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuliangju.github.io/"/>
-  <updated>2020-03-22T01:19:06.408Z</updated>
+  <updated>2020-03-22T01:31:36.004Z</updated>
   <id>https://liuliangju.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://liuliangju.github.io/2020/01/01/iOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/202001/iOS-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9E%E9%A1%BE(%E4%B8%80)/"/>
     <id>https://liuliangju.github.io/2020/01/01/iOS基础总结/202001/iOS-基础知识点回顾(一)/</id>
     <published>2020-01-01T14:04:51.000Z</published>
-    <updated>2020-03-22T01:19:06.408Z</updated>
+    <updated>2020-03-22T01:31:36.004Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一个NSobject对象占用多少内存"><a href="#一个NSobject对象占用多少内存" class="headerlink" title="一个NSobject对象占用多少内存"></a>一个NSobject对象占用多少内存</h1><p>进入NSObject的头文件,有一个指向结构体的isa指针(指针大小8个字节)</p><pre><code class="objc"><span class="comment">/// An opaque type that represents an Objective-C class.</span><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;<span class="comment">/// Represents an instance of a class.</span><span class="keyword">struct</span> objc_object {    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;};</code></pre><ul><li>系统分配了16个字节给<code>NSObject</code>对象（通过<code>malloc_size</code>函数获得）</li><li>但<code>NSObject</code>对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）</li></ul>]]></content>
     
