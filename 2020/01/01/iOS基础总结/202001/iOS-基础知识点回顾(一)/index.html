@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,21 +20,21 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
-  <meta name="google-site-verification" content="VKdA3TQY2rn0f2GikCI7GjJD5vLS6vWmNIAQKB8G7Zc" />
-
-
-
-
+  <meta name="google-site-verification" content="VKdA3TQY2rn0f2GikCI7GjJD5vLS6vWmNIAQKB8G7Zc">
 
 
 
 
-  <meta name="baidu-site-verification" content="qBYIdkhKQ8" />
+
+
+
+
+  <meta name="baidu-site-verification" content="qBYIdkhKQ8">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -90,9 +90,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="iOS,">
 
 
 
@@ -121,18 +121,18 @@
 
 
 
-<meta name="description" content="一个NSobject对象占用多少内存 系统分配了16个字节给NSObject对象（通过malloc_size函数获得） 但NSObject对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）">
+<meta name="description" content="一个NSobject对象占用多少内存进入NSObject的头文件,有一个指向结构体的isa指针(指针大小8个字节) /// An opaque type that represents an Objective-C class. typedef struct objc_class *Class;  /// Represents an instance of a class. struct objc">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS - 基础知识点回顾(一)">
 <meta property="og:url" content="https://liuliangju.github.io/2020/01/01/iOS基础总结/202001/iOS-基础知识点回顾(一)/index.html">
 <meta property="og:site_name" content="良局｜博客">
-<meta property="og:description" content="一个NSobject对象占用多少内存 系统分配了16个字节给NSObject对象（通过malloc_size函数获得） 但NSObject对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）">
+<meta property="og:description" content="一个NSobject对象占用多少内存进入NSObject的头文件,有一个指向结构体的isa指针(指针大小8个字节) /// An opaque type that represents an Objective-C class. typedef struct objc_class *Class;  /// Represents an instance of a class. struct objc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-21T01:46:33.152Z">
+<meta property="og:updated_time" content="2020-03-22T01:19:06.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 基础知识点回顾(一)">
-<meta name="twitter:description" content="一个NSobject对象占用多少内存 系统分配了16个字节给NSObject对象（通过malloc_size函数获得） 但NSObject对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）">
+<meta name="twitter:description" content="一个NSobject对象占用多少内存进入NSObject的头文件,有一个指向结构体的isa指针(指针大小8个字节) /// An opaque type that represents an Objective-C class. typedef struct objc_class *Class;  /// Represents an instance of a class. struct objc">
 
 
 
@@ -162,7 +162,7 @@
 
 
 
-  <link rel="canonical" href="https://liuliangju.github.io/2020/01/01/iOS基础总结/202001/iOS-基础知识点回顾(一)/"/>
+  <link rel="canonical" href="https://liuliangju.github.io/2020/01/01/iOS基础总结/202001/iOS-基础知识点回顾(一)/">
 
 
 
@@ -215,7 +215,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">良局｜博客</span>
         <span class="logo-line-after"><i></i></span>
@@ -245,7 +245,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -255,7 +255,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -265,7 +265,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -275,7 +275,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -318,7 +318,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiangJu">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -354,7 +354,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -403,7 +403,16 @@
       
 
       
-        <h1 id="一个NSobject对象占用多少内存"><a href="#一个NSobject对象占用多少内存" class="headerlink" title="一个NSobject对象占用多少内存"></a>一个NSobject对象占用多少内存</h1><ul>
+        <h1 id="一个NSobject对象占用多少内存"><a href="#一个NSobject对象占用多少内存" class="headerlink" title="一个NSobject对象占用多少内存"></a>一个NSobject对象占用多少内存</h1><p>进入NSObject的头文件,有一个指向结构体的isa指针(指针大小8个字节)</p>
+<pre><code class="objc"><span class="comment">/// An opaque type that represents an Objective-C class.</span>
+<span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;
+
+<span class="comment">/// Represents an instance of a class.</span>
+<span class="keyword">struct</span> objc_object {
+    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;
+};
+</code></pre>
+<ul>
 <li>系统分配了16个字节给<code>NSObject</code>对象（通过<code>malloc_size</code>函数获得）</li>
 <li>但<code>NSObject</code>对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）</li>
 </ul>
@@ -516,9 +525,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="LiangJu" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="LiangJu">
             
               <p class="site-author-name" itemprop="name">LiangJu</p>
               <p class="site-description motion-element" itemprop="description"></p>

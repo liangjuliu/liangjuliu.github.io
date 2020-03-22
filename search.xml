@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[iOS - 基础知识点回顾(一)]]></title>
     <url>%2F2020%2F01%2F01%2FiOS%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93%2F202001%2FiOS-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9E%E9%A1%BE(%E4%B8%80)%2F</url>
-    <content type="text"><![CDATA[一个NSobject对象占用多少内存 系统分配了16个字节给NSObject对象（通过malloc_size函数获得） 但NSObject对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）]]></content>
+    <content type="text"><![CDATA[一个NSobject对象占用多少内存进入NSObject的头文件,有一个指向结构体的isa指针(指针大小8个字节) /// An opaque type that represents an Objective-C class. typedef struct objc_class *Class; /// Represents an instance of a class. struct objc_object { Class _Nonnull isa OBJC_ISA_AVAILABILITY; }; 系统分配了16个字节给NSObject对象（通过malloc_size函数获得） 但NSObject对象内部只使用了8个字节空间（64bit环境下，可以通过class_getInstanceSize函数获得）]]></content>
       <categories>
         <category>iOS</category>
       </categories>
